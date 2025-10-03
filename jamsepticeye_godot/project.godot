@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Jamsepticeye_Godot"
-run/main_scene="uid://dahl7u8od7tbb"
+run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
