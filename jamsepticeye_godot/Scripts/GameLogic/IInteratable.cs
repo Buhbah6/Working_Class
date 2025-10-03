@@ -1,7 +1,8 @@
 using Godot;
 
-public interface IInteratable
+public interface IInteractable
 {
 	void Interact();
+	void StopInteract();
 	bool CanInteract();
 }

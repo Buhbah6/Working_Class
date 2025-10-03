@@ -11,6 +11,7 @@ public partial class PlayerThing : CharacterBody2D, IPlayer
 	private Texture2D comboInteractHand;
 	
 	private bool _bCanInteract = false;
+	private IInteractable _iInteractableObject;
 	
 	public override void _Process(double delta)
 	{
@@ -33,10 +34,16 @@ public partial class PlayerThing : CharacterBody2D, IPlayer
 		if (@event.IsActionPressed("Interact") && _bCanInteract)
 		{
 			playerTexture.Texture = activeHand;
+			if(_iInteractableObject != null){
+				_iInteractableObject.Interact();
+			}
 		}
 		if (@event.IsActionReleased("Interact"))
 		{
 			playerTexture.Texture = idleHand;
+			if(_iInteractableObject != null){
+				_iInteractableObject.StopInteract();
+			}
 		}
 		
 		if (@event.IsActionPressed("Secondary"))
@@ -59,6 +66,10 @@ public partial class PlayerThing : CharacterBody2D, IPlayer
 		
 	}
 	
+	public void SetInteractable(IInteractable iInteractableObject){
+		_iInteractableObject = iInteractableObject;
+	}
+	
 	public void SetInteractState(bool state){
 		_bCanInteract = state;
 		if(_bCanInteract){
@@ -66,6 +77,10 @@ public partial class PlayerThing : CharacterBody2D, IPlayer
 		}
 		else{
 			playerTexture.Texture = idleHand;
+		}
+		
+		if(_iInteractableObject != null && !state){
+			_iInteractableObject.StopInteract();
 		}
 	}
 }
