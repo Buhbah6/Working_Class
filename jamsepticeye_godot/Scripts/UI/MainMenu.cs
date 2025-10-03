@@ -19,7 +19,7 @@ public partial class MainMenu : Control
 	}
 	
 	public void onPlayPressed() {
-		
+		GetTree().ChangeSceneToFile("res://Scenes/test.tscn");
 	}
 	public void onOptionsPressed() {
 		
