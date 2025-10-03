@@ -18,6 +18,7 @@ public partial class MainMenu : Control
 	private AudioStreamPlayer _clickSoundPlayer;
 	
 	private string _savePath = "user://data.save";
+	private static bool _hasLoaded = false;
 	
 	
 	public override void _Ready()
@@ -29,7 +30,10 @@ public partial class MainMenu : Control
 		_childSprite = GetNode<Sprite2D>("MenuWallpaper");
 		
 		_popup.Hide();
-		load();
+		if (!_hasLoaded) {
+			load();
+			_hasLoaded = true;  // mark it as run
+		}
 
 		_origin = _childSprite.Position;
 		_maxOffset = Math.Min(Size.X, Size.Y) * 0.10f;
@@ -53,26 +57,56 @@ public partial class MainMenu : Control
 		}
 	}
 	
-	public void save() {
+	public void save()
+	{
 		var file = FileAccess.Open(_savePath, FileAccess.ModeFlags.Write);
-		file.StoreVar(OptionsWindow.masterVol);
-		file.StoreVar(OptionsWindow.sfxVol);
-		file.StoreVar(OptionsWindow.voiceVol);
-		file.StoreVar(OptionsWindow.musicVol);
+
+		var data = new Godot.Collections.Dictionary
+		{
+			{"masterVol", OptionsWindow.masterVol},
+			{"sfxVol", OptionsWindow.sfxVol},
+			{"voiceVol", OptionsWindow.voiceVol},
+			{"musicVol", OptionsWindow.musicVol}
+		};
+
+		file.StoreVar(data);
+		GD.Print("Saved volumes:", data);
 	}
+
 	
 	public void load() {
-		if (FileAccess.FileExists(_savePath)) {
-			var file = FileAccess.Open(_savePath, FileAccess.ModeFlags.Read);
-			OptionsWindow.masterVol = (float)file.GetVar();
-			OptionsWindow.sfxVol = (float)file.GetVar();
-			OptionsWindow.voiceVol = (float)file.GetVar();
-			OptionsWindow.musicVol = (float)file.GetVar();
-			
-			var optionsWindow = GetTree().Root.GetNodeOrNull<OptionsWindow>("Menu/OptionsWindow");
-			optionsWindow.ApplyLoadedValues();
+		if (!FileAccess.FileExists(_savePath)) {
+			GD.Print("No save file found, using defaults.");
+			OptionsWindow.masterVol = 1.0;
+			OptionsWindow.sfxVol    = 1.0;
+			OptionsWindow.voiceVol  = 1.0;
+			OptionsWindow.musicVol  = 1.0;
+			return;
 		}
+
+		using var file = FileAccess.Open(_savePath, FileAccess.ModeFlags.Read);
+		try {
+			var data = (Godot.Collections.Dictionary)file.GetVar();
+
+			OptionsWindow.masterVol = data.ContainsKey("masterVol") ? (float)data["masterVol"] : 1.0f;
+			OptionsWindow.sfxVol    = data.ContainsKey("sfxVol")    ? (float)data["sfxVol"]    : 1.0f;
+			OptionsWindow.voiceVol  = data.ContainsKey("voiceVol")  ? (float)data["voiceVol"]  : 1.0f;
+			OptionsWindow.musicVol  = data.ContainsKey("musicVol")  ? (float)data["musicVol"]  : 1.0f;
+
+			GD.Print($"Loaded volumes: master={OptionsWindow.masterVol}, sfx={OptionsWindow.sfxVol}, voice={OptionsWindow.voiceVol}, music={OptionsWindow.musicVol}");
+		}
+		catch (Exception e) {
+			GD.PrintErr("Failed to load save file, using defaults. Error: " + e.Message);
+			OptionsWindow.masterVol = 1.0;
+			OptionsWindow.sfxVol    = 1.0;
+			OptionsWindow.voiceVol  = 1.0;
+			OptionsWindow.musicVol  = 1.0;
+		}
+
+		(_popup as OptionsWindow)?.ApplyLoadedValues();
 	}
+
+
 	
 	public void onPlayPressed() {
 		_musicPlayer.Stop();

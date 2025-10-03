@@ -28,6 +28,8 @@ public partial class OptionsWindow : Window
 		sfxSlider.ValueChanged += OnSfxVolumeChanged;
 		voiceSlider.ValueChanged += OnVoiceVolumeChanged;
 		musicSlider.ValueChanged += OnMusicVolumeChanged;
+		
+		ApplyLoadedValues();
 	}
 	
 	public void ApplyLoadedValues()
