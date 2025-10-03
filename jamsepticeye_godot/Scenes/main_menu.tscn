@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dahl7u8od7tbb"]
+[gd_scene load_steps=13 format=3 uid="uid://dahl7u8od7tbb"]
 
 [ext_resource type="Script" uid="uid://bdwdqbmtbt8jd" path="res://Scripts/UI/MainMenu.cs" id="1_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://dx5hr456egct5" path="res://Assets/Menu/menuWallpaper.jpg" id="2_1ehe0"]
@@ -33,6 +33,20 @@ cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhxw7"]
+bg_color = Color(0.43137255, 0.68235296, 0.19215687, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 20.0
+expand_margin_top = 40.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trj04"]
+bg_color = Color(1, 1, 1, 0.70980394)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -196,5 +210,102 @@ theme_override_styles/pressed = ExtResource("7_yhxw7")
 theme_override_styles/hover = ExtResource("7_yhxw7")
 text = "Exit"
 
+[node name="OptionsWindow" type="Window" parent="."]
+transparent_bg = true
+oversampling_override = 1.0
+title = "Options"
+initial_position = 1
+size = Vector2i(1200, 800)
+transparent = true
+theme_override_colors/title_color = Color(1, 1, 1, 1)
+theme_override_fonts/title_font = ExtResource("5_n45e2")
+theme_override_font_sizes/title_font_size = 25
+theme_override_styles/embedded_border = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Panel" type="Panel" parent="OptionsWindow"]
+offset_right = 1201.0
+offset_bottom = 793.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_trj04")
+
+[node name="Control" type="Control" parent="OptionsWindow"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 19.0
+offset_right = -23.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsWindow/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.99735016)
+
+[node name="Label" type="Label" parent="OptionsWindow/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Master Volume"
+
+[node name="MasterVol" type="HSlider" parent="OptionsWindow/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="OptionsWindow/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "SFX Volume"
+
+[node name="SFXVol" type="HSlider" parent="OptionsWindow/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="OptionsWindow/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Voice Volume"
+
+[node name="VoiceVol" type="HSlider" parent="OptionsWindow/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+
+[node name="Label4" type="Label" parent="OptionsWindow/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Music Volume"
+
+[node name="MusicVol" type="HSlider" parent="OptionsWindow/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="OptionsWindow/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Toggle grainy filter"
+
+[node name="FilterControl" type="CheckButton" parent="OptionsWindow/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Close" type="Button" parent="OptionsWindow/Control/VBoxContainer"]
+layout_mode = 2
+text = "Save and Close"
+
+[connection signal="pressed" from="Credits" to="." method="onCreditsPressed"]
 [connection signal="pressed" from="Control/Play" to="." method="onPlayPressed"]
+[connection signal="pressed" from="Control/Options" to="." method="onOptionsPressed"]
 [connection signal="pressed" from="Control/Exit" to="." method="onExitPressed"]
+[connection signal="close_requested" from="OptionsWindow" to="." method="onOptionsClosed"]
+[connection signal="pressed" from="OptionsWindow/Control/VBoxContainer/Close" to="." method="onSaveAndClosePressed"]

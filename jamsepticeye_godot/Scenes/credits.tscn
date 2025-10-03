@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://bimhltglgtp6e"]
+
+[ext_resource type="Script" uid="uid://d4jpvj583tjqn" path="res://Scripts/UI/Credits.cs" id="1_r18jl"]
+
+[sub_resource type="Gradient" id="Gradient_e4ad4"]
+colors = PackedColorArray(0.31410614, 0.5729476, 0, 1, 0.51223195, 0.5122321, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r18jl"]
+gradient = SubResource("Gradient_e4ad4")
+fill_from = Vector2(0.45794392, 0.06542056)
+fill_to = Vector2(0.8224299, 0)
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r18jl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(965, 542)
+scale = Vector2(30.15625, 16.9375)
+texture = SubResource("GradientTexture2D_r18jl")
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1305.0
+offset_top = 942.0
+offset_right = 1902.0
+offset_bottom = 1058.0
+theme_override_font_sizes/font_size = 48
+text = "Return to Main Menu"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 106.0
+offset_right = 1216.0
+offset_bottom = 970.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 48
+text = "TESTING
+"
+autowrap_mode = 2
+
+[connection signal="pressed" from="Return" to="." method="onReturnPressed"]

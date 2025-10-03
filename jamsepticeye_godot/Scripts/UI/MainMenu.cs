@@ -7,9 +7,12 @@ public partial class MainMenu : Control
 	private RandomNumberGenerator _rng = new RandomNumberGenerator();
 	private Vector2 _origin;
 	private float _maxOffset;
+	private Window _popup;
 	
 	public override void _Ready()
 	{
+		_popup = GetNode<Window>("OptionsWindow");
+		_popup.Hide();
 		_childSprite = GetNode<Sprite2D>("MenuWallpaper");
 
 		_origin = _childSprite.Position;
@@ -22,13 +25,19 @@ public partial class MainMenu : Control
 		GetTree().ChangeSceneToFile("res://Scenes/test.tscn");
 	}
 	public void onOptionsPressed() {
-		
+		_popup.PopupCentered();
+	}
+	public void onOptionsClosed() {
+		_popup.Hide();
+	}
+	public void onSaveAndClosePressed() {
+		_popup.Hide();
 	}
 	public void onExitPressed() {
 		GetTree().Quit();
 	}
 	public void onCreditsPressed() {
-		
+		GetTree().ChangeSceneToFile("res://Scenes/credits.tscn");
 	}
 	public void onShopPressed() {
 		
