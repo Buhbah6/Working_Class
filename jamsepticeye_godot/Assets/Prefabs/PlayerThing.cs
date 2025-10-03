@@ -30,7 +30,7 @@ public partial class PlayerThing : CharacterBody2D, IPlayer
 	public override void _Input(InputEvent @event)
 	{
 	
-		if (@event.IsActionPressed("Interact"))
+		if (@event.IsActionPressed("Interact") && _bCanInteract)
 		{
 			playerTexture.Texture = activeHand;
 		}
