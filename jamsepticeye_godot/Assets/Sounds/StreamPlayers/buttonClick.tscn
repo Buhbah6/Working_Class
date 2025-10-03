@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3r5r4pfahumr"]
+
+[ext_resource type="AudioStream" uid="uid://po0lb6ygujdv" path="res://Assets/Sounds/Audio/buttonClick.mp3" id="1_htqli"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_htqli")
+max_polyphony = 50
+bus = &"SFX"

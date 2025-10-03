@@ -24,6 +24,15 @@ position = Vector2(965, 542)
 scale = Vector2(30.15625, 16.9375)
 texture = SubResource("GradientTexture2D_r18jl")
 
+[node name="AutoButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1305.0
+offset_top = 817.0
+offset_right = 1902.0
+offset_bottom = 933.0
+theme_override_font_sizes/font_size = 48
+text = "Restart AutoScroll"
+
 [node name="Return" type="Button" parent="."]
 layout_mode = 0
 offset_left = 1305.0
@@ -48,6 +57,10 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 48
 text = "TESTING
 "
+fit_content = true
 autowrap_mode = 2
 
+[connection signal="mouse_entered" from="AutoButton" to="." method="onHover"]
+[connection signal="pressed" from="AutoButton" to="." method="onAutoPressed"]
+[connection signal="mouse_entered" from="Return" to="." method="onHover"]
 [connection signal="pressed" from="Return" to="." method="onReturnPressed"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl53qw88h4k2m"]
+
+[ext_resource type="AudioStream" uid="uid://cufb76kn2txlq" path="res://Assets/Music/Audio/menuTheme.mp3" id="1_scg4c"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_scg4c")
+autoplay = true
+bus = &"Music"
+parameters/looping = true

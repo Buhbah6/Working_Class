@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5i3q7hjbkcmc"]
+
+[ext_resource type="AudioStream" uid="uid://b6jrc6jin8vij" path="res://Assets/Sounds/Audio/buttonHover.mp3" id="1_txddf"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_txddf")
+bus = &"SFX"
