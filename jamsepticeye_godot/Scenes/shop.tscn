@@ -30,6 +30,7 @@ text = "Return"
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_io27d")
 autoplay = true
+bus = &"Music"
 parameters/looping = true
 
 [connection signal="mouse_entered" from="Button" to="." method="onHover"]
