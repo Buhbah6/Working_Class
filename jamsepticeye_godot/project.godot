@@ -11,9 +11,19 @@ config_version=5
 [application]
 
 config/name="Jamsepticeye_Godot"
+<<<<<<< HEAD
+run/main_scene="uid://dahl7u8od7tbb"
+=======
 run/main_scene="uid://be4qitte265ja"
+>>>>>>> 66e795fa691ffcdf555005ba8adf365a88c2a587
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 
 [dotnet]
 
