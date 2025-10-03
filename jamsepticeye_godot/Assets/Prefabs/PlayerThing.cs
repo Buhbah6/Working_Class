@@ -8,6 +8,7 @@ public partial class PlayerThing : CharacterBody2D, IPlayer
 	private Texture2D activeHand;
 	private Texture2D interactHand;
 	private Texture2D secondaryHand;
+	private Texture2D comboInteractHand;
 	
 	private bool _bCanInteract = false;
 	
@@ -21,6 +22,7 @@ public partial class PlayerThing : CharacterBody2D, IPlayer
 		idleHand = GD.Load<Texture2D>("res://Assets/Materials/Idle.png"); 
 		activeHand = GD.Load<Texture2D>("res://Assets/Materials/Active.png");
 		interactHand = GD.Load<Texture2D>("res://Assets/Materials/CanInteract.png");
+		comboInteractHand = GD.Load<Texture2D>("res://Assets/Materials/ComboInteract.png");
 		secondaryHand = GD.Load<Texture2D>("res://Assets/Materials/Secondary.png");
 		playerTexture = GetNode<Sprite2D>("Sprite2D");
 	}
@@ -46,6 +48,14 @@ public partial class PlayerThing : CharacterBody2D, IPlayer
 			playerTexture.Texture = idleHand;
 		}
 		
+		if (@event.IsActionPressed("ComboInteract"))
+		{
+			playerTexture.Texture = comboInteractHand;
+		}
+		if (@event.IsActionReleased("ComboInteract"))
+		{
+			playerTexture.Texture = idleHand;
+		}
 		
 	}
 	
