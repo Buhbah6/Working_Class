@@ -1,6 +1,10 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jamsepticeye_Godot", "Jamsepticeye_Godot.csproj", "{3DA2E591-F85C-4E40-A533-8E77FBF5F774}"
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jamsepticeye_Godot", "Jamsepticeye_Godot.csproj", "{14983B2E-EDD6-497B-9887-8AA4F385A412}"
+>>>>>>> 66e795fa691ffcdf555005ba8adf365a88c2a587
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,11 +13,20 @@ Global
 	ExportRelease|Any CPU = ExportRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+<<<<<<< HEAD
 		{3DA2E591-F85C-4E40-A533-8E77FBF5F774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3DA2E591-F85C-4E40-A533-8E77FBF5F774}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DA2E591-F85C-4E40-A533-8E77FBF5F774}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
 		{3DA2E591-F85C-4E40-A533-8E77FBF5F774}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
 		{3DA2E591-F85C-4E40-A533-8E77FBF5F774}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
 		{3DA2E591-F85C-4E40-A533-8E77FBF5F774}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+=======
+		{14983B2E-EDD6-497B-9887-8AA4F385A412}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14983B2E-EDD6-497B-9887-8AA4F385A412}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14983B2E-EDD6-497B-9887-8AA4F385A412}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{14983B2E-EDD6-497B-9887-8AA4F385A412}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{14983B2E-EDD6-497B-9887-8AA4F385A412}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{14983B2E-EDD6-497B-9887-8AA4F385A412}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+>>>>>>> 66e795fa691ffcdf555005ba8adf365a88c2a587
 	EndGlobalSection
 EndGlobal
