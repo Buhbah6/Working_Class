@@ -35,6 +35,10 @@ window/size/mode=2
 
 project/assembly_name="Jamsepticeye_Godot"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/markdownlabel/plugin.cfg")
+
 [input]
 
 Interact={

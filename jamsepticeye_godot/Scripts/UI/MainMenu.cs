@@ -3,14 +3,21 @@ using System;
 
 public partial class MainMenu : Control
 {
+	// Background elements
 	private Sprite2D _childSprite;
 	private RandomNumberGenerator _rng = new RandomNumberGenerator();
 	private Vector2 _origin;
 	private float _maxOffset;
+	
+	// Popup Window (Options)
 	private Window _popup;
+	
+	// Audio Streams
 	private AudioStreamPlayer _musicPlayer;
 	private AudioStreamPlayer _hoverSoundPlayer;
 	private AudioStreamPlayer _clickSoundPlayer;
+	
+	private string _savePath = "user://data.save";
 	
 	
 	public override void _Ready()
@@ -22,7 +29,7 @@ public partial class MainMenu : Control
 		_childSprite = GetNode<Sprite2D>("MenuWallpaper");
 		
 		_popup.Hide();
-		
+		load();
 
 		_origin = _childSprite.Position;
 		_maxOffset = Math.Min(Size.X, Size.Y) * 0.10f;
@@ -46,6 +53,27 @@ public partial class MainMenu : Control
 		}
 	}
 	
+	public void save() {
+		var file = FileAccess.Open(_savePath, FileAccess.ModeFlags.Write);
+		file.StoreVar(OptionsWindow.masterVol);
+		file.StoreVar(OptionsWindow.sfxVol);
+		file.StoreVar(OptionsWindow.voiceVol);
+		file.StoreVar(OptionsWindow.musicVol);
+	}
+	
+	public void load() {
+		if (FileAccess.FileExists(_savePath)) {
+			var file = FileAccess.Open(_savePath, FileAccess.ModeFlags.Read);
+			OptionsWindow.masterVol = (float)file.GetVar();
+			OptionsWindow.sfxVol = (float)file.GetVar();
+			OptionsWindow.voiceVol = (float)file.GetVar();
+			OptionsWindow.musicVol = (float)file.GetVar();
+			
+			var optionsWindow = GetTree().Root.GetNodeOrNull<OptionsWindow>("Menu/OptionsWindow");
+			optionsWindow.ApplyLoadedValues();
+		}
+	}
+	
 	public void onPlayPressed() {
 		_musicPlayer.Stop();
 		_clickSoundPlayer.Play();
@@ -63,6 +91,7 @@ public partial class MainMenu : Control
 	}
 	
 	public void onOptionsSaveAndClose() {
+		save();
 		_clickSoundPlayer.Play();
 		_popup.Hide();
 	}

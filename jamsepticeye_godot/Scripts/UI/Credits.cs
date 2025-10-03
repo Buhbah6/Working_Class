@@ -4,19 +4,20 @@ using System;
 public partial class Credits : Control
 {
 	private ScrollContainer _scrollContainer;
-	private RichTextLabel _creditsLabel;
+	private Node _creditsLabel;
 	private bool _autoScroll = true;
 	private float _scrollSpeed = 30f; // pixels per second
 
 	public override void _Ready()
 	{
 		_scrollContainer = GetNode<ScrollContainer>("ScrollContainer");
-		_creditsLabel = _scrollContainer.GetNode<RichTextLabel>("RichTextLabel");
+		_creditsLabel = _scrollContainer.GetNode("MarkdownLabel");
 		
 		// Load credits from file
 		string creditsText = FileAccess.Open("res://credits.md", FileAccess.ModeFlags.Read).GetAsText();
-		_creditsLabel.Text = creditsText;
-
+		_creditsLabel.Set("markdown_text", creditsText);
+		_creditsLabel.Set("bbcode_enabled", true);
+		
 		// Reset scroll to top
 		_scrollContainer.ScrollVertical = 0;
 	}
@@ -29,11 +30,6 @@ public partial class Credits : Control
 			float newScroll = (float)vScrollBar.Value + (_scrollSpeed * (float)delta);
 			vScrollBar.Value = Mathf.Min(newScroll, (float)vScrollBar.MaxValue);
 
-			if (_scrollContainer.ScrollVertical >= (float)vScrollBar.MaxValue)
-			{
-				// Reset back to top
-				_scrollContainer.ScrollVertical = 0;
-			}
 		}
 	}
 

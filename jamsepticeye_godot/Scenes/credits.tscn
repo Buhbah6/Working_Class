@@ -1,6 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bimhltglgtp6e"]
+[gd_scene load_steps=17 format=3 uid="uid://bimhltglgtp6e"]
 
 [ext_resource type="Script" uid="uid://d4jpvj583tjqn" path="res://Scripts/UI/Credits.cs" id="1_r18jl"]
+[ext_resource type="Script" uid="uid://dbap0gqox0ty1" path="res://addons/markdownlabel/markdownlabel.gd" id="2_803yc"]
+[ext_resource type="Script" uid="uid://dcx7crs23nf4" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="3_1wbrc"]
+[ext_resource type="Script" uid="uid://d0sin64i4v3op" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="4_j6nef"]
+[ext_resource type="Script" uid="uid://dlok0dv1tq2bf" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="5_fdv4u"]
+[ext_resource type="Script" uid="uid://bayuh2vafablg" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="6_ae0tj"]
+[ext_resource type="Script" uid="uid://dfr1w7u3jgni3" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="7_rlyo5"]
+[ext_resource type="Script" uid="uid://bsi6dexoofpe6" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="8_0oi4c"]
 
 [sub_resource type="Gradient" id="Gradient_e4ad4"]
 colors = PackedColorArray(0.31410614, 0.5729476, 0, 1, 0.51223195, 0.5122321, 0, 1)
@@ -9,6 +16,30 @@ colors = PackedColorArray(0.31410614, 0.5729476, 0, 1, 0.51223195, 0.5122321, 0,
 gradient = SubResource("Gradient_e4ad4")
 fill_from = Vector2(0.45794392, 0.06542056)
 fill_to = Vector2(0.8224299, 0)
+
+[sub_resource type="Resource" id="Resource_iy2g5"]
+resource_local_to_scene = true
+script = ExtResource("3_1wbrc")
+
+[sub_resource type="Resource" id="Resource_vobvy"]
+resource_local_to_scene = true
+script = ExtResource("4_j6nef")
+
+[sub_resource type="Resource" id="Resource_xdbeg"]
+resource_local_to_scene = true
+script = ExtResource("5_fdv4u")
+
+[sub_resource type="Resource" id="Resource_ju6j5"]
+resource_local_to_scene = true
+script = ExtResource("6_ae0tj")
+
+[sub_resource type="Resource" id="Resource_ngbbj"]
+resource_local_to_scene = true
+script = ExtResource("7_rlyo5")
+
+[sub_resource type="Resource" id="Resource_asoyt"]
+resource_local_to_scene = true
+script = ExtResource("8_0oi4c")
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -49,16 +80,25 @@ offset_top = 106.0
 offset_right = 1216.0
 offset_bottom = 970.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer"]
+[node name="MarkdownLabel" type="RichTextLabel" parent="ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/normal_font_size = 48
-text = "TESTING
-"
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
 fit_content = true
-autowrap_mode = 2
+script = ExtResource("2_803yc")
+h1 = SubResource("Resource_iy2g5")
+h2 = SubResource("Resource_vobvy")
+h3 = SubResource("Resource_xdbeg")
+h4 = SubResource("Resource_ju6j5")
+h5 = SubResource("Resource_ngbbj")
+h6 = SubResource("Resource_asoyt")
+metadata/_custom_type_script = "uid://dbap0gqox0ty1"
 
 [connection signal="mouse_entered" from="AutoButton" to="." method="onHover"]
 [connection signal="pressed" from="AutoButton" to="." method="onAutoPressed"]
