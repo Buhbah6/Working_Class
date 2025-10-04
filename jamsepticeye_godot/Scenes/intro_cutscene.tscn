@@ -1,13 +1,56 @@
-[gd_scene load_steps=10 format=3 uid="uid://b32jnxhqcwcgf"]
+[gd_scene load_steps=21 format=3 uid="uid://b32jnxhqcwcgf"]
 
 [ext_resource type="Script" uid="uid://gsblivg7wvh3" path="res://Scripts/UI/IntroCutscene.cs" id="1_7pcux"]
 [ext_resource type="Texture2D" uid="uid://7xplh3ccuse2" path="res://Assets/IntroCutscene/apartment.jpg" id="2_5ptd1"]
+[ext_resource type="AudioStream" uid="uid://dl7fwwepf6moa" path="res://Assets/Sounds/Audio/traffic.wav" id="3_1mw3s"]
 [ext_resource type="Texture2D" uid="uid://c6p35broeueyb" path="res://Assets/IntroCutscene/computerDarkModified.jpg" id="3_qqj5d"]
 [ext_resource type="Texture2D" uid="uid://dti48xynheafd" path="res://Assets/IntroCutscene/LinkedInZoomedIn.jpg" id="4_1mw3s"]
+[ext_resource type="Texture2D" uid="uid://2cyv33cxw8d5" path="res://Assets/IntroCutscene/ArrowIcon.png" id="4_pqicb"]
 [ext_resource type="Texture2D" uid="uid://dhtoj2w3vy46k" path="res://Assets/IntroCutscene/LinkedInModified.png" id="5_acu4y"]
+[ext_resource type="AudioStream" uid="uid://b3wjjrneyb4oy" path="res://Assets/Sounds/Audio/keyboard.wav" id="5_t1x57"]
 [ext_resource type="Texture2D" uid="uid://bdpm1yst6b4aa" path="res://Assets/IntroCutscene/PhoneNotifsReady.png" id="6_t1x57"]
 [ext_resource type="Texture2D" uid="uid://kj73olguyxbu" path="res://Assets/IntroCutscene/CarPic.jpg" id="7_726jo"]
+[ext_resource type="AudioStream" uid="uid://djhvt6t8kfans" path="res://Assets/Sounds/Audio/slam.mp3" id="8_726jo"]
 [ext_resource type="Texture2D" uid="uid://2her6asyfe85" path="res://Assets/IntroCutscene/Restaurant.jpg" id="8_pqicb"]
+[ext_resource type="AudioStream" uid="uid://b6kvsjxi0ubjo" path="res://Assets/Sounds/Audio/ringtone.mp3" id="10_726jo"]
+[ext_resource type="AudioStream" uid="uid://ddue4xpce8d70" path="res://Assets/Sounds/Audio/car.wav" id="12_pqicb"]
+[ext_resource type="AudioStream" uid="uid://dud6c37yoa5ut" path="res://Assets/Sounds/Audio/mcdo.mp3" id="14_ygb1w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pcux"]
+bg_color = Color(0.20392157, 0.20392157, 0.20392157, 0.8352941)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ptd1"]
+bg_color = Color(0.6, 0.6, 0.6, 0.19215687)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd1p2"]
+bg_color = Color(0.45452422, 0.45452428, 0.45452416, 0.5686275)
+corner_radius_top_left = 500
+corner_radius_top_right = 500
+corner_radius_bottom_right = 500
+corner_radius_bottom_left = 500
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmj0s"]
+bg_color = Color(0.8352941, 0.8352941, 0.8352941, 1)
+corner_radius_top_left = 500
+corner_radius_top_right = 500
+corner_radius_bottom_right = 500
+corner_radius_bottom_left = 500
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygb1w"]
 bg_color = Color(0, 0, 0, 1)
@@ -35,6 +78,34 @@ texture = ExtResource("2_5ptd1")
 position = Vector2(966, 548)
 scale = Vector2(1.0000001, 1.0000001)
 
+[node name="ASP1" type="AudioStreamPlayer" parent="Scene1"]
+stream = ExtResource("3_1mw3s")
+bus = &"SFX"
+
+[node name="CL1" type="CanvasLayer" parent="Scene1"]
+
+[node name="Label" type="Label" parent="Scene1/CL1"]
+offset_left = 75.0
+offset_top = 90.0
+offset_right = 823.0
+offset_bottom = 252.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_7pcux")
+text = "Another night up at 4AM...
+Chasing dreams that don't dream back."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instruction" type="Label" parent="Scene1/CL1"]
+offset_left = 1630.0
+offset_top = 1004.0
+offset_right = 1891.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ptd1")
+text = "Click to Continue"
+horizontal_alignment = 1
+
 [node name="Scene2" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 3770.0
@@ -50,6 +121,45 @@ texture = ExtResource("3_qqj5d")
 [node name="Cam2" type="Camera2D" parent="Scene2"]
 position = Vector2(-0.00012207031, -1.5258789e-05)
 scale = Vector2(1.0000001, 1.0000001)
+
+[node name="ASP2" type="AudioStreamPlayer" parent="Scene2"]
+stream = ExtResource("5_t1x57")
+bus = &"SFX"
+
+[node name="CL2" type="CanvasLayer" parent="Scene2"]
+
+[node name="Label" type="Label" parent="Scene2/CL2"]
+offset_left = 121.0
+offset_top = 777.0
+offset_right = 908.0
+offset_bottom = 923.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_7pcux")
+text = "I thought a degree would unlock doors... 
+all it unlocked is insomnia"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instruction" type="Label" parent="Scene2/CL2"]
+offset_left = 1630.0
+offset_top = 1004.0
+offset_right = 1891.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ptd1")
+text = "Click to Continue"
+horizontal_alignment = 1
+
+[node name="Return" type="Button" parent="Scene2/CL2"]
+offset_left = 15.0
+offset_top = 959.0
+offset_right = 583.0
+offset_bottom = 1527.0
+scale = Vector2(0.2, 0.2)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hd1p2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dmj0s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dmj0s")
+icon = ExtResource("4_pqicb")
 
 [node name="Scene3" type="Control" parent="."]
 anchors_preset = 0
@@ -82,6 +192,39 @@ texture = ExtResource("4_1mw3s")
 position = Vector2(-0.00012207031, -1.5258789e-05)
 scale = Vector2(1.0000001, 1.0000001)
 
+[node name="CL3" type="CanvasLayer" parent="Scene3"]
+
+[node name="Label" type="Label" parent="Scene3/CL3"]
+offset_left = 1066.0
+offset_top = 161.0
+offset_right = 1773.0
+offset_bottom = 274.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_7pcux")
+text = "\"Computer Science New Grad\"
+More like professional button clicker"
+
+[node name="Instruction" type="Label" parent="Scene3/CL3"]
+offset_left = 1630.0
+offset_top = 1004.0
+offset_right = 1891.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ptd1")
+text = "Click to Continue"
+horizontal_alignment = 1
+
+[node name="Return" type="Button" parent="Scene3/CL3"]
+offset_left = 2278.0
+offset_top = 959.0
+offset_right = 2846.0
+offset_bottom = 1527.0
+scale = Vector2(0.2, 0.2)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hd1p2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dmj0s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dmj0s")
+icon = ExtResource("4_pqicb")
+
 [node name="Scene4" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 8233.0
@@ -97,6 +240,47 @@ texture = ExtResource("5_acu4y")
 [node name="Cam4" type="Camera2D" parent="Scene4"]
 position = Vector2(-0.00012207031, -1.5258789e-05)
 scale = Vector2(1.0000001, 1.0000001)
+
+[node name="ASP4" type="AudioStreamPlayer" parent="Scene4"]
+stream = ExtResource("8_726jo")
+bus = &"SFX"
+
+[node name="CL4" type="CanvasLayer" parent="Scene4"]
+
+[node name="Label" type="Label" parent="Scene4/CL4"]
+offset_left = 73.0
+offset_top = 697.0
+offset_right = 590.0
+offset_bottom = 926.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_7pcux")
+text = "Rejection after rejection
+after rejection.
+Still waiting on
+that one maybe"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instruction" type="Label" parent="Scene4/CL4"]
+offset_left = 1630.0
+offset_top = 1004.0
+offset_right = 1891.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ptd1")
+text = "Click to Continue"
+horizontal_alignment = 1
+
+[node name="Return" type="Button" parent="Scene4/CL4"]
+offset_left = 4478.0
+offset_top = 966.0
+offset_right = 5046.0
+offset_bottom = 1534.0
+scale = Vector2(0.2, 0.2)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hd1p2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dmj0s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dmj0s")
+icon = ExtResource("4_pqicb")
 
 [node name="Scene5" type="Control" parent="."]
 anchors_preset = 0
@@ -129,6 +313,57 @@ texture = ExtResource("6_t1x57")
 position = Vector2(-0.00012207031, -1.5258789e-05)
 scale = Vector2(1.0000001, 1.0000001)
 
+[node name="ASP5" type="AudioStreamPlayer" parent="Scene5"]
+stream = ExtResource("10_726jo")
+bus = &"SFX"
+
+[node name="CL5" type="CanvasLayer" parent="Scene5"]
+
+[node name="Label" type="Label" parent="Scene5/CL5"]
+offset_left = 115.0
+offset_top = 121.0
+offset_right = 785.0
+offset_bottom = 234.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_7pcux")
+text = "Turns out personal projects 
+and networking don't pay the bills."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Scene5/CL5"]
+offset_left = 1147.0
+offset_top = 806.0
+offset_right = 1795.0
+offset_bottom = 936.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_7pcux")
+text = "Then came an opportunity. 
+A lot of cash and not a lot of work"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instruction" type="Label" parent="Scene5/CL5"]
+offset_left = 1630.0
+offset_top = 1004.0
+offset_right = 1891.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ptd1")
+text = "Click to Continue"
+horizontal_alignment = 1
+
+[node name="Return" type="Button" parent="Scene5/CL5"]
+offset_left = 6658.0
+offset_top = 966.0
+offset_right = 7226.0
+offset_bottom = 1534.0
+scale = Vector2(0.2, 0.2)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hd1p2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dmj0s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dmj0s")
+icon = ExtResource("4_pqicb")
+
 [node name="Scene6" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 12591.0
@@ -145,6 +380,46 @@ texture = ExtResource("7_726jo")
 position = Vector2(-0.00012207031, -1.5258789e-05)
 scale = Vector2(1.0000001, 1.0000001)
 
+[node name="ASP6" type="AudioStreamPlayer" parent="Scene6"]
+stream = ExtResource("12_pqicb")
+bus = &"SFX"
+
+[node name="CL6" type="CanvasLayer" parent="Scene6"]
+
+[node name="Label" type="Label" parent="Scene6/CL6"]
+offset_left = 1088.0
+offset_top = 96.0
+offset_right = 1849.0
+offset_bottom = 267.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_7pcux")
+text = "I told myself it would be temporary.
+Just a gig. 
+Just until something better came along."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instruction" type="Label" parent="Scene6/CL6"]
+offset_left = 1630.0
+offset_top = 1004.0
+offset_right = 1891.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ptd1")
+text = "Click to Continue"
+horizontal_alignment = 1
+
+[node name="Return" type="Button" parent="Scene6/CL6"]
+offset_left = 8836.0
+offset_top = 966.0
+offset_right = 9404.0
+offset_bottom = 1534.0
+scale = Vector2(0.2, 0.2)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hd1p2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dmj0s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dmj0s")
+icon = ExtResource("4_pqicb")
+
 [node name="Scene7" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 14838.0
@@ -160,3 +435,51 @@ texture = ExtResource("8_pqicb")
 [node name="Cam7" type="Camera2D" parent="Scene7"]
 position = Vector2(-0.00012207031, -1.5258789e-05)
 scale = Vector2(1.0000001, 1.0000001)
+
+[node name="ASP7" type="AudioStreamPlayer" parent="Scene7"]
+stream = ExtResource("14_ygb1w")
+bus = &"SFX"
+parameters/looping = true
+
+[node name="CL7" type="CanvasLayer" parent="Scene7"]
+
+[node name="Label" type="Label" parent="Scene7/CL7"]
+offset_left = 66.0
+offset_top = 94.0
+offset_right = 914.0
+offset_bottom = 265.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_7pcux")
+text = "Welcome to the grind.
+This is where you and I make ends meet. 
+Where we'll either cook or get cooked."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instruction" type="Label" parent="Scene7/CL7"]
+offset_left = 1630.0
+offset_top = 1004.0
+offset_right = 1891.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ptd1")
+text = "Click to Continue"
+horizontal_alignment = 1
+
+[node name="Return" type="Button" parent="Scene7/CL7"]
+offset_left = 11083.0
+offset_top = 966.0
+offset_right = 11651.0
+offset_bottom = 1534.0
+scale = Vector2(0.2, 0.2)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hd1p2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dmj0s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dmj0s")
+icon = ExtResource("4_pqicb")
+
+[connection signal="pressed" from="Scene2/CL2/Return" to="." method="onBackPressed"]
+[connection signal="pressed" from="Scene3/CL3/Return" to="." method="onBackPressed"]
+[connection signal="pressed" from="Scene4/CL4/Return" to="." method="onBackPressed"]
+[connection signal="pressed" from="Scene5/CL5/Return" to="." method="onBackPressed"]
+[connection signal="pressed" from="Scene6/CL6/Return" to="." method="onBackPressed"]
+[connection signal="pressed" from="Scene7/CL7/Return" to="." method="onBackPressed"]
