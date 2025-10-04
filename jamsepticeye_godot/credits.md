@@ -56,3 +56,18 @@ We had an absolute blast working on this project.
 
 
 # Not Formatted
+https://unsplash.com/photos/a-man-sitting-in-front-of-a-computer-monitor-in-a-dark-room-HT-3DZnO70w
+https://unsplash.com/photos/a-building-with-multiple-balconies-lit-up-at-night-wwZkvbVmCmY
+https://unsplash.com/photos/man-holding-his-graduation-cap-VnydpKiCDaY
+https://unsplash.com/photos/a-person-driving-a-car-in-the-dark-ciNf5bc9YUk
+https://unsplash.com/photos/a-store-front-at-night-with-a-neon-sign-rKUHj0906NY
+https://www.stickpng.com/img/icons-logos-emojis/emojis/crying-emoji#google_vignette
+https://emojiterra.com/man-lifting-weights-light-skin-tone/
+https://www.stickpng.com/img/download/5887147dd27829db9cf6da6f
+https://www.freeiconspng.com/img/105
+https://freesound.org/people/ania635/sounds/691527/
+https://freesound.org/people/beansqueso31/sounds/223099/
+https://pixabay.com/sound-effects/ringtone-015-151931/
+https://freesound.org/people/Cinetony/sounds/672699/
+https://freesound.org/people/EpicAllay/sounds/615080/
+https://pixsector.com/icon/free-left-arrow-symbol-png-vector/789
