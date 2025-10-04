@@ -27,6 +27,7 @@ public partial class IntroCutscene : Control
 	private AudioStreamPlayer _asp7;
 	
 	private Camera2D _currentCam;
+	private Button _backButton;
 	private int _camTracker;
 	private Tween _tween;
 	
@@ -81,6 +82,8 @@ public partial class IntroCutscene : Control
 			case 2:
 				_cam2.MakeCurrent();
 				_currentCam = _cam2;
+				_backButton = GetNode<Button>("Scene2/CL2/Return");
+				connectBackButton();
 				_cl1.Visible = false;
 				_cl2.Visible = true;
 				_asp1.Stop();
@@ -90,6 +93,8 @@ public partial class IntroCutscene : Control
 			case 3:
 				_cam3.MakeCurrent();
 				_currentCam = _cam3;
+				_backButton = GetNode<Button>("Scene3/CL3/Return");
+				connectBackButton();
 				_cl2.Visible = false;
 				_cl3.Visible = true;
 				startZoomLoop(0.90f, 1.15f);
@@ -97,6 +102,8 @@ public partial class IntroCutscene : Control
 			case 4:
 				_cam4.MakeCurrent();
 				_currentCam = _cam4;
+				_backButton = GetNode<Button>("Scene4/CL4/Return");
+				connectBackButton();
 				_cl3.Visible = false;
 				_cl4.Visible = true;
 				_asp2.Stop();
@@ -106,6 +113,8 @@ public partial class IntroCutscene : Control
 			case 5:
 				_cam5.MakeCurrent();
 				_currentCam = _cam5;
+				_backButton = GetNode<Button>("Scene5/CL5/Return");
+				connectBackButton();
 				_cl4.Visible = false;
 				_cl5.Visible = true;
 				_asp4.Stop();
@@ -115,6 +124,8 @@ public partial class IntroCutscene : Control
 			case 6:
 				_cam6.MakeCurrent();
 				_currentCam = _cam6;
+				_backButton = GetNode<Button>("Scene6/CL6/Return");
+				connectBackButton();
 				_cl5.Visible = false;
 				_cl6.Visible = true;
 				_asp5.Stop();
@@ -124,6 +135,8 @@ public partial class IntroCutscene : Control
 			case 7:
 				_cam7.MakeCurrent();
 				_currentCam = _cam7;
+				_backButton = GetNode<Button>("Scene7/CL7/Return");
+				connectBackButton();
 				_cl6.Visible = false;
 				_cl7.Visible = true;
 				_asp6.Stop();
@@ -131,7 +144,7 @@ public partial class IntroCutscene : Control
 				startZoomLoop(1.15f, 0.90f);
 				break;
 			case 8:
-				GetTree().ChangeSceneToFile("res://Scenes/test.tscn");
+				GetTree().ChangeSceneToFile("res://Scenes/kidnap.tscn");
 				break;
 		}
 	}
@@ -150,14 +163,17 @@ public partial class IntroCutscene : Control
 			case 2:
 				_cam2.MakeCurrent();
 				_currentCam = _cam2;
+				_backButton = GetNode<Button>("Scene2/CL2/Return");
+				connectBackButton();
 				_cl2.Visible = true;
 				_cl3.Visible = false;
-				
 				startZoomLoop(1.15f, 0.90f);
 				break;
 			case 3:
 				_cam3.MakeCurrent();
 				_currentCam = _cam3;
+				_backButton = GetNode<Button>("Scene3/CL3/Return");
+				connectBackButton();
 				_cl3.Visible = true;
 				_cl4.Visible = false;
 				_asp2.Play();
@@ -167,6 +183,8 @@ public partial class IntroCutscene : Control
 			case 4:
 				_cam4.MakeCurrent();
 				_currentCam = _cam4;
+				_backButton = GetNode<Button>("Scene4/CL4/Return");
+				connectBackButton();
 				_cl4.Visible = true;
 				_cl5.Visible = false;
 				_asp4.Play();
@@ -176,6 +194,8 @@ public partial class IntroCutscene : Control
 			case 5:
 				_cam5.MakeCurrent();
 				_currentCam = _cam5;
+				_backButton = GetNode<Button>("Scene5/CL5/Return");
+				connectBackButton();
 				_cl5.Visible = true;
 				_cl6.Visible = false;
 				_asp5.Play();
@@ -185,6 +205,8 @@ public partial class IntroCutscene : Control
 			case 6:
 				_cam6.MakeCurrent();
 				_currentCam = _cam6;
+				_backButton = GetNode<Button>("Scene6/CL6/Return");
+				connectBackButton();
 				_cl6.Visible = true;
 				_cl7.Visible = false;
 				_asp6.Play();
@@ -197,41 +219,21 @@ public partial class IntroCutscene : Control
 	public void onBackPressed() {
 		changeCamBack();
 	}
-	
+
 	public override void _Input(InputEvent @event)
-{
-	if (@event is InputEventKey eventKey)
 	{
-		if (eventKey.Pressed && eventKey.Keycode == Key.Enter)
-		{
-			changeCam();
-		}
-	}
-	else if (@event is InputEventMouseButton eventMouseButton)
-	{
-		if (eventMouseButton.Pressed)
-		{
-			Vector2 mousePos = GetViewport().GetMousePosition();
-
-			// Check if mouse is over any Control in the scene
-			bool overUI = false;
-
-			foreach (Control control in GetTree().GetNodesInGroup("UI"))
-			{
-				if (control.Visible && control.GetGlobalRect().HasPoint(mousePos))
-				{
-					overUI = true;
-					break;
-				}
+		if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed) {
+			if (_backButton == null || !_backButton.GetGlobalRect().HasPoint(mouseEvent.Position)) {
+				changeCam();
 			}
+		}
 
-			if (!overUI)
-			{
+		if (@event is InputEventKey eventKey) {
+			if (eventKey.Pressed && eventKey.Keycode == Key.Enter) {
 				changeCam();
 			}
 		}
 	}
-}
 
 	
 	private void startZoomLoop(float first, float second)
@@ -249,8 +251,14 @@ public partial class IntroCutscene : Control
 		// When done, restart the loop
 		_tween.Finished += () => startZoomLoop(first, second);
 	}
-
-
 	
-	
+	private void connectBackButton() {
+		if (_backButton == null)
+			return;
+
+		if (_backButton.IsConnected("pressed", new Callable(this, nameof(onBackPressed))))
+			_backButton.Disconnect("pressed", new Callable(this, nameof(onBackPressed)));
+
+		_backButton.Pressed += onBackPressed;
+	}
 }
