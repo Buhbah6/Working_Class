@@ -1,0 +1,162 @@
+[gd_scene load_steps=10 format=3 uid="uid://b32jnxhqcwcgf"]
+
+[ext_resource type="Script" uid="uid://gsblivg7wvh3" path="res://Scripts/UI/IntroCutscene.cs" id="1_7pcux"]
+[ext_resource type="Texture2D" uid="uid://7xplh3ccuse2" path="res://Assets/IntroCutscene/apartment.jpg" id="2_5ptd1"]
+[ext_resource type="Texture2D" uid="uid://c6p35broeueyb" path="res://Assets/IntroCutscene/computerDarkModified.jpg" id="3_qqj5d"]
+[ext_resource type="Texture2D" uid="uid://dti48xynheafd" path="res://Assets/IntroCutscene/LinkedInZoomedIn.jpg" id="4_1mw3s"]
+[ext_resource type="Texture2D" uid="uid://dhtoj2w3vy46k" path="res://Assets/IntroCutscene/LinkedInModified.png" id="5_acu4y"]
+[ext_resource type="Texture2D" uid="uid://bdpm1yst6b4aa" path="res://Assets/IntroCutscene/PhoneNotifsReady.png" id="6_t1x57"]
+[ext_resource type="Texture2D" uid="uid://kj73olguyxbu" path="res://Assets/IntroCutscene/CarPic.jpg" id="7_726jo"]
+[ext_resource type="Texture2D" uid="uid://2her6asyfe85" path="res://Assets/IntroCutscene/Restaurant.jpg" id="8_pqicb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygb1w"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="IntroCutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7pcux")
+
+[node name="Scene1" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Apartment" type="Sprite2D" parent="Scene1"]
+position = Vector2(796.99994, 189.99997)
+scale = Vector2(0.9527995, 1.0622133)
+texture = ExtResource("2_5ptd1")
+
+[node name="Cam1" type="Camera2D" parent="Scene1"]
+position = Vector2(966, 548)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Scene2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 3770.0
+offset_top = 18.0
+offset_right = 3810.0
+offset_bottom = 58.0
+
+[node name="ComputerDarkModified" type="Sprite2D" parent="Scene2"]
+position = Vector2(2.4999084, 5.000004)
+scale = Vector2(0.7119709, 0.48216936)
+texture = ExtResource("3_qqj5d")
+
+[node name="Cam2" type="Camera2D" parent="Scene2"]
+position = Vector2(-0.00012207031, -1.5258789e-05)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Scene3" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 6033.0
+offset_top = 18.0
+offset_right = 6073.0
+offset_bottom = 58.0
+
+[node name="Panel" type="Panel" parent="Scene3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1039.0
+offset_top = -624.0
+offset_right = 998.0
+offset_bottom = 580.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ygb1w")
+
+[node name="LinkedInZoomedIn" type="Sprite2D" parent="Scene3"]
+position = Vector2(-8.583069e-05, -1)
+scale = Vector2(1.93769, 2.0694983)
+texture = ExtResource("4_1mw3s")
+
+[node name="Cam3" type="Camera2D" parent="Scene3"]
+position = Vector2(-0.00012207031, -1.5258789e-05)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Scene4" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 8233.0
+offset_top = 25.0
+offset_right = 8273.0
+offset_bottom = 65.0
+
+[node name="LinkedInModified" type="Sprite2D" parent="Scene4"]
+position = Vector2(6.999584, 7.9999886)
+scale = Vector2(1.1628425, 1.3970081)
+texture = ExtResource("5_acu4y")
+
+[node name="Cam4" type="Camera2D" parent="Scene4"]
+position = Vector2(-0.00012207031, -1.5258789e-05)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Scene5" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 10413.0
+offset_top = 25.0
+offset_right = 10453.0
+offset_bottom = 65.0
+
+[node name="Panel" type="Panel" parent="Scene5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1033.0
+offset_top = -619.0
+offset_right = 1004.0
+offset_bottom = 585.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ygb1w")
+
+[node name="PhoneNotifsReady" type="Sprite2D" parent="Scene5"]
+position = Vector2(21, 14)
+scale = Vector2(0.45267233, 0.43189594)
+texture = ExtResource("6_t1x57")
+
+[node name="Cam5" type="Camera2D" parent="Scene5"]
+position = Vector2(-0.00012207031, -1.5258789e-05)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Scene6" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 12591.0
+offset_top = 25.0
+offset_right = 12631.0
+offset_bottom = 65.0
+
+[node name="CarPic" type="Sprite2D" parent="Scene6"]
+position = Vector2(12.000559, 12.499984)
+scale = Vector2(0.35866678, 0.32975)
+texture = ExtResource("7_726jo")
+
+[node name="Cam6" type="Camera2D" parent="Scene6"]
+position = Vector2(-0.00012207031, -1.5258789e-05)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Scene7" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 14838.0
+offset_top = 25.0
+offset_right = 14878.0
+offset_bottom = 65.0
+
+[node name="Restaurant" type="Sprite2D" parent="Scene7"]
+position = Vector2(19, -185)
+scale = Vector2(0.58876145, 0.54115504)
+texture = ExtResource("8_pqicb")
+
+[node name="Cam7" type="Camera2D" parent="Scene7"]
+position = Vector2(-0.00012207031, -1.5258789e-05)
+scale = Vector2(1.0000001, 1.0000001)

@@ -111,7 +111,7 @@ public partial class MainMenu : Control
 	public void onPlayPressed() {
 		_musicPlayer.Stop();
 		_clickSoundPlayer.Play();
-		GetTree().ChangeSceneToFile("res://Scenes/test.tscn");
+		GetTree().ChangeSceneToFile("res://Scenes/intro_cutscene.tscn");
 	}
 	
 	public void onOptionsPressed() {
