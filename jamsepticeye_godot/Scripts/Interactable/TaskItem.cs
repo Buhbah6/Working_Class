@@ -7,11 +7,15 @@ public partial class TaskItem : Area2D, IInteractable, ITask
 	public delegate void CompletedTaskEventHandler();
 	public bool CompletionState = false;
 	
+	[Export]
+	public Texture2D ImageTexture;
+	
 	public override void _Ready()
 	{
 		BodyShapeEntered += OnBodyShapeEntered;
 		BodyShapeExited += OnBodyShapeExited;
-		
+		TextureRect texture = GetNode<TextureRect>("%TextureRect");
+		texture.Texture = ImageTexture;
 	}
 	
 	public virtual void Interact(){

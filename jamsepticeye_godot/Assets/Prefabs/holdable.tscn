@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7ijkgxpk1ga5"]
+
+[ext_resource type="Script" uid="uid://bek16ohp023qt" path="res://Scripts/Interactable/Holdable.cs" id="1_5a33d"]
+[ext_resource type="Texture2D" uid="uid://chmgbc6wigb7q" path="res://Assets/Materials/RandomPerson.webp" id="2_qap1u"]
+[ext_resource type="FontFile" uid="uid://csnm423hvgii4" path="res://Assets/fonts/Atlantis Famingo DEMO VERSION.ttf" id="3_mnfi2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qap1u"]
+size = Vector2(111, 102)
+
+[node name="Holdable" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_5a33d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qap1u")
+
+[node name="TextureRect" type="TextureRect" parent="CollisionShape2D"]
+unique_name_in_owner = true
+offset_left = -66.0
+offset_top = -63.0
+offset_right = 63.0
+offset_bottom = 69.0
+texture = ExtResource("2_qap1u")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ExtraObject" type="TextureRect" parent="CollisionShape2D"]
+unique_name_in_owner = true
+visible = false
+offset_left = -28.0
+offset_top = -65.0
+offset_right = 24.0
+offset_bottom = -12.0
+expand_mode = 1
+
+[node name="DoneBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -48.0
+offset_top = 16.0
+offset_right = 50.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("3_mnfi2")
+max_value = 1.0

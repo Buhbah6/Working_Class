@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://kcljwsj3rvkf"]
+
+[ext_resource type="Texture2D" uid="uid://dswqdgqlq2gmt" path="res://Assets/Materials/DarkAlley.jpg" id="1_q8xrn"]
+[ext_resource type="Script" uid="uid://c5rr85a31jy4" path="res://Scenes/Kidnap.cs" id="1_vba3h"]
+[ext_resource type="PackedScene" uid="uid://c1o4nbyvu51am" path="res://Assets/Prefabs/player.tscn" id="2_0qoqq"]
+[ext_resource type="Texture2D" uid="uid://chmgbc6wigb7q" path="res://Assets/Materials/RandomPerson.webp" id="3_fifmt"]
+[ext_resource type="PackedScene" uid="uid://b7ijkgxpk1ga5" path="res://Assets/Prefabs/holdable.tscn" id="3_vba3h"]
+[ext_resource type="Texture2D" uid="uid://da8pgfvl48bol" path="res://Assets/Materials/trash.png" id="4_bo5tu"]
+
+[node name="Kidnap" type="Node2D"]
+script = ExtResource("1_vba3h")
+
+[node name="Control" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 928.0
+offset_top = 566.0
+offset_right = 2873.0
+offset_bottom = 1668.0
+scale = Vector2(1.005, 1.005)
+
+[node name="Alley" type="TextureRect" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -950.2488
+offset_top = -577.11444
+offset_right = 996.7512
+offset_bottom = 658.70636
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_q8xrn")
+expand_mode = 1
+
+[node name="Person" parent="Control/Alley" instance=ExtResource("3_vba3h")]
+unique_name_in_owner = true
+position = Vector2(931.3432, 560.199)
+scale = Vector2(2.055, 2.055)
+mesh = ExtResource("4_bo5tu")
+TimeToHold = 1.0
+ImageTexture = ExtResource("3_fifmt")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_0qoqq")]
+position = Vector2(468.99997, 371.99997)
+
+[node name="TextureRect" type="TextureRect" parent="CharacterBody2D"]
+offset_left = -10.799996
+offset_top = 1.0000048
+offset_right = 6.800002
+offset_bottom = 36.3
