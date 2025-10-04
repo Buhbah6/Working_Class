@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b25msthvp8iv5"]
+[gd_scene load_steps=3 format=3 uid="uid://b25msthvp8iv5"]
 
 [ext_resource type="Script" uid="uid://cg710i1bsdfeu" path="res://Scripts/Interactable/TaskItem.cs" id="1_gvgy2"]
-[ext_resource type="Texture2D" uid="uid://bwur02cqljywp" path="res://Assets/Materials/pngtree-burger-food-png-free-download-png-image_13329458.png" id="2_wpmxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvgy2"]
 size = Vector2(111, 102)
@@ -15,10 +14,10 @@ script = ExtResource("1_gvgy2")
 shape = SubResource("RectangleShape2D_gvgy2")
 
 [node name="TextureRect" type="TextureRect" parent="CollisionShape2D"]
+unique_name_in_owner = true
 offset_left = -66.0
 offset_top = -63.0
 offset_right = 63.0
 offset_bottom = 69.0
-texture = ExtResource("2_wpmxf")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true

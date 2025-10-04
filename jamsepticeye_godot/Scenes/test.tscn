@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://be4qitte265ja"]
+[gd_scene load_steps=9 format=3 uid="uid://be4qitte265ja"]
 
 [ext_resource type="Script" uid="uid://trxno0rbbpgi" path="res://Scripts/Test.cs" id="1_lc1oi"]
 [ext_resource type="PackedScene" uid="uid://b25msthvp8iv5" path="res://Assets/Prefabs/interactable.tscn" id="3_qc4db"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cmhv32mbcborg" path="res://Assets/Prefabs/dragable.tscn" id="4_ys1qc"]
 [ext_resource type="Texture2D" uid="uid://booutoodu30o0" path="res://icon.svg" id="5_35xla"]
 [ext_resource type="Script" uid="uid://6wuhnxnxp3xg" path="res://Scripts/GameLogic/Quest.cs" id="6_i3aeo"]
+[ext_resource type="PackedScene" uid="uid://b7ijkgxpk1ga5" path="res://Assets/Prefabs/holdable.tscn" id="7_5wyu1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3aeo"]
 size = Vector2(177, 135)
@@ -18,9 +19,8 @@ position = Vector2(580, 310)
 
 [node name="Player" parent="." instance=ExtResource("3_ys1qc")]
 
-[node name="Dragable" parent="." node_paths=PackedStringArray("CompletionArea") instance=ExtResource("4_ys1qc")]
+[node name="Dragable" parent="." instance=ExtResource("4_ys1qc")]
 position = Vector2(1239, 175)
-CompletionArea = NodePath("")
 
 [node name="QuestManager" type="Node2D" parent="." node_paths=PackedStringArray("Tasks")]
 script = ExtResource("6_i3aeo")
@@ -41,3 +41,6 @@ offset_top = -63.5
 offset_right = 91.0
 offset_bottom = 64.5
 texture = ExtResource("5_35xla")
+
+[node name="Holdable" parent="." instance=ExtResource("7_5wyu1")]
+position = Vector2(1571, 569)
