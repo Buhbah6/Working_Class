@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ccg1mv6uwe68e"]
+[gd_scene load_steps=25 format=3 uid="uid://ccg1mv6uwe68e"]
 
 [ext_resource type="PackedScene" uid="uid://cp2addbqbc8yd" path="res://Scenes/quest.tscn" id="1_pwhkt"]
 [ext_resource type="Texture2D" uid="uid://dojn6cw1ssh67" path="res://Assets/StackingGame/kitchen.jpg" id="1_qghyq"]
@@ -90,7 +90,6 @@ BurgerNum = 3
 task = NodePath("../CanvasLayer/Task")
 progress = NodePath("../CanvasLayer/Progress")
 sfx = NodePath("../SFX")
-options = NodePath("../OptionsWindow")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand"]
 position = Vector2(261.7113, 205.36218)
