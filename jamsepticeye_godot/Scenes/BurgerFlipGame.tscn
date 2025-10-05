@@ -62,6 +62,9 @@ position = Vector2(243, 220)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_ov5r2")
 
+[node name="Quest" parent="." node_paths=PackedStringArray("Tasks") instance=ExtResource("10_dffi0")]
+Tasks = [NodePath("../Patty/Dragable"), NodePath("../Patty/Dragable2"), NodePath("../Patty/Dragable3"), NodePath("../Patty/Dragable4"), NodePath("../Patty/Dragable5"), NodePath("../Patty/Dragable6")]
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("5_gxgky")]
 
 [node name="Patty" type="Node2D" parent="."]
@@ -137,6 +140,3 @@ ImageTexture = ExtResource("3_hppk5")
 [node name="CookedProgress" type="ProgressBar" parent="Patty/Dragable6"]
 offset_right = 4.0
 offset_bottom = 27.0
-
-[node name="Quest" parent="." node_paths=PackedStringArray("Tasks") instance=ExtResource("10_dffi0")]
-Tasks = [NodePath("../Patty/Dragable"), NodePath("../Patty/Dragable2"), NodePath("../Patty/Dragable3"), NodePath("../Patty/Dragable4"), NodePath("../Patty/Dragable5"), NodePath("../Patty/Dragable6")]

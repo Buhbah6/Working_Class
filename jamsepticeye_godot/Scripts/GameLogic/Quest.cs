@@ -17,7 +17,9 @@ public partial class Quest : Node
 		"Wow! Good Job!",
 		"Tasks Completed!",
 		"Amazing!!!",
-		"hands meat..."
+		"hands meat...",
+		"The work is done",
+		"Lol you shit..."
 	];
 	
 	private Godot.Collections.Array<String> managerText = [
