@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd3gimppfdooe"]
+[gd_scene load_steps=7 format=3 uid="uid://dd3gimppfdooe"]
 
 [ext_resource type="Texture2D" uid="uid://db5xgjeh85svr" path="res://Assets/Materials/StoreAlley.jpg" id="1_84pa7"]
 [ext_resource type="Script" uid="uid://kajatboluwdd" path="res://Scenes/Shopping.cs" id="1_iuu1m"]
 [ext_resource type="PackedScene" uid="uid://c1o4nbyvu51am" path="res://Assets/Prefabs/player.tscn" id="2_iuu1m"]
-[ext_resource type="PackedScene" uid="uid://dc10knj6ankov" path="res://Scenes/falling.tscn" id="4_2pk5u"]
+[ext_resource type="PackedScene" uid="uid://cp2addbqbc8yd" path="res://Scenes/quest.tscn" id="5_81cbo"]
 [ext_resource type="Texture2D" uid="uid://bqx0ujxxkv2wy" path="res://Assets/Materials/shoppingCart.png" id="5_p50fx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upup0"]
+size = Vector2(35.11263, 23.873653)
 
 [node name="Shopping" type="Node2D"]
 script = ExtResource("1_iuu1m")
@@ -36,5 +39,14 @@ texture = ExtResource("5_p50fx")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_iuu1m")]
 
-[node name="Node2D" parent="." instance=ExtResource("4_2pk5u")]
-position = Vector2(949, 47)
+[node name="Complete" type="Area2D" parent="."]
+position = Vector2(937, 904)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Complete"]
+position = Vector2(-6, -5.25)
+scale = Vector2(20.42, 20.42)
+shape = SubResource("RectangleShape2D_upup0")
+
+[node name="Quest" parent="." instance=ExtResource("5_81cbo")]
+position = Vector2(0, -2)
+TimeToComplete = 20.0

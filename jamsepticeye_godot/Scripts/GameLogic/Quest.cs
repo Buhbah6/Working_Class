@@ -5,10 +5,10 @@ using System.Collections.Generic;
 public partial class Quest : Node
 {
 	[Signal]
-	public delegate void CompletedQuestEventHandler(Quest quest);
+	public delegate void CompletedQuestEventHandler();
 	
 	[Signal]
-	public delegate void FailQuestEventHandler(Quest quest);
+	public delegate void FailQuestEventHandler();
 	
 	private TextureRect questBanner;
 	private Label questLabel;
@@ -102,27 +102,25 @@ public partial class Quest : Node
 	}
 		
 	private void QuestFailed(){
-		GD.Print("Quest Complete");
 		questBanner.Visible = true;
 		taskImage.Visible = false;
+		questComplete = true;
 		questLabel.Text = "BAD JOB";
 		you.Texture = GD.Load<Texture2D>("res://Assets/Materials/youbad.png");
-		EmitSignal(SignalName.FailQuest, this);
+		EmitSignal(SignalName.FailQuest);
 	}
 		
 	private void OnTaskCompleted(){
-		GD.Print("Task Completed");
 		CompletedTasks++;
 		managerLabel.Text = managerText.PickRandom();
 		taskImage.Texture = managerTexture.PickRandom();
 		taskImage.Visible = true;
 		if(CompletedTasks >= TaskCount){
-			GD.Print("Quest Complete");
 			questBanner.Visible = true;
 			taskImage.Visible = false;
 			questComplete = true;
 			you.Texture = GD.Load<Texture2D>("res://Assets/Materials/you2.png");
-			EmitSignal(SignalName.CompletedQuest, this);
+			EmitSignal(SignalName.CompletedQuest);
 		}
 	}	
 }

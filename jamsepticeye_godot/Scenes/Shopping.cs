@@ -8,6 +8,12 @@ public partial class Shopping : Node2D
 	private Vector2 targetVector;
 	private bool isPlaying = true;
 	
+	[Export]
+	public Quest quest;
+	
+	[Export]
+	public Area2D completionZone;
+	
 	public override void _Ready(){
 		Store = GetNode<Control>("%Control");
 		targetVector = new Vector2(3f, 3f);

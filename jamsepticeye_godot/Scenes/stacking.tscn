@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ccg1mv6uwe68e"]
+[gd_scene load_steps=24 format=3 uid="uid://ccg1mv6uwe68e"]
 
 [ext_resource type="PackedScene" uid="uid://cp2addbqbc8yd" path="res://Scenes/quest.tscn" id="1_pwhkt"]
 [ext_resource type="Texture2D" uid="uid://dojn6cw1ssh67" path="res://Assets/StackingGame/kitchen.jpg" id="1_qghyq"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bdvs12cp1eivo" path="res://Assets/StackingGame/Ingredients/BunBottom.png" id="11_eiqsl"]
 [ext_resource type="AudioStream" uid="uid://cm7ogh7ud1udg" path="res://Assets/Music/Audio/stackingTheme.mp3" id="13_3qqf4"]
 [ext_resource type="AudioStream" uid="uid://u02n0rvkl4el" path="res://Assets/Sounds/Audio/yay.wav" id="14_7iql4"]
+[ext_resource type="Script" uid="uid://drkwm144ohk88" path="res://Scripts/GameLogic/GameManager.cs" id="15_tqurt"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5nu1b"]
 
@@ -68,6 +69,7 @@ scale = Vector2(0.51072836, 0.40064523)
 texture = ExtResource("1_qghyq")
 
 [node name="Quest" parent="." instance=ExtResource("1_pwhkt")]
+TimeToComplete = 180.0
 
 [node name="Hand" type="CharacterBody2D" parent="." node_paths=PackedStringArray("x1", "x2", "x3", "x4", "x5", "x6", "quest", "task", "progress", "sfx")]
 position = Vector2(935, 881)
@@ -374,6 +376,11 @@ bus = &"Music"
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_7iql4")
 bus = &"SFX"
+
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("quest")]
+script = ExtResource("15_tqurt")
+quest = NodePath("../Quest")
+nextScene = "res://Scenes/credits.tscn"
 
 [connection signal="body_entered" from="Hand/Area2D" to="Hand" method="onAreaEntered"]
 [connection signal="body_exited" from="Hand/Area2D" to="Hand" method="onAreaExited"]
