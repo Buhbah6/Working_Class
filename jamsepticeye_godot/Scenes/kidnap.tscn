@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://kcljwsj3rvkf"]
 
 [ext_resource type="Texture2D" uid="uid://dswqdgqlq2gmt" path="res://Assets/Materials/DarkAlley.jpg" id="1_q8xrn"]
-[ext_resource type="Script" uid="uid://c5rr85a31jy4" path="res://Scenes/Kidnap.cs" id="1_vba3h"]
+[ext_resource type="Script" uid="uid://c5rr85a31jy4" path="res://Scripts/Kidnap.cs" id="1_vba3h"]
 [ext_resource type="PackedScene" uid="uid://c1o4nbyvu51am" path="res://Assets/Prefabs/player.tscn" id="2_0qoqq"]
 [ext_resource type="Texture2D" uid="uid://chmgbc6wigb7q" path="res://Assets/Materials/RandomPerson.webp" id="3_fifmt"]
 [ext_resource type="PackedScene" uid="uid://b7ijkgxpk1ga5" path="res://Assets/Prefabs/holdable.tscn" id="3_vba3h"]

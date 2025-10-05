@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccg1mv6uwe68e"]
+
+[ext_resource type="Texture2D" uid="uid://dojn6cw1ssh67" path="res://Assets/StackingGame/kitchen.jpg" id="1_qghyq"]
+[ext_resource type="Script" uid="uid://c3aehedfom6mm" path="res://Scripts/StackingGame/Hand.cs" id="2_5nu1b"]
+[ext_resource type="Texture2D" uid="uid://chorxm2whvty0" path="res://Assets/Materials/Secondary.png" id="2_6k4it"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nu1b"]
+size = Vector2(158, 83)
+
+[node name="FoodStackingGame" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(962.0625, 253.99998)
+scale = Vector2(0.51072836, 0.40064523)
+texture = ExtResource("1_qghyq")
+
+[node name="Hand" type="RigidBody2D" parent="."]
+position = Vector2(1026, 861.00006)
+scale = Vector2(2.14195, 1.3389997)
+gravity_scale = -0.01
+lock_rotation = true
+script = ExtResource("2_5nu1b")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand"]
+position = Vector2(95, 76.5)
+texture = ExtResource("2_6k4it")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand"]
+position = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_5nu1b")
+
+[node name="IngredientSpawner" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0

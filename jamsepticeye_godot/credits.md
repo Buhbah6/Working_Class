@@ -71,3 +71,5 @@ https://pixabay.com/sound-effects/ringtone-015-151931/
 https://freesound.org/people/Cinetony/sounds/672699/
 https://freesound.org/people/EpicAllay/sounds/615080/
 https://pixsector.com/icon/free-left-arrow-symbol-png-vector/789
+https://unsplash.com/photos/a-kitchen-with-a-microwave-oven-and-microwave-ZhgIzEQwyrI
+https://unsplash.com/photos/person-in-black-button-up-shirt-with-burger-jxMURaM7icw
