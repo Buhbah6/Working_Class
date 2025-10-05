@@ -9,12 +9,29 @@ public partial class Quest : Node
 	
 	private TextureRect questBanner;
 	private Label questLabel;
+	private TextureRect taskImage;
+	private Label managerLabel;
+	
 	
 	private Godot.Collections.Array<String> completionText = [
 		"Wow! Good Job!",
 		"Tasks Completed!",
 		"Amazing!!!",
 		"hands meat..."
+	];
+	
+	private Godot.Collections.Array<String> managerText = [
+		"Keep working...",
+		"mmHuhm huhmm...",
+		"I am not happy here",
+		"This is not how the working",
+		"Im watchings",
+		"Hands meats...",
+		"Fuck you...",
+		"Bithc!",
+		"#Fuck My Life.",
+		"I hate you...",
+		"You're mom! <3"
 	];
 	
 	[Export]
@@ -34,6 +51,11 @@ public partial class Quest : Node
 		questBanner = GetNode<TextureRect>("%QuestBanner");
 		questBanner.Visible = false;
 		
+		taskImage = GetNode<TextureRect>("%ThumbsUp");
+		taskImage.Visible = false;
+		
+		managerLabel = GetNode<Label>("%ManagerQuote");
+		
 		questLabel = GetNode<Label>("%Text");
 		questLabel.Text = completionText.PickRandom();
 	}
@@ -41,9 +63,12 @@ public partial class Quest : Node
 	private void OnTaskCompleted(){
 		GD.Print("Task Completed");
 		CompletedTasks++;
+		managerLabel.Text = managerText.PickRandom();
+		taskImage.Visible = true;
 		if(CompletedTasks >= TaskCount){
 			GD.Print("Quest Complete");
 			questBanner.Visible = true;
+			taskImage.Visible = false;
 			EmitSignal(SignalName.CompletedQuest, this);
 		}
 	}	

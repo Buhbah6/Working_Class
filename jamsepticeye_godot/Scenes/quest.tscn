@@ -1,12 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://chdud20nf68yi"]
+[gd_scene load_steps=10 format=3 uid="uid://chdud20nf68yi"]
 
 [ext_resource type="Script" uid="uid://6wuhnxnxp3xg" path="res://Scripts/GameLogic/Quest.cs" id="1_nt16b"]
 [ext_resource type="Texture2D" uid="uid://doq4k2fn1mqx0" path="res://Assets/Materials/completed.png" id="2_7b37a"]
 [ext_resource type="FontFile" uid="uid://b04h6slgx6un7" path="res://Assets/fonts/ClownShoes.ttf" id="3_essri"]
+[ext_resource type="Texture2D" uid="uid://dkjasoeikd7e6" path="res://Assets/Materials/good.png" id="4_wxgyg"]
+[ext_resource type="Texture2D" uid="uid://ct7nar1hsggci" path="res://Assets/Materials/manager.webp" id="5_cbd34"]
+[ext_resource type="Texture2D" uid="uid://rowcilnbvpkj" path="res://Assets/Materials/bubble.webp" id="6_2revy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7b37a"]
 font = ExtResource("3_essri")
 font_size = 72
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2revy"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gpg5m"]
+font_size = 20
 font_color = Color(0, 0, 0, 1)
 
 [node name="Quest" type="Node2D" node_paths=PackedStringArray("Tasks")]
@@ -29,3 +40,46 @@ offset_bottom = 324.0
 label_settings = SubResource("LabelSettings_7b37a")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ThumbsUp" type="TextureRect" parent="."]
+unique_name_in_owner = true
+offset_left = -1.0
+offset_top = 511.0
+offset_right = 314.99997
+offset_bottom = 1277.0
+texture = ExtResource("4_wxgyg")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="ThumbsUp"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = -5.0
+offset_right = 207.0
+offset_bottom = 144.0
+texture = ExtResource("5_cbd34")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="ThumbsUp"]
+layout_mode = 0
+offset_right = 312.0
+offset_bottom = 225.0
+text = "Managuer
+"
+label_settings = SubResource("LabelSettings_2revy")
+
+[node name="TextureRect2" type="TextureRect" parent="ThumbsUp"]
+layout_mode = 0
+offset_left = 165.0
+offset_top = -42.0
+offset_right = 656.0
+offset_bottom = 158.0
+texture = ExtResource("6_2revy")
+
+[node name="ManagerQuote" type="Label" parent="ThumbsUp"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 251.0
+offset_top = -5.0
+offset_right = 557.0
+offset_bottom = 86.0
+label_settings = SubResource("LabelSettings_gpg5m")
