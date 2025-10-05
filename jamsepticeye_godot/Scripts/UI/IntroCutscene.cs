@@ -144,7 +144,8 @@ public partial class IntroCutscene : Control
 				startZoomLoop(1.15f, 0.90f);
 				break;
 			case 8:
-				GetTree().ChangeSceneToFile("res://Scenes/kidnap.tscn");
+				DayTransition.day = 1;
+				GetTree().ChangeSceneToFile("res://Scenes/day_transition.tscn");
 				break;
 		}
 	}

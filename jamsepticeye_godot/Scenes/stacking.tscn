@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cp2addbqbc8yd" path="res://Scenes/quest.tscn" id="1_pwhkt"]
 [ext_resource type="Texture2D" uid="uid://dojn6cw1ssh67" path="res://Assets/StackingGame/kitchen.jpg" id="1_qghyq"]
+[ext_resource type="PackedScene" uid="uid://ckx0agnhtltg1" path="res://Assets/Prefabs/options_window.tscn" id="1_tqurt"]
 [ext_resource type="Script" uid="uid://c3aehedfom6mm" path="res://Scripts/StackingGame/Hand.cs" id="2_5nu1b"]
 [ext_resource type="Texture2D" uid="uid://chorxm2whvty0" path="res://Assets/Materials/Secondary.png" id="2_6k4it"]
 [ext_resource type="Script" uid="uid://bd6kxqtheirpm" path="res://Scenes/IngredientSpawner.cs" id="4_5nu1b"]
@@ -63,6 +64,8 @@ expand_margin_bottom = 10.0
 
 [node name="FoodStackingGame" type="Node2D"]
 
+[node name="OptionsWindow" parent="." instance=ExtResource("1_tqurt")]
+
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(962.0625, 253.99998)
 scale = Vector2(0.51072836, 0.40064523)
@@ -87,6 +90,7 @@ BurgerNum = 3
 task = NodePath("../CanvasLayer/Task")
 progress = NodePath("../CanvasLayer/Progress")
 sfx = NodePath("../SFX")
+options = NodePath("../OptionsWindow")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand"]
 position = Vector2(261.7113, 205.36218)

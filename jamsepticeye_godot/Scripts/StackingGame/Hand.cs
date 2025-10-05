@@ -28,6 +28,9 @@ public partial class Hand : CharacterBody2D
 
 	public override void _Ready()
 	{
+		
+		PauseManager _pauseManager = GetNode<PauseManager>("/root/PauseManager");
+		_pauseManager.UpdatePath("/root/FoodStackingGame/OptionsWindow");
 		GetNode<AudioStreamPlayer>("/root/BgMusic").Stop();
 		textureA = GD.Load<Texture2D>("res://Assets/StackingGame/BigX.png");
 		textureB = GD.Load<Texture2D>("res://Assets/StackingGame/CheckMark.png");
