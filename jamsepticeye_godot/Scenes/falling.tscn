@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dc10knj6ankov"]
+[gd_scene load_steps=4 format=3 uid="uid://dc10knj6ankov"]
 
 [ext_resource type="PackedScene" uid="uid://b7ijkgxpk1ga5" path="res://Assets/Prefabs/holdable.tscn" id="1_8eyxq"]
 [ext_resource type="Texture2D" uid="uid://bwur02cqljywp" path="res://Assets/Materials/pngtree-burger-food-png-free-download-png-image_13329458.png" id="2_u8464"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8464"]
+size = Vector2(111, 101)
 
 [node name="Falling" type="Node2D"]
 
@@ -9,6 +12,10 @@
 disable_mode = 2
 collision_layer = 2
 collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_u8464")
 
 [node name="Holdable" parent="RigidBody2D" instance=ExtResource("1_8eyxq")]
 TimeToHold = 0.5

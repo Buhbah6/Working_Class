@@ -1,56 +1,36 @@
 using Godot;
 using System.Collections.Generic;
 
-public partial class Hand : RigidBody2D
+public partial class Hand : CharacterBody2D
 {
 	public float MoveSpeed = 10f;
-	public float YPosition = 850f;
+	public float YPosition = 750f;
 	private List<RigidBody2D> _stack = new();
 
 	public override void _Ready()
 	{
 		Input.MouseMode = Input.MouseModeEnum.Hidden;
-		ContactMonitor = true;
-		MaxContactsReported = 10;
-		GravityScale = 0;
-		LockRotation = true;
+		var mat = new PhysicsMaterial {
+			Friction = 1000.0f,
+			Bounce = 0.0f,
+			Rough = true
+		};
+		GetNode<CollisionShape2D>("CollisionShape2D").Set("material", mat);
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
+		// Get clamped mouse X, keep constant Y
 		Vector2 mousePos = GetGlobalMousePosition();
-		Vector2 targetPos;
-		if (mousePos.X <= 50) 
-			targetPos = new Vector2(50, YPosition);
-		else if (mousePos.X >= 1870) 
-			targetPos = new Vector2(1870, YPosition);
-		else 
-			targetPos = new Vector2(mousePos.X, YPosition);
-		
-		GlobalPosition = GlobalPosition.Lerp(targetPos, (float)(MoveSpeed * delta));
+		float clampedX = Mathf.Clamp(mousePos.X, 50, 1870);
+		Vector2 targetPos = new(clampedX, YPosition);
 
-		if (Input.IsActionJustPressed("ui_accept"))
-			DropStack();
-	}
+		// ✅ Don't multiply by delta here – MoveAndSlide already handles delta internally
+		Vector2 direction = targetPos - GlobalPosition;
+		Velocity = Velocity.Lerp((targetPos - GlobalPosition) * MoveSpeed, 0.2f);
+		Velocity = new Vector2(Velocity.X, 0);
+		MoveAndSlide();
+		GlobalPosition = new Vector2(GlobalPosition.X, YPosition);
 
-	private void DropStack()
-	{
-		foreach (var ingredient in _stack) {
-			if (!IsInstanceValid(ingredient))
-				continue;
-			ingredient.Freeze = false;
-			ingredient.Reparent(GetTree().CurrentScene);
-		}
-		_stack.Clear();
-	}
-
-	private void OnBodyEntered(Node body) {
-		if (body is RigidBody2D ingredient && !_stack.Contains(ingredient)) {
-			ingredient.Freeze = true;
-			ingredient.Reparent(this);
-			float stackHeight = _stack.Count * 20f;
-			ingredient.Position = new Vector2(0, -stackHeight);
-			_stack.Add(ingredient);
-		}
 	}
 }

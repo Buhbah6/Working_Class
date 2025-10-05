@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtxua6pohbimr"]
+
+[ext_resource type="Texture2D" uid="uid://dnnrrnrjslw0v" path="res://Assets/StackingGame/Ingredients/Lettuce.png" id="1_uv002"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uq54n"]
+friction = 12.0
+rough = true
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8464"]
+size = Vector2(264, 62)
+
+[node name="Ingredient" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+disable_mode = 2
+collision_mask = 3
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_uq54n")
+linear_damp = 2.0
+angular_damp = 20.0
+
+[node name="Lettuce" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(0, 9.094947e-13)
+scale = Vector2(0.21074045, 0.3276836)
+texture = ExtResource("1_uv002")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_u8464")
