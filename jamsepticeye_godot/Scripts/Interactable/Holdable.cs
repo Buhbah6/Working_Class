@@ -35,7 +35,7 @@ public partial class Holdable : TaskItem
 	
 	public bool CanInteract()
 	{
-		return !base.CompletionState || CanInteractHold; 
+		return !base.CompletionState && CanInteractHold; 
 	}
 	
 	public override void _Process(double delta)

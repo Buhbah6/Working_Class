@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dd3gimppfdooe"]
+
+[ext_resource type="Texture2D" uid="uid://db5xgjeh85svr" path="res://Assets/Materials/StoreAlley.jpg" id="1_84pa7"]
+[ext_resource type="Script" uid="uid://kajatboluwdd" path="res://Scenes/Shopping.cs" id="1_iuu1m"]
+[ext_resource type="PackedScene" uid="uid://c1o4nbyvu51am" path="res://Assets/Prefabs/player.tscn" id="2_iuu1m"]
+[ext_resource type="PackedScene" uid="uid://dc10knj6ankov" path="res://Scenes/falling.tscn" id="4_2pk5u"]
+[ext_resource type="Texture2D" uid="uid://bqx0ujxxkv2wy" path="res://Assets/Materials/shoppingCart.png" id="5_p50fx"]
+
+[node name="Shopping" type="Node2D"]
+script = ExtResource("1_iuu1m")
+
+[node name="Control" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 962.0
+offset_top = 514.0
+offset_right = 2879.0
+offset_bottom = 1601.0
+
+[node name="StoreBG" type="TextureRect" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -961.0
+offset_top = -515.0
+offset_right = 958.0
+offset_bottom = 558.0
+texture = ExtResource("1_84pa7")
+
+[node name="ShoppingCart" type="TextureRect" parent="."]
+offset_left = 233.0
+offset_top = 371.0
+offset_right = 1634.0
+offset_bottom = 1156.0
+texture = ExtResource("5_p50fx")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_iuu1m")]
+
+[node name="Node2D" parent="." instance=ExtResource("4_2pk5u")]
+position = Vector2(949, 47)

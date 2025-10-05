@@ -26,6 +26,9 @@ on [Unsplash](https://unsplash.com/photos/empty-grocery-store-shelves-VE9DQ7zm22
 by [Aaron Chavez](https://unsplash.com/@slickmctrick)
 on [Unsplash](https://unsplash.com/photos/empty-street-between-buildings-during-daytime-TGSojbIny-8)
 
+** Grocery store**
+on [iStock](https://media.istockphoto.com/id/1152072078/photo/supermarket-aisle-with-shelfs-full-of-a-variety-of-products.jpg?s=612x612&w=0&k=20&c=OeAuZaa181P4G5ThgLm9JbuUhIlgFBwQnddITSHfcNc=)
+
 ## Music
 
 **Flat Lining (Instrumental)** by [HoliznaRAPS](https://freemusicarchive.org/music/holiznaraps/flat-lining/flat-lining-instrumental/)  
