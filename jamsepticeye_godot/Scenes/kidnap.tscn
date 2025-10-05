@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://kcljwsj3rvkf"]
+[gd_scene load_steps=8 format=3 uid="uid://kcljwsj3rvkf"]
 
 [ext_resource type="Texture2D" uid="uid://dswqdgqlq2gmt" path="res://Assets/Materials/DarkAlley.jpg" id="1_q8xrn"]
 [ext_resource type="PackedScene" uid="uid://c1o4nbyvu51am" path="res://Assets/Prefabs/player.tscn" id="2_0qoqq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b7ijkgxpk1ga5" path="res://Assets/Prefabs/holdable.tscn" id="3_vba3h"]
 [ext_resource type="Texture2D" uid="uid://da8pgfvl48bol" path="res://Assets/Materials/trash.png" id="4_bo5tu"]
 [ext_resource type="PackedScene" uid="uid://cp2addbqbc8yd" path="res://Scenes/quest.tscn" id="7_oerib"]
+[ext_resource type="Script" uid="uid://drkwm144ohk88" path="res://Scripts/GameLogic/GameManager.cs" id="7_sttre"]
 
 [node name="Kidnap" type="Node2D"]
 
@@ -51,3 +52,8 @@ offset_bottom = 36.3
 [node name="Quest" parent="." node_paths=PackedStringArray("Tasks") instance=ExtResource("7_oerib")]
 TimeToComplete = 5.0
 Tasks = [NodePath("../Control/Alley/Person")]
+
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("quest")]
+script = ExtResource("7_sttre")
+quest = NodePath("../Quest")
+nextScene = "res://Scenes/stacking.tscn"
