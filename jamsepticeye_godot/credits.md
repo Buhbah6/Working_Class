@@ -97,3 +97,7 @@ https://freesound.org/people/Anthousai/sounds/336591/
 https://freesound.org/people/daenerys/sounds/260713/
 https://freesound.org/people/FunWithSound/sounds/396174/
 https://www.myinstants.com/en/instant/gta-sa-mission-complete-59778/
+https://unsplash.com/photos/man-in-bluee-ssweater-OupUvbC_TEY
+https://unsplash.com/photos/a-metal-trash-can-sitting-on-top-of-a-stone-floor-N46hqFwRybo
+https://freesound.org/people/dersuperanton/sounds/433644/
+https://www.myinstants.com/en/instant/youre-fired-trump-58249/
