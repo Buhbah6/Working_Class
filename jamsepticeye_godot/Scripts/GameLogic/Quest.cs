@@ -15,7 +15,8 @@ public partial class Quest : Node
 	[Export]
 	public Godot.Collections.Array<Texture2D> managerTexture;
 	
-	private Godot.Collections.Array<String> completionText = [
+	[Export]
+	public Godot.Collections.Array<String> completionText = [
 		"Wow! Good Job!",
 		"Tasks Completed!",
 		"Amazing!!!",
@@ -24,7 +25,8 @@ public partial class Quest : Node
 		"Lol you shit..."
 	];
 	
-	private Godot.Collections.Array<String> managerText = [
+	[Export]
+	public Godot.Collections.Array<String> managerText = [
 		"Keep working...",
 		"mmHuhm huhmm...",
 		"I am not happy here",
