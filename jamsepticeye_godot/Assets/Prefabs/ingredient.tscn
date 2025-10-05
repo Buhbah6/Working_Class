@@ -1,9 +1,28 @@
-[gd_scene format=3 uid="uid://b45dn8cyhtx4l"]
+[gd_scene load_steps=4 format=3 uid="uid://b45dn8cyhtx4l"]
+
+[ext_resource type="Texture2D" uid="uid://bdvs12cp1eivo" path="res://Assets/StackingGame/Ingredients/BunBottom.png" id="1_7dfwt"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uq54n"]
+rough = true
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8464"]
+size = Vector2(249, 64)
 
 [node name="Ingredient" type="Node2D"]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
+disable_mode = 2
+collision_layer = 2
+collision_mask = 2
+mass = 0.01
+physics_material_override = SubResource("PhysicsMaterial_uq54n")
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+[node name="BunBottom" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(0, 9.094947e-13)
+scale = Vector2(0.21074045, 0.3276836)
+texture = ExtResource("1_7dfwt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(2.5, 4)
+shape = SubResource("RectangleShape2D_u8464")
