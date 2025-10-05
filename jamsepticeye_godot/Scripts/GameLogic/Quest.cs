@@ -26,6 +26,7 @@ public partial class Quest : Node
 		GD.Print("Task Completed");
 		CompletedTasks++;
 		if(CompletedTasks >= TaskCount){
+			GD.Print("Quest Complete");
 			EmitSignal(SignalName.CompletedQuest, this);
 		}
 	}	
