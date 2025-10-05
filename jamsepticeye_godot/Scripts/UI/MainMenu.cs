@@ -16,6 +16,7 @@ public partial class MainMenu : Control
 	private AudioStreamPlayer _musicPlayer;
 	private AudioStreamPlayer _hoverSoundPlayer;
 	private AudioStreamPlayer _clickSoundPlayer;
+	private PauseManager _pauseManager;
 	
 	private string _savePath = "user://data.save";
 	private static bool _hasLoaded = false;
@@ -23,9 +24,13 @@ public partial class MainMenu : Control
 	
 	public override void _Ready()
 	{
+		
+		ProcessMode = Node.ProcessModeEnum.Always;
 		_musicPlayer = GetNode<AudioStreamPlayer>("/root/BgMusic");
 		_hoverSoundPlayer = GetNode<AudioStreamPlayer>("/root/ButtonHover");
 		_clickSoundPlayer = GetNode<AudioStreamPlayer>("/root/ButtonClick");
+		 _pauseManager = GetNode<PauseManager>("/root/PauseManager");
+		_pauseManager.UpdatePath(GetNode<Window>("OptionsWindow").GetPath());
 		_popup = GetNode<Window>("OptionsWindow");
 		_childSprite = GetNode<Sprite2D>("MenuWallpaper");
 		
@@ -36,7 +41,7 @@ public partial class MainMenu : Control
 		}
 
 		_origin = _childSprite.Position;
-		_maxOffset = Math.Min(Size.X, Size.Y) * 0.10f;
+		_maxOffset = Math.Min(1920, 1080) * 0.10f;
 
 		translateBackground();
 	}
@@ -57,22 +62,6 @@ public partial class MainMenu : Control
 		}
 	}
 	
-	public void save()
-	{
-		var file = FileAccess.Open(_savePath, FileAccess.ModeFlags.Write);
-
-		var data = new Godot.Collections.Dictionary
-		{
-			{"masterVol", OptionsWindow.masterVol},
-			{"sfxVol", OptionsWindow.sfxVol},
-			{"voiceVol", OptionsWindow.voiceVol},
-			{"musicVol", OptionsWindow.musicVol}
-		};
-
-		file.StoreVar(data);
-		GD.Print("Saved volumes:", data);
-	}
-
 	
 	public void load() {
 		if (!FileAccess.FileExists(_savePath)) {
@@ -105,8 +94,6 @@ public partial class MainMenu : Control
 
 		(_popup as OptionsWindow)?.ApplyLoadedValues();
 	}
-
-
 	
 	public void onPlayPressed() {
 		_musicPlayer.Stop();
@@ -116,18 +103,8 @@ public partial class MainMenu : Control
 	
 	public void onOptionsPressed() {
 		_clickSoundPlayer.Play();
-		_popup.PopupCentered();
-	}
-	
-	public void onOptionsClose() {
-		_clickSoundPlayer.Play();
-		_popup.Hide();
-	}
-	
-	public void onOptionsSaveAndClose() {
-		save();
-		_clickSoundPlayer.Play();
-		_popup.Hide();
+		(_popup as OptionsWindow)?.open();
+		
 	}
 	
 	public void onExitPressed() {

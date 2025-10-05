@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://7dx6lhu0kthe"]
+
+[ext_resource type="Script" uid="uid://1y66rcyta0r7" path="res://DayTransition.cs" id="1_1euad"]
+
+[sub_resource type="Gradient" id="Gradient_2rhta"]
+colors = PackedColorArray(0, 0, 0, 1, 0.19434929, 0.19434926, 0.19434926, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4j02u"]
+gradient = SubResource("Gradient_2rhta")
+
+[node name="DayTransition" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1euad")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(966, 558.25006)
+scale = Vector2(31.96875, 18.92969)
+texture = SubResource("GradientTexture2D_4j02u")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -321.5
+offset_top = -164.0
+offset_right = 321.5
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 240
+text = "Day ACK"

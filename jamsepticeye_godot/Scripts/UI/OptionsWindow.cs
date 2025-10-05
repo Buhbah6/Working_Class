@@ -14,9 +14,19 @@ public partial class OptionsWindow : Window
 	public static double voiceVol = -1;
 	public static double musicVol = -1;
 
+	private string _savePath = "user://data.save";
+	private AudioStreamPlayer _hoverSoundPlayer;
+	private AudioStreamPlayer _clickSoundPlayer;
+	private PauseManager _pauseManager;
+	
+	
 	public override void _Ready()
 	{
-
+		//this.ProcessMode = Node.ProcessModeEnum.Always;;
+		this.Hide();
+		
+		_pauseManager = GetNode<PauseManager>("/root/PauseManager");
+		
 		// Get sliders
 		masterSlider = GetNode<HSlider>("Inputs/VBoxContainer/MasterVol");
 		sfxSlider = GetNode<HSlider>("Inputs/VBoxContainer/SFXVol");
@@ -28,6 +38,8 @@ public partial class OptionsWindow : Window
 		sfxSlider.ValueChanged += OnSfxVolumeChanged;
 		voiceSlider.ValueChanged += OnVoiceVolumeChanged;
 		musicSlider.ValueChanged += OnMusicVolumeChanged;
+		_hoverSoundPlayer = GetNode<AudioStreamPlayer>("/root/ButtonHover");
+		_clickSoundPlayer = GetNode<AudioStreamPlayer>("/root/ButtonClick");
 		
 		ApplyLoadedValues();
 	}
@@ -58,6 +70,22 @@ public partial class OptionsWindow : Window
 			SetBusVolume("Voice", 1.0f);
 			SetBusVolume("Music", 1.0f);
 		}
+	}
+	
+	public void save()
+	{
+		var file = FileAccess.Open(_savePath, FileAccess.ModeFlags.Write);
+
+		var data = new Godot.Collections.Dictionary
+		{
+			{"masterVol", masterVol},
+			{"sfxVol", sfxVol},
+			{"voiceVol", voiceVol},
+			{"musicVol", musicVol}
+		};
+
+		file.StoreVar(data);
+		GD.Print("Saved volumes:", data);
 	}
 
 
@@ -103,5 +131,38 @@ public partial class OptionsWindow : Window
 		if (value <= 0f)
 			return -80f; // effectively mute
 		return 20f * (float)Math.Log10(value);
+	}
+	
+	public void open() {
+		this.PopupCentered();
+		Input.MouseMode = Input.MouseModeEnum.Visible;
+		_pauseManager.TogglePause(); 
+	}
+	
+	public void onOptionsClose() {
+		_clickSoundPlayer.Play();
+		this.Hide();
+		_pauseManager.TogglePause(); 
+	}
+	
+	public void onOptionsSaveAndClose() {
+		save();
+		_clickSoundPlayer.Play();
+		this.Hide();
+		_pauseManager.TogglePause(); 
+	}
+	
+	public void onOptionsSaveAndReturn() {
+		save();
+		_clickSoundPlayer.Play();
+		this.Hide();
+		_pauseManager.TogglePause(); 
+		if (GetTree().GetCurrentScene().Name != "Menu") {
+			GetTree().ChangeSceneToFile("res://Scenes/main_menu.tscn");
+		}
+	}
+	
+	public void onHover() {
+		_hoverSoundPlayer.Play();
 	}
 }
