@@ -128,7 +128,7 @@ public partial class Hand : CharacterBody2D
 			x1.Texture = x2.Texture = x3.Texture = x4.Texture = x5.Texture = x6.Texture = textureA;
 			quest.Tasks[quest.CompletedTasks].Complete();
 			sfx.Play();
-			progress.Text = "Burgers made: " + (BurgerNum - quest.CompletedTasks);
+			progress.Text = "Burgers made: " + quest.CompletedTasks;
 			while (_stack.Count > 0) {
 				rb = _stack[0];
 				_stack.Remove(rb);
