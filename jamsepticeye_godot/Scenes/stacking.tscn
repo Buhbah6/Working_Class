@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://f8lwaak6msll"]
+[gd_scene load_steps=19 format=3 uid="uid://ccg1mv6uwe68e"]
 
 [ext_resource type="Texture2D" uid="uid://dojn6cw1ssh67" path="res://Assets/StackingGame/kitchen.jpg" id="1_qghyq"]
 [ext_resource type="Script" uid="uid://c3aehedfom6mm" path="res://Scripts/StackingGame/Hand.cs" id="2_5nu1b"]
@@ -34,6 +34,17 @@ colors = PackedColorArray(0.56830627, 0.5531662, 3.85046e-07, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_wy01h")
 fill_from = Vector2(0.27102804, 0.014018691)
 fill_to = Vector2(0.6869159, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4urdp"]
+bg_color = Color(0.1882353, 0.1882353, 0.1882353, 0.67058825)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [node name="FoodStackingGame" type="Node2D"]
 
@@ -301,10 +312,14 @@ scale = Vector2(0.12799977, 0.12300005)
 texture = ExtResource("6_pwhkt")
 expand_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/Line6"]
-position = Vector2(169.00002, 66.25)
-scale = Vector2(5.1562486, 0.023437476)
-texture = SubResource("GradientTexture2D_ds1lf")
+[node name="Label2" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 500.0
+offset_right = 300.0
+offset_bottom = 523.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_4urdp")
+text = "Right Click to Submit Burger"
 
 [connection signal="body_entered" from="Hand/Area2D" to="Hand" method="onAreaEntered"]
 [connection signal="body_exited" from="Hand/Area2D" to="Hand" method="onAreaExited"]
