@@ -215,9 +215,9 @@ text = "Click to Continue"
 horizontal_alignment = 1
 
 [node name="Return" type="Button" parent="Scene3/CL3"]
-offset_left = 2278.0
+offset_left = 15.0
 offset_top = 959.0
-offset_right = 2846.0
+offset_right = 583.0
 offset_bottom = 1527.0
 scale = Vector2(0.2, 0.2)
 theme_override_styles/normal = SubResource("StyleBoxFlat_hd1p2")
@@ -272,10 +272,10 @@ text = "Click to Continue"
 horizontal_alignment = 1
 
 [node name="Return" type="Button" parent="Scene4/CL4"]
-offset_left = 4478.0
-offset_top = 966.0
-offset_right = 5046.0
-offset_bottom = 1534.0
+offset_left = 15.0
+offset_top = 959.0
+offset_right = 583.0
+offset_bottom = 1527.0
 scale = Vector2(0.2, 0.2)
 theme_override_styles/normal = SubResource("StyleBoxFlat_hd1p2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dmj0s")
@@ -354,10 +354,10 @@ text = "Click to Continue"
 horizontal_alignment = 1
 
 [node name="Return" type="Button" parent="Scene5/CL5"]
-offset_left = 6658.0
-offset_top = 966.0
-offset_right = 7226.0
-offset_bottom = 1534.0
+offset_left = 15.0
+offset_top = 959.0
+offset_right = 583.0
+offset_bottom = 1527.0
 scale = Vector2(0.2, 0.2)
 theme_override_styles/normal = SubResource("StyleBoxFlat_hd1p2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dmj0s")
@@ -410,10 +410,10 @@ text = "Click to Continue"
 horizontal_alignment = 1
 
 [node name="Return" type="Button" parent="Scene6/CL6"]
-offset_left = 8836.0
-offset_top = 966.0
-offset_right = 9404.0
-offset_bottom = 1534.0
+offset_left = 15.0
+offset_top = 959.0
+offset_right = 583.0
+offset_bottom = 1527.0
 scale = Vector2(0.2, 0.2)
 theme_override_styles/normal = SubResource("StyleBoxFlat_hd1p2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dmj0s")
@@ -467,10 +467,10 @@ text = "Click to Continue"
 horizontal_alignment = 1
 
 [node name="Return" type="Button" parent="Scene7/CL7"]
-offset_left = 11083.0
-offset_top = 966.0
-offset_right = 11651.0
-offset_bottom = 1534.0
+offset_left = 15.0
+offset_top = 959.0
+offset_right = 583.0
+offset_bottom = 1527.0
 scale = Vector2(0.2, 0.2)
 theme_override_styles/normal = SubResource("StyleBoxFlat_hd1p2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dmj0s")
@@ -478,8 +478,3 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_dmj0s")
 icon = ExtResource("4_pqicb")
 
 [connection signal="pressed" from="Scene2/CL2/Return" to="." method="onBackPressed"]
-[connection signal="pressed" from="Scene3/CL3/Return" to="." method="onBackPressed"]
-[connection signal="pressed" from="Scene4/CL4/Return" to="." method="onBackPressed"]
-[connection signal="pressed" from="Scene5/CL5/Return" to="." method="onBackPressed"]
-[connection signal="pressed" from="Scene6/CL6/Return" to="." method="onBackPressed"]
-[connection signal="pressed" from="Scene7/CL7/Return" to="." method="onBackPressed"]
