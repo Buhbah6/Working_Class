@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://dgy0xv2gjk01i"]
+
+[ext_resource type="Texture2D" uid="uid://pivkom7g0gej" path="res://Assets/RegisterGame/Restor.jpg" id="1_db337"]
+[ext_resource type="Texture2D" uid="uid://cuwyx7dnpthex" path="res://Assets/Materials/counter-top.png" id="2_vvfwd"]
+[ext_resource type="Texture2D" uid="uid://bjornt6bkne1o" path="res://Assets/RegisterGame/register.png" id="3_x86ar"]
+[ext_resource type="Texture2D" uid="uid://cje2qspc6koi6" path="res://Assets/Materials/tray.png" id="4_ukh0f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cix0j"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2t2q"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_em3lu"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Restor" type="Sprite2D" parent="."]
+position = Vector2(972.99994, 539.5)
+scale = Vector2(0.37080503, 0.3681115)
+texture = ExtResource("1_db337")
+
+[node name="CounterTop" type="Sprite2D" parent="."]
+position = Vector2(1004, 911)
+scale = Vector2(7.5033336, 5.5389347)
+texture = ExtResource("2_vvfwd")
+
+[node name="Register" type="Sprite2D" parent="."]
+position = Vector2(441, 637)
+scale = Vector2(1.7622478, 1.919598)
+texture = ExtResource("3_x86ar")
+
+[node name="CostSection" type="Panel" parent="Register"]
+offset_left = 23.833221
+offset_top = -195.87434
+offset_right = 110.0867
+offset_bottom = -167.74345
+theme_override_styles/panel = SubResource("StyleBoxFlat_cix0j")
+
+[node name="ButtonSection" type="Panel" parent="Register"]
+offset_left = -132.2175
+offset_top = -43.23822
+offset_right = 129.9477
+offset_bottom = 52.09424
+theme_override_styles/panel = SubResource("StyleBoxFlat_a2t2q")
+
+[node name="ChargeSection" type="Panel" parent="Register"]
+offset_left = 12.48407
+offset_top = -139.61256
+offset_right = 114.05887
+offset_bottom = -85.955505
+theme_override_styles/panel = SubResource("StyleBoxFlat_em3lu")
+
+[node name="Tray" type="Sprite2D" parent="Register"]
+position = Vector2(484.04092, 129.19371)
+scale = Vector2(0.5244659, 0.38753858)
+texture = ExtResource("4_ukh0f")
