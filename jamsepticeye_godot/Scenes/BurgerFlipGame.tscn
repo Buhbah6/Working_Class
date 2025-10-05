@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://2w88f8prmked"]
+[gd_scene load_steps=15 format=3 uid="uid://2w88f8prmked"]
 
 [ext_resource type="Texture2D" uid="uid://cuwyx7dnpthex" path="res://Assets/Materials/counter-top.png" id="1_g8gv2"]
 [ext_resource type="Texture2D" uid="uid://eulr62r24hma" path="res://Assets/Materials/istockphoto-136637359-612x612.jpg" id="1_yxdgv"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://b8txyvwspumet" path="res://Scripts/Patty.cs" id="8_ov5r2"]
 [ext_resource type="Texture2D" uid="uid://cje2qspc6koi6" path="res://Assets/Materials/tray.png" id="9_ov5r2"]
 [ext_resource type="PackedScene" uid="uid://cp2addbqbc8yd" path="res://Scenes/quest.tscn" id="10_dffi0"]
+[ext_resource type="Script" uid="uid://drkwm144ohk88" path="res://Scripts/GameLogic/GameManager.cs" id="12_s0six"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dffi0"]
 size = Vector2(12.465254, 20.447)
@@ -155,3 +156,8 @@ ImageTexture = ExtResource("3_hppk5")
 [node name="CookedProgress" type="ProgressBar" parent="Patty/Dragable6"]
 offset_right = 4.0
 offset_bottom = 27.0
+
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("quest")]
+script = ExtResource("12_s0six")
+quest = NodePath("../Quest")
+nextScene = "res://Scenes/stacking.tscn"
