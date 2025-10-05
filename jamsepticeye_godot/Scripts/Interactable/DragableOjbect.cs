@@ -6,12 +6,11 @@ public partial class DragableOjbect : TaskItem
 	private bool _dragged = false;
 	
 	[Export]
-	public Node2D CompletionArea;
+	public Area2D CompletionArea;
 	
 	public override void _Ready()
 	{
-		BodyShapeEntered += OnBodyShapeEntered;
-		BodyShapeExited += OnBodyShapeExited;
+		AreaEntered += OnAreaEntered;
 		base._Ready();
 	}
 	
@@ -38,19 +37,14 @@ public partial class DragableOjbect : TaskItem
 		}
 	}
 	
-	public override void OnBodyShapeEntered(Rid bodyRid, Node2D body, long bodyShapeIndex, long localShapeIndex){
-		base.OnBodyShapeEntered(bodyRid, body, bodyShapeIndex, localShapeIndex);
-		GD.Print("Collided");
+	public void OnAreaEntered(Area2D body){
 		if(body == CompletionArea){
 			Complete();
 		}
 	}
 	
-	public override void OnBodyShapeExited(Rid bodyRid, Node2D body, long bodyShapeIndex, long localShapeIndex){
-		base.OnBodyShapeExited(bodyRid, body, bodyShapeIndex, localShapeIndex);
-	}
-	
 	public void Complete(){
+		StopInteract();
 		base.Complete();
 	}
 }
