@@ -1,6 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://c2eqa1ns0xvq6"]
+[gd_scene load_steps=25 format=3 uid="uid://crnsq5wkj3pct"]
 
-[ext_resource type="PackedScene" uid="uid://ckx0agnhtltg1" path="res://Assets/Prefabs/options_window.tscn" id="1_g7sif"]
+[ext_resource type="PackedScene" path="res://Assets/Prefabs/options_window.tscn" id="1_g7sif"]
 [ext_resource type="Texture2D" uid="uid://cdbkyvyvgf8sy" path="res://Assets/StackingGame/scaryKitchen.jpg" id="2_2w11m"]
 [ext_resource type="PackedScene" uid="uid://cp2addbqbc8yd" path="res://Scenes/quest.tscn" id="3_j6bg2"]
 [ext_resource type="Script" uid="uid://cwuwr2xl4cru5" path="res://Scripts/HandEvil.cs" id="4_2w11m"]
@@ -384,6 +384,7 @@ bus = &"SFX"
 [node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("quest")]
 script = ExtResource("16_2w11m")
 quest = NodePath("../Quest")
+deathScene = "res://Scenes/game_over_evil.tscn"
 
 [connection signal="body_entered" from="Hand/Area2D" to="Hand" method="onAreaEntered"]
 [connection signal="body_exited" from="Hand/Area2D" to="Hand" method="onAreaExited"]

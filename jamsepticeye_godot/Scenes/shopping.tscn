@@ -96,3 +96,4 @@ ImageTexture = ExtResource("12_ssvi0")
 script = ExtResource("13_o0m22")
 quest = NodePath("../Quest")
 nextScene = "res://Scenes/BurgerFlipGame.tscn"
+deathScene = "res://Scenes/game_over.tscn"

@@ -384,6 +384,7 @@ bus = &"SFX"
 script = ExtResource("15_tqurt")
 quest = NodePath("../Quest")
 nextScene = "res://Scenes/credits.tscn"
+deathScene = "res://Scenes/game_over.tscn"
 
 [connection signal="body_entered" from="Hand/Area2D" to="Hand" method="onAreaEntered"]
 [connection signal="body_exited" from="Hand/Area2D" to="Hand" method="onAreaExited"]

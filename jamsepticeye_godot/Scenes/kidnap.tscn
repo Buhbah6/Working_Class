@@ -57,5 +57,6 @@ Tasks = [NodePath("../Control/Alley/Person")]
 script = ExtResource("7_sttre")
 quest = NodePath("../Quest")
 nextScene = "res://Scenes/stacking.tscn"
+deathScene = "res://Scenes/game_over_evil.tscn"
 
 [node name="KidnapAudio" type="AudioStreamPlayer" parent="."]
