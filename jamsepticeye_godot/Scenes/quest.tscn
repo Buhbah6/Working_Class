@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://chdud20nf68yi"]
+
+[ext_resource type="Script" uid="uid://6wuhnxnxp3xg" path="res://Scripts/GameLogic/Quest.cs" id="1_nt16b"]
+[ext_resource type="Texture2D" uid="uid://doq4k2fn1mqx0" path="res://Assets/Materials/completed.png" id="2_7b37a"]
+[ext_resource type="FontFile" uid="uid://b04h6slgx6un7" path="res://Assets/fonts/ClownShoes.ttf" id="3_essri"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7b37a"]
+font = ExtResource("3_essri")
+font_size = 72
+font_color = Color(0, 0, 0, 1)
+
+[node name="Quest" type="Node2D" node_paths=PackedStringArray("Tasks")]
+script = ExtResource("1_nt16b")
+Tasks = []
+
+[node name="QuestBanner" type="TextureRect" parent="."]
+unique_name_in_owner = true
+offset_right = 1923.0
+offset_bottom = 331.0
+texture = ExtResource("2_7b37a")
+
+[node name="Text" type="Label" parent="QuestBanner"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 3.0
+offset_top = 23.0
+offset_right = 1921.0
+offset_bottom = 324.0
+label_settings = SubResource("LabelSettings_7b37a")
+horizontal_alignment = 1
+vertical_alignment = 1

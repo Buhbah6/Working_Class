@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cncbtsnrlbg2e"
-path="res://.godot/imported/Piedra-Regular.ttf-2221f2fe310829d490f23e749b294465.fontdata"
+path="res://.godot/imported/Piedra-Regular.ttf-cff885cd2221c18bf088d591c12e3bb1.fontdata"
 
 [deps]
 
-source_file="res://Assets/Fonts/Piedra-Regular.ttf"
-dest_files=["res://.godot/imported/Piedra-Regular.ttf-2221f2fe310829d490f23e749b294465.fontdata"]
+source_file="res://Assets/fonts/Piedra-Regular.ttf"
+dest_files=["res://.godot/imported/Piedra-Regular.ttf-cff885cd2221c18bf088d591c12e3bb1.fontdata"]
 
 [params]
 
