@@ -12,6 +12,8 @@ public partial class Quest : Node
 	private TextureRect taskImage;
 	private Label managerLabel;
 	
+	private TextureRect you;
+	
 	[Export]
 	public Godot.Collections.Array<Texture2D> managerTexture;
 	
@@ -58,6 +60,8 @@ public partial class Quest : Node
 		questBanner.Visible = false;
 		
 		taskImage = GetNode<TextureRect>("%ThumbsUp");
+		you = GetNode<TextureRect>("%you");
+		
 		taskImage.Visible = false;
 		
 		managerLabel = GetNode<Label>("%ManagerQuote");
@@ -76,6 +80,7 @@ public partial class Quest : Node
 			GD.Print("Quest Complete");
 			questBanner.Visible = true;
 			taskImage.Visible = false;
+			you.Texture = GD.Load<Texture2D>("res://Assets/Materials/you2.png");
 			EmitSignal(SignalName.CompletedQuest, this);
 		}
 	}	
