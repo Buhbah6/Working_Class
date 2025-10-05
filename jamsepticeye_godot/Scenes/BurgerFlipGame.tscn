@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvi20p26wjc3f"]
+[gd_scene load_steps=13 format=3 uid="uid://2w88f8prmked"]
 
 [ext_resource type="Texture2D" uid="uid://cuwyx7dnpthex" path="res://Assets/Materials/counter-top.png" id="1_g8gv2"]
 [ext_resource type="Texture2D" uid="uid://bmf843rvr1y2s" path="res://Assets/Materials/grill.png" id="2_6xbl7"]
@@ -6,7 +6,13 @@
 [ext_resource type="Script" uid="uid://b6ilj7gxa5sgh" path="res://Scenes/Grilledddd.cs" id="4_6j448"]
 [ext_resource type="PackedScene" uid="uid://cmhv32mbcborg" path="res://Assets/Prefabs/dragable.tscn" id="5_bqlvq"]
 [ext_resource type="PackedScene" uid="uid://c1o4nbyvu51am" path="res://Assets/Prefabs/player.tscn" id="5_gxgky"]
+[ext_resource type="Texture2D" uid="uid://bsf36168rnksl" path="res://Assets/Materials/cooked.png" id="7_6j448"]
 [ext_resource type="Script" uid="uid://b8txyvwspumet" path="res://Scripts/Patty.cs" id="8_ov5r2"]
+[ext_resource type="Texture2D" uid="uid://cje2qspc6koi6" path="res://Assets/Materials/tray.png" id="9_ov5r2"]
+[ext_resource type="PackedScene" uid="uid://chdud20nf68yi" path="res://Scenes/quest.tscn" id="10_dffi0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dffi0"]
+size = Vector2(12.465254, 20.447)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ov5r2"]
 size = Vector2(215, 104.5)
@@ -18,6 +24,26 @@ position = Vector2(1426, 393)
 scale = Vector2(11.417361, -12.745899)
 texture = ExtResource("1_g8gv2")
 offset = Vector2(-1.8393097, 0)
+
+[node name="FinishProductTray" type="Area2D" parent="."]
+position = Vector2(1502, 534)
+scale = Vector2(29.441835, 11.590941)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishProductTray"]
+position = Vector2(-1.6303344, 4.745085)
+scale = Vector2(1, 0.9999999)
+shape = SubResource("RectangleShape2D_dffi0")
+
+[node name="TextureRect" type="TextureRect" parent="FinishProductTray/CollisionShape2D"]
+offset_left = -9.595189
+offset_top = -21.22347
+offset_right = 30.404812
+offset_bottom = 18.77653
+scale = Vector2(0.51045424, 0.94461477)
+texture = ExtResource("9_ov5r2")
+expand_mode = 1
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-25, -59)
@@ -36,43 +62,81 @@ position = Vector2(243, 220)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_ov5r2")
 
+[node name="Quest" parent="." node_paths=PackedStringArray("Tasks") instance=ExtResource("10_dffi0")]
+Tasks = [NodePath("../Patty/Dragable"), NodePath("../Patty/Dragable2"), NodePath("../Patty/Dragable3"), NodePath("../Patty/Dragable4"), NodePath("../Patty/Dragable5"), NodePath("../Patty/Dragable6")]
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("5_gxgky")]
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Patty" type="Node2D" parent="."]
 
-[node name="Dragable" parent="Node2D" instance=ExtResource("5_bqlvq")]
+[node name="Dragable" parent="Patty" node_paths=PackedStringArray("itCooking", "CompletionArea") instance=ExtResource("5_bqlvq")]
 position = Vector2(1014, 119)
 script = ExtResource("8_ov5r2")
+finishedProduct = ExtResource("7_6j448")
+itCooking = NodePath("CookedProgress")
+CompletionArea = NodePath("../../FinishProductTray")
 ImageTexture = ExtResource("3_hppk5")
 
-[node name="Dragable2" parent="." instance=ExtResource("5_bqlvq")]
-position = Vector2(1169, 115)
+[node name="CookedProgress" type="ProgressBar" parent="Patty/Dragable"]
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="Dragable2" parent="Patty" node_paths=PackedStringArray("itCooking", "CompletionArea") instance=ExtResource("5_bqlvq")]
+position = Vector2(1158, 124)
+script = ExtResource("8_ov5r2")
+finishedProduct = ExtResource("7_6j448")
+itCooking = NodePath("CookedProgress")
+CompletionArea = NodePath("../../FinishProductTray")
 ImageTexture = ExtResource("3_hppk5")
 
-[node name="Dragable3" parent="." instance=ExtResource("5_bqlvq")]
-position = Vector2(1344, 120)
+[node name="CookedProgress" type="ProgressBar" parent="Patty/Dragable2"]
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="Dragable3" parent="Patty" node_paths=PackedStringArray("itCooking", "CompletionArea") instance=ExtResource("5_bqlvq")]
+position = Vector2(1462, 108)
+script = ExtResource("8_ov5r2")
+finishedProduct = ExtResource("7_6j448")
+itCooking = NodePath("CookedProgress")
+CompletionArea = NodePath("../../FinishProductTray")
 ImageTexture = ExtResource("3_hppk5")
 
-[node name="Dragable4" parent="." instance=ExtResource("5_bqlvq")]
-position = Vector2(1524, 127)
+[node name="CookedProgress" type="ProgressBar" parent="Patty/Dragable3"]
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="Dragable4" parent="Patty" node_paths=PackedStringArray("itCooking", "CompletionArea") instance=ExtResource("5_bqlvq")]
+position = Vector2(1024, 267)
+script = ExtResource("8_ov5r2")
+finishedProduct = ExtResource("7_6j448")
+itCooking = NodePath("CookedProgress")
+CompletionArea = NodePath("../../FinishProductTray")
 ImageTexture = ExtResource("3_hppk5")
 
-[node name="Dragable5" parent="." instance=ExtResource("5_bqlvq")]
-position = Vector2(1007, 255)
+[node name="CookedProgress" type="ProgressBar" parent="Patty/Dragable4"]
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="Dragable5" parent="Patty" node_paths=PackedStringArray("itCooking", "CompletionArea") instance=ExtResource("5_bqlvq")]
+position = Vector2(1244, 267)
+script = ExtResource("8_ov5r2")
+finishedProduct = ExtResource("7_6j448")
+itCooking = NodePath("CookedProgress")
+CompletionArea = NodePath("../../FinishProductTray")
 ImageTexture = ExtResource("3_hppk5")
 
-[node name="Dragable6" parent="." instance=ExtResource("5_bqlvq")]
-position = Vector2(1166, 258)
+[node name="CookedProgress" type="ProgressBar" parent="Patty/Dragable5"]
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="Dragable6" parent="Patty" node_paths=PackedStringArray("itCooking", "CompletionArea") instance=ExtResource("5_bqlvq")]
+position = Vector2(1439, 257)
+script = ExtResource("8_ov5r2")
+finishedProduct = ExtResource("7_6j448")
+itCooking = NodePath("CookedProgress")
+CompletionArea = NodePath("../../FinishProductTray")
 ImageTexture = ExtResource("3_hppk5")
 
-[node name="Dragable7" parent="." instance=ExtResource("5_bqlvq")]
-position = Vector2(1336, 255)
-ImageTexture = ExtResource("3_hppk5")
-
-[node name="Dragable8" parent="." instance=ExtResource("5_bqlvq")]
-position = Vector2(1531, 260)
-ImageTexture = ExtResource("3_hppk5")
-
-[node name="Dragable9" parent="." instance=ExtResource("5_bqlvq")]
-position = Vector2(1170, 405)
-ImageTexture = ExtResource("3_hppk5")
+[node name="CookedProgress" type="ProgressBar" parent="Patty/Dragable6"]
+offset_right = 4.0
+offset_bottom = 27.0

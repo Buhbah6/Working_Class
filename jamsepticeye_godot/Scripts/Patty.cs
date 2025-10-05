@@ -3,13 +3,27 @@ using System;
 
 public partial class Patty : TaskItem, IPatty
 {
+	private bool isGrilling = false;
+	private bool isGrilled = false;
+	private float timeToGrill;
+	private float initialTime;
+	
+	[Export]
+	public Texture2D finishedProduct;
+	
+	[Export]
+	public ProgressBar itCooking;
+	
 	public void StartGrilling(){
 		GD.Print("Started Grilling your mom");
-		
+		isGrilling = true;
+		itCooking.Visible = true;
 	}
 	
 	public void StopGrilling(){
 		GD.Print("Stopped grilling ;)");
+		isGrilling = false;
+		itCooking.Visible = false;
 	}
 	
 	private bool _dragged = false;
@@ -19,6 +33,11 @@ public partial class Patty : TaskItem, IPatty
 	
 	public override void _Ready()
 	{
+		itCooking.Visible = false;
+		timeToGrill = (GD.Randi() % 21 + 5);
+		initialTime = timeToGrill;
+		AreaEntered += OnAreaEntered;
+		itCooking.MaxValue = initialTime;
 		base._Ready();
 	}
 	
@@ -40,12 +59,30 @@ public partial class Patty : TaskItem, IPatty
 	public override void _Process(double delta)
 	{
 		base._Process(delta);
+		if (isGrilling) {
+			timeToGrill -= (float)delta;
+			itCooking.Value = initialTime - timeToGrill;
+		}
+		if (timeToGrill <= 0) {
+			CompleteGrill();
+		}
 		if(_dragged){
 			Position = GetViewport().GetMousePosition();
 		}
 	}
-	
+	private void CompleteGrill() {
+		isGrilling = false;
+		isGrilled = true;
+		TextureRect texture = GetNode<TextureRect>("%TextureRect");
+		texture.Texture = finishedProduct;
+	}
+	public void OnAreaEntered(Area2D body){
+		if(body == CompletionArea && isGrilled) {
+			Complete();
+		}
+	}
 	public void Complete(){
+		StopInteract();
 		base.Complete();
 	}
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://kcljwsj3rvkf"]
+[gd_scene load_steps=8 format=3 uid="uid://kcljwsj3rvkf"]
 
 [ext_resource type="Texture2D" uid="uid://dswqdgqlq2gmt" path="res://Assets/Materials/DarkAlley.jpg" id="1_q8xrn"]
 [ext_resource type="Script" path="res://Scenes/Kidnap.cs" id="1_vba3h"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://chmgbc6wigb7q" path="res://Assets/Materials/RandomPerson.webp" id="3_fifmt"]
 [ext_resource type="PackedScene" uid="uid://b7ijkgxpk1ga5" path="res://Assets/Prefabs/holdable.tscn" id="3_vba3h"]
 [ext_resource type="Texture2D" uid="uid://da8pgfvl48bol" path="res://Assets/Materials/trash.png" id="4_bo5tu"]
+[ext_resource type="PackedScene" uid="uid://chdud20nf68yi" path="res://Scenes/quest.tscn" id="7_oerib"]
 
 [node name="Kidnap" type="Node2D"]
 script = ExtResource("1_vba3h")
@@ -48,3 +49,6 @@ offset_left = -10.799996
 offset_top = 1.0000048
 offset_right = 6.800002
 offset_bottom = 36.3
+
+[node name="Quest" parent="." node_paths=PackedStringArray("Tasks") instance=ExtResource("7_oerib")]
+Tasks = [NodePath("../Control/Alley/Person")]
