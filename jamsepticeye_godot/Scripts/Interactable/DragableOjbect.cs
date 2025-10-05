@@ -12,7 +12,7 @@ public partial class DragableOjbect : TaskItem
 	{
 		BodyShapeEntered += OnBodyShapeEntered;
 		BodyShapeExited += OnBodyShapeExited;
-		
+		base._Ready();
 	}
 	
 	public override void Interact(){

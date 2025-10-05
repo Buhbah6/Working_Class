@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7ijkgxpk1ga5"]
+[gd_scene load_steps=4 format=3 uid="uid://b7ijkgxpk1ga5"]
 
 [ext_resource type="Script" uid="uid://bek16ohp023qt" path="res://Scripts/Interactable/Holdable.cs" id="1_5a33d"]
-[ext_resource type="Texture2D" uid="uid://chmgbc6wigb7q" path="res://Assets/Materials/RandomPerson.webp" id="2_qap1u"]
 [ext_resource type="FontFile" uid="uid://csnm423hvgii4" path="res://Assets/fonts/Atlantis Famingo DEMO VERSION.ttf" id="3_mnfi2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qap1u"]
@@ -21,7 +20,6 @@ offset_left = -66.0
 offset_top = -63.0
 offset_right = 63.0
 offset_bottom = 69.0
-texture = ExtResource("2_qap1u")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
