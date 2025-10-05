@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://mu2t5yj50vda"]
+
+[ext_resource type="Script" uid="uid://cplnn0ovmflq8" path="res://Scripts/GameOver.cs" id="1_aop3a"]
+[ext_resource type="Texture2D" uid="uid://mt61tf4ue6fm" path="res://Assets/GameOver/GameOverEvil.jpg" id="2_aop3a"]
+[ext_resource type="AudioStream" uid="uid://08epycbkdb62" path="res://Assets/Sounds/Audio/GameOver.wav" id="3_aop3a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pcux"]
+bg_color = Color(0.20392157, 0.20392157, 0.20392157, 0.8352941)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ptd1"]
+bg_color = Color(0.6, 0.6, 0.6, 0.19215687)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aop3a")
+
+[node name="Scene1" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Apartment" type="Sprite2D" parent="Scene1"]
+position = Vector2(953.49994, 573)
+scale = Vector2(0.51524997, 0.40133333)
+texture = ExtResource("2_aop3a")
+
+[node name="Cam1" type="Camera2D" parent="Scene1"]
+position = Vector2(966, 548)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="ASP1" type="AudioStreamPlayer" parent="Scene1"]
+stream = ExtResource("3_aop3a")
+bus = &"SFX"
+
+[node name="CL1" type="CanvasLayer" parent="Scene1"]
+
+[node name="Label" type="Label" parent="Scene1/CL1"]
+offset_left = 75.0
+offset_top = 90.0
+offset_right = 823.0
+offset_bottom = 252.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_7pcux")
+text = "Maim
+Now you're the hands meat :/"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instruction" type="Label" parent="Scene1/CL1"]
+offset_left = 1630.0
+offset_top = 1004.0
+offset_right = 1891.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ptd1")
+text = "Click to Continue"
+horizontal_alignment = 1
