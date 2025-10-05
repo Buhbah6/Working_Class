@@ -12,6 +12,8 @@ public partial class Quest : Node
 	private TextureRect taskImage;
 	private Label managerLabel;
 	
+	[Export]
+	public Godot.Collections.Array<Texture2D> managerTexture;
 	
 	private Godot.Collections.Array<String> completionText = [
 		"Wow! Good Job!",
@@ -66,6 +68,7 @@ public partial class Quest : Node
 		GD.Print("Task Completed");
 		CompletedTasks++;
 		managerLabel.Text = managerText.PickRandom();
+		taskImage.Texture = managerTexture.PickRandom();
 		taskImage.Visible = true;
 		if(CompletedTasks >= TaskCount){
 			GD.Print("Quest Complete");
