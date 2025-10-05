@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cp2addbqbc8yd"]
+[gd_scene load_steps=16 format=3 uid="uid://cp2addbqbc8yd"]
 
 [ext_resource type="Script" uid="uid://6wuhnxnxp3xg" path="res://Scripts/GameLogic/Quest.cs" id="1_nt16b"]
 [ext_resource type="Texture2D" uid="uid://doq4k2fn1mqx0" path="res://Assets/Materials/completed.png" id="2_7b37a"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://csuam8pdtisdl" path="res://Assets/Materials/tv.png" id="8_uy4b8"]
 [ext_resource type="Texture2D" uid="uid://mgxwm4ec4cvs" path="res://Assets/Materials/timeclock.png" id="10_vprv3"]
 [ext_resource type="Texture2D" uid="uid://g61y5e4wdjfl" path="res://Assets/Materials/timeclockred.png" id="11_vprv3"]
+[ext_resource type="AudioStream" uid="uid://dnydgd3y1xn21" path="res://Assets/Sounds/Audio/491944__cmilo1269__old-men-moan.wav" id="12_0y4t5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7b37a"]
 font = ExtResource("3_essri")
@@ -130,3 +131,8 @@ max_value = 1.0
 fill_mode = 4
 texture_under = ExtResource("10_vprv3")
 texture_progress = ExtResource("11_vprv3")
+
+[node name="ManagerAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_0y4t5")
+bus = &"Voice"

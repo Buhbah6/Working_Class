@@ -16,6 +16,8 @@ public partial class Quest : Node
 	private Label managerLabel;
 	private TextureProgressBar timer;
 	
+	private AudioStreamPlayer managerASP;
+	
 	private bool questComplete = false;
 	
 	private TextureRect you;
@@ -73,6 +75,8 @@ public partial class Quest : Node
 		CompletedTasks = 0;
 		initTime = TimeToComplete;
 		
+		managerASP = GetNode<AudioStreamPlayer>("%ManagerAudio");
+		
 		questBanner = GetNode<TextureRect>("%QuestBanner");
 		questBanner.Visible = false;
 		
@@ -106,6 +110,8 @@ public partial class Quest : Node
 		taskImage.Visible = false;
 		questComplete = true;
 		questLabel.Text = "BAD JOB";
+		managerASP.Stream = GD.Load<AudioStream>("res://Assets/Sounds/Audio/802628__jelloapocalypse__dull-boo.mp3");
+		managerASP.Play();
 		you.Texture = GD.Load<Texture2D>("res://Assets/Materials/youbad.png");
 		EmitSignal(SignalName.FailQuest);
 	}
@@ -115,7 +121,11 @@ public partial class Quest : Node
 		managerLabel.Text = managerText.PickRandom();
 		taskImage.Texture = managerTexture.PickRandom();
 		taskImage.Visible = true;
+		managerASP.Play();
 		if(CompletedTasks >= TaskCount){
+			managerASP.Stop();
+			managerASP.Stream = GD.Load<AudioStream>("res://Assets/Sounds/Audio/252808__xtrgamr__yay.wav");
+			managerASP.Play();
 			questBanner.Visible = true;
 			taskImage.Visible = false;
 			questComplete = true;
