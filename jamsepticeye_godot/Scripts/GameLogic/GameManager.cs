@@ -6,6 +6,7 @@ public partial class GameManager : Node
 {
 	[Export] public Quest quest;
 	[Export] public String nextScene;
+	[Export] public String deathScene;
 	
 	public async Task WaitBeforeRedirect(String redirectLink)
 	{
@@ -28,6 +29,6 @@ public partial class GameManager : Node
 	
 	public void OnQuestFail(){
 		GD.Print("Quest Failed");
-		WaitBeforeRedirect("res://Scenes/credits.tscn");
+		WaitBeforeRedirect(deathScene);
 	}
 }
