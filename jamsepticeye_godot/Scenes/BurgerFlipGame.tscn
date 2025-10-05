@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://bvi20p26wjc3f"]
+
+[ext_resource type="Texture2D" uid="uid://cuwyx7dnpthex" path="res://Assets/Materials/counter-top.png" id="1_g8gv2"]
+[ext_resource type="Texture2D" uid="uid://bmf843rvr1y2s" path="res://Assets/Materials/grill.png" id="2_6xbl7"]
+[ext_resource type="Script" uid="uid://begitpr8v5cgq" path="res://Scenes/Grill2.cs" id="3_43vee"]
+[ext_resource type="Texture2D" uid="uid://bh87qmshqbhkv" path="res://Assets/Materials/patty.png" id="3_hppk5"]
+[ext_resource type="PackedScene" uid="uid://cmhv32mbcborg" path="res://Assets/Prefabs/dragable.tscn" id="5_bqlvq"]
+[ext_resource type="PackedScene" uid="uid://c1o4nbyvu51am" path="res://Assets/Prefabs/player.tscn" id="5_gxgky"]
+[ext_resource type="Script" uid="uid://dpph3s3j7c2d0" path="res://Scenes/grilled.gd" id="7_6j448"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ov5r2"]
+size = Vector2(215, 104.5)
+
+[node name="BurgerFlipGame" type="Node2D"]
+
+[node name="CounterTop" type="Sprite2D" parent="."]
+position = Vector2(1426, 393)
+scale = Vector2(11.417361, -12.745899)
+texture = ExtResource("1_g8gv2")
+offset = Vector2(-1.8393097, 0)
+
+[node name="Grill2" type="Sprite2D" parent="."]
+position = Vector2(480, 444)
+scale = Vector2(2, 2)
+texture = ExtResource("2_6xbl7")
+script = ExtResource("3_43vee")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-25, -59)
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 2
+
+[node name="TextureRect" type="TextureRect" parent="Area2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_6xbl7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(243, 220)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_ov5r2")
+script = ExtResource("7_6j448")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_gxgky")]
+
+[node name="Dragable" parent="." instance=ExtResource("5_bqlvq")]
+position = Vector2(1014, 119)
+ImageTexture = ExtResource("3_hppk5")
+
+[node name="Dragable2" parent="." instance=ExtResource("5_bqlvq")]
+position = Vector2(1169, 115)
+ImageTexture = ExtResource("3_hppk5")
+
+[node name="Dragable3" parent="." instance=ExtResource("5_bqlvq")]
+position = Vector2(1344, 120)
+ImageTexture = ExtResource("3_hppk5")
+
+[node name="Dragable4" parent="." instance=ExtResource("5_bqlvq")]
+position = Vector2(1524, 127)
+ImageTexture = ExtResource("3_hppk5")
+
+[node name="Dragable5" parent="." instance=ExtResource("5_bqlvq")]
+position = Vector2(1007, 255)
+ImageTexture = ExtResource("3_hppk5")
+
+[node name="Dragable6" parent="." instance=ExtResource("5_bqlvq")]
+position = Vector2(1166, 258)
+ImageTexture = ExtResource("3_hppk5")
+
+[node name="Dragable7" parent="." instance=ExtResource("5_bqlvq")]
+position = Vector2(1336, 255)
+ImageTexture = ExtResource("3_hppk5")
+
+[node name="Dragable8" parent="." instance=ExtResource("5_bqlvq")]
+position = Vector2(1531, 260)
+ImageTexture = ExtResource("3_hppk5")
+
+[node name="Dragable9" parent="." instance=ExtResource("5_bqlvq")]
+position = Vector2(1170, 405)
+ImageTexture = ExtResource("3_hppk5")

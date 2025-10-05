@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b45dn8cyhtx4l"]
+[gd_scene load_steps=0 format=3 uid="uid://b45dn8cyhtx4l"]
 
 [node name="Ingredient" type="Node2D"]
 

@@ -37,7 +37,7 @@ project/assembly_name="Jamsepticeye_Godot"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/markdownlabel/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 
