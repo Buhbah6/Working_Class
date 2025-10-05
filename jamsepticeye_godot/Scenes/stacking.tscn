@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ccg1mv6uwe68e"]
+[gd_scene load_steps=19 format=3 uid="uid://f8lwaak6msll"]
 
 [ext_resource type="Texture2D" uid="uid://dojn6cw1ssh67" path="res://Assets/StackingGame/kitchen.jpg" id="1_qghyq"]
 [ext_resource type="Script" uid="uid://c3aehedfom6mm" path="res://Scripts/StackingGame/Hand.cs" id="2_5nu1b"]
