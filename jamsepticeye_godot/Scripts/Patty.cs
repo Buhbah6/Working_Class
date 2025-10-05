@@ -14,14 +14,19 @@ public partial class Patty : TaskItem, IPatty
 	[Export]
 	public ProgressBar itCooking;
 	
+	[Export]
+	public AudioStreamPlayer audioObj;
+	
 	public void StartGrilling(){
 		GD.Print("Started Grilling your mom");
+		audioObj.Play();
 		isGrilling = true;
 		itCooking.Visible = true;
 	}
 	
 	public void StopGrilling(){
 		GD.Print("Stopped grilling ;)");
+		audioObj.Stop();
 		isGrilling = false;
 		itCooking.Visible = false;
 	}
