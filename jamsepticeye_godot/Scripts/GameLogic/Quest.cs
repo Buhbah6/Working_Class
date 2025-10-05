@@ -48,6 +48,12 @@ public partial class Quest : Node
 	public int TaskCount { get; set; }
 	public int CompletedTasks { get; set; }
 	
+	public void AddTask(TaskItem task){
+		Tasks.Add(task);
+		task.CompletedTask += OnTaskCompleted;
+		TaskCount ++;
+	}
+	
 	public override void _Ready()
 	{
 		foreach(TaskItem task in Tasks){
