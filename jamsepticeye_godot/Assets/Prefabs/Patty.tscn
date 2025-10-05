@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://cg65w3d25uv38"]
+[gd_scene load_steps=2 format=3 uid="uid://cg65w3d25uv38"]
+
+[ext_resource type="Script" uid="uid://b8txyvwspumet" path="res://Assets/Prefabs/Patty.cs" id="1_tt64w"]
 
 [node name="Patty" type="Node2D"]
+script = ExtResource("1_tt64w")

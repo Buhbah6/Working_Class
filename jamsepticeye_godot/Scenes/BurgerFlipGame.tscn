@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvi20p26wjc3f"]
+[gd_scene load_steps=11 format=3 uid="uid://bvi20p26wjc3f"]
 
 [ext_resource type="Texture2D" uid="uid://cuwyx7dnpthex" path="res://Assets/Materials/counter-top.png" id="1_g8gv2"]
 [ext_resource type="Texture2D" uid="uid://bmf843rvr1y2s" path="res://Assets/Materials/grill.png" id="2_6xbl7"]
 [ext_resource type="Script" uid="uid://begitpr8v5cgq" path="res://Scenes/Grill2.cs" id="3_43vee"]
 [ext_resource type="Texture2D" uid="uid://bh87qmshqbhkv" path="res://Assets/Materials/patty.png" id="3_hppk5"]
+[ext_resource type="Script" uid="uid://b6ilj7gxa5sgh" path="res://Scenes/Grilledddd.cs" id="4_6j448"]
 [ext_resource type="PackedScene" uid="uid://cmhv32mbcborg" path="res://Assets/Prefabs/dragable.tscn" id="5_bqlvq"]
 [ext_resource type="PackedScene" uid="uid://c1o4nbyvu51am" path="res://Assets/Prefabs/player.tscn" id="5_gxgky"]
 [ext_resource type="Script" uid="uid://dpph3s3j7c2d0" path="res://Scenes/grilled.gd" id="7_6j448"]
+[ext_resource type="Script" uid="uid://b8txyvwspumet" path="res://Assets/Prefabs/Patty.cs" id="8_ov5r2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ov5r2"]
 size = Vector2(215, 104.5)
@@ -30,6 +32,7 @@ position = Vector2(-25, -59)
 scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 2
+script = ExtResource("4_6j448")
 
 [node name="TextureRect" type="TextureRect" parent="Area2D"]
 offset_right = 40.0
@@ -46,7 +49,7 @@ script = ExtResource("7_6j448")
 
 [node name="Dragable" parent="." instance=ExtResource("5_bqlvq")]
 position = Vector2(1014, 119)
-ImageTexture = ExtResource("3_hppk5")
+script = ExtResource("8_ov5r2")
 
 [node name="Dragable2" parent="." instance=ExtResource("5_bqlvq")]
 position = Vector2(1169, 115)
