@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ccg1mv6uwe68e"]
+[gd_scene load_steps=23 format=3 uid="uid://ccg1mv6uwe68e"]
 
 [ext_resource type="PackedScene" uid="uid://cp2addbqbc8yd" path="res://Scenes/quest.tscn" id="1_pwhkt"]
 [ext_resource type="Texture2D" uid="uid://dojn6cw1ssh67" path="res://Assets/StackingGame/kitchen.jpg" id="1_qghyq"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://b8yqkbvkbbdi4" path="res://Assets/StackingGame/Ingredients/Cheese.png" id="9_tqurt"]
 [ext_resource type="Texture2D" uid="uid://cbcsy8ssph1w1" path="res://Assets/StackingGame/Ingredients/Patty.png" id="10_dbnh1"]
 [ext_resource type="Texture2D" uid="uid://bdvs12cp1eivo" path="res://Assets/StackingGame/Ingredients/BunBottom.png" id="11_eiqsl"]
+[ext_resource type="AudioStream" uid="uid://cm7ogh7ud1udg" path="res://Assets/Music/Audio/stackingTheme.mp3" id="13_3qqf4"]
+[ext_resource type="AudioStream" uid="uid://u02n0rvkl4el" path="res://Assets/Sounds/Audio/yay.wav" id="14_7iql4"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5nu1b"]
 
@@ -20,6 +22,17 @@ size = Vector2(296, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwqph"]
 size = Vector2(342, 667.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwhkt"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.18431373, 0.18431373, 0.18431373, 0.7882353)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1l41n"]
 bg_color = Color(0.14509805, 0.14509805, 0.14509805, 0.85490197)
@@ -55,9 +68,8 @@ scale = Vector2(0.51072836, 0.40064523)
 texture = ExtResource("1_qghyq")
 
 [node name="Quest" parent="." instance=ExtResource("1_pwhkt")]
-managerTexture = null
 
-[node name="Hand" type="CharacterBody2D" parent="." node_paths=PackedStringArray("x1", "x2", "x3", "x4", "x5", "x6", "quest")]
+[node name="Hand" type="CharacterBody2D" parent="." node_paths=PackedStringArray("x1", "x2", "x3", "x4", "x5", "x6", "quest", "task", "progress", "sfx")]
 position = Vector2(935, 881)
 collision_layer = 2
 collision_mask = 0
@@ -70,6 +82,9 @@ x5 = NodePath("../CanvasLayer/Panel/Line5/Status")
 x6 = NodePath("../CanvasLayer/Panel/Line6/Status")
 quest = NodePath("../Quest")
 BurgerNum = 3
+task = NodePath("../CanvasLayer/Task")
+progress = NodePath("../CanvasLayer/Progress")
+sfx = NodePath("../SFX")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand"]
 position = Vector2(261.7113, 205.36218)
@@ -96,6 +111,24 @@ shape = SubResource("RectangleShape2D_dwqph")
 script = ExtResource("4_5nu1b")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Task" type="Label" parent="CanvasLayer"]
+offset_left = 28.0
+offset_top = 21.0
+offset_right = 440.0
+offset_bottom = 86.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_pwhkt")
+text = "Task: Assemble 3 Burgers"
+
+[node name="Progress" type="Label" parent="CanvasLayer"]
+offset_left = 27.0
+offset_top = 93.0
+offset_right = 293.0
+offset_bottom = 158.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_pwhkt")
+text = "Count: "
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 offset_left = 1529.0
@@ -332,6 +365,15 @@ offset_right = 300.0
 offset_bottom = 523.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_4urdp")
 text = "Right Click to Submit Burger"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_3qqf4")
+autoplay = true
+bus = &"Music"
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_7iql4")
+bus = &"SFX"
 
 [connection signal="body_entered" from="Hand/Area2D" to="Hand" method="onAreaEntered"]
 [connection signal="body_exited" from="Hand/Area2D" to="Hand" method="onAreaExited"]

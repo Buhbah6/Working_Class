@@ -76,3 +76,7 @@ https://freesound.org/people/EpicAllay/sounds/615080/
 https://pixsector.com/icon/free-left-arrow-symbol-png-vector/789
 https://unsplash.com/photos/a-kitchen-with-a-microwave-oven-and-microwave-ZhgIzEQwyrI
 https://unsplash.com/photos/person-in-black-button-up-shirt-with-burger-jxMURaM7icw
+https://www.vecteezy.com/png/46004108-juicy-grilled-beef-burger-patty
+https://www.citypng.com/png-download/17476
+https://www.citypng.com/png-download/11879
+https://freemusicarchive.org/music/Dee_Yan-Key/summer-life/busy-bees/

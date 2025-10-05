@@ -14,6 +14,9 @@ public partial class Hand : CharacterBody2D
 	[Export] public TextureRect x6;
 	[Export] public Quest quest;
 	[Export] public int BurgerNum;
+	[Export] public Label task;
+	[Export] public Label progress;
+	[Export] public AudioStreamPlayer sfx;
 	private Texture2D textureA;
 	private Texture2D textureB;
 	private bool x1a = true;
@@ -25,8 +28,10 @@ public partial class Hand : CharacterBody2D
 
 	public override void _Ready()
 	{
+		GetNode<AudioStreamPlayer>("/root/BgMusic").Stop();
 		textureA = GD.Load<Texture2D>("res://Assets/StackingGame/BigX.png");
 		textureB = GD.Load<Texture2D>("res://Assets/StackingGame/CheckMark.png");
+		task.Text = "Task: Assemble " + BurgerNum + " Burgers";
 		
 		Input.MouseMode = Input.MouseModeEnum.Hidden;
 		var mat = new PhysicsMaterial {
@@ -36,8 +41,9 @@ public partial class Hand : CharacterBody2D
 		};
 		GetNode<CollisionShape2D>("CollisionShape2D").Set("material", mat);
 		for (int i = 0; i < BurgerNum; i++) {
-			quest.Tasks.Add(new BurgerMaker());
+			quest.AddTask(new BurgerMaker());
 		}
+		progress.Text = "Burgers made: " + (BurgerNum - quest.Tasks.Count);
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -56,6 +62,13 @@ public partial class Hand : CharacterBody2D
 		
 	}
 	
+	public override void _Input(InputEvent @event)
+	{
+		if (@event.IsAction("Secondary")) {
+			checkForWin();
+		}
+	}
+	
 	public void onAreaEntered(Node2D body)
 	{
 		if (body is RigidBody2D rb && !_stack.Contains(rb))
@@ -63,7 +76,6 @@ public partial class Hand : CharacterBody2D
 			_stack.Add(rb);
 			GD.Print($"Added to stack: {rb.Name}");
 			ToggleTexture(rb);
-			checkForWin();
 		}
 	}
 
@@ -74,7 +86,6 @@ public partial class Hand : CharacterBody2D
 			_stack.Remove(rb);
 			GD.Print($"Removed from stack: {rb.Name}");
 			ToggleTexture(rb);
-			checkForWin();
 		}
 	}
 	
@@ -110,8 +121,11 @@ public partial class Hand : CharacterBody2D
 	private void checkForWin() {
 		RigidBody2D rb;
 		if (!x1a && !x2a && !x3a && !x4a && !x5a && !x6a) {
-			GD.Print("Win");
+			x1a = x2a = x3a = x4a = x5a = x6a = true;
+			x1.Texture = x2.Texture = x3.Texture = x4.Texture = x5.Texture = x6.Texture = textureA;
 			quest.Tasks[0].Complete();
+			sfx.Play();
+			progress.Text = "Burgers made: " + (BurgerNum - quest.CompletedTasks);
 			while (_stack.Count > 0) {
 				rb = _stack[0];
 				_stack.Remove(rb);
