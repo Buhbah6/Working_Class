@@ -1,6 +1,5 @@
-[gd_scene load_steps=13 format=3 uid="uid://bvi20p26wjc3f"]
+[gd_scene load_steps=13 format=3 uid="uid://2w88f8prmked"]
 
-[ext_resource type="Script" uid="uid://6wuhnxnxp3xg" path="res://Scripts/GameLogic/Quest.cs" id="1_dffi0"]
 [ext_resource type="Texture2D" uid="uid://cuwyx7dnpthex" path="res://Assets/Materials/counter-top.png" id="1_g8gv2"]
 [ext_resource type="Texture2D" uid="uid://bmf843rvr1y2s" path="res://Assets/Materials/grill.png" id="2_6xbl7"]
 [ext_resource type="Texture2D" uid="uid://bh87qmshqbhkv" path="res://Assets/Materials/patty.png" id="3_hppk5"]
@@ -10,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bsf36168rnksl" path="res://Assets/Materials/cooked.png" id="7_6j448"]
 [ext_resource type="Script" uid="uid://b8txyvwspumet" path="res://Scripts/Patty.cs" id="8_ov5r2"]
 [ext_resource type="Texture2D" uid="uid://cje2qspc6koi6" path="res://Assets/Materials/tray.png" id="9_ov5r2"]
+[ext_resource type="PackedScene" uid="uid://chdud20nf68yi" path="res://Scenes/quest.tscn" id="10_dffi0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dffi0"]
 size = Vector2(12.465254, 20.447)
@@ -17,9 +17,7 @@ size = Vector2(12.465254, 20.447)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ov5r2"]
 size = Vector2(215, 104.5)
 
-[node name="BurgerFlipGame" type="Node2D" node_paths=PackedStringArray("Tasks")]
-script = ExtResource("1_dffi0")
-Tasks = [NodePath("Patty/Dragable"), NodePath("Patty/Dragable2"), NodePath("Patty/Dragable3"), NodePath("Patty/Dragable4"), NodePath("Patty/Dragable5"), NodePath("Patty/Dragable6")]
+[node name="BurgerFlipGame" type="Node2D"]
 
 [node name="CounterTop" type="Sprite2D" parent="."]
 position = Vector2(1426, 393)
@@ -139,3 +137,6 @@ ImageTexture = ExtResource("3_hppk5")
 [node name="CookedProgress" type="ProgressBar" parent="Patty/Dragable6"]
 offset_right = 4.0
 offset_bottom = 27.0
+
+[node name="Quest" parent="." node_paths=PackedStringArray("Tasks") instance=ExtResource("10_dffi0")]
+Tasks = [NodePath("../Patty/Dragable"), NodePath("../Patty/Dragable2"), NodePath("../Patty/Dragable3"), NodePath("../Patty/Dragable4"), NodePath("../Patty/Dragable5"), NodePath("../Patty/Dragable6")]

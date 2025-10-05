@@ -13,7 +13,8 @@ public partial class Quest : Node
 	private Godot.Collections.Array<String> completionText = [
 		"Wow! Good Job!",
 		"Tasks Completed!",
-		"Amazing!!!"
+		"Amazing!!!",
+		"hands meat..."
 	];
 	
 	[Export]
