@@ -12,6 +12,8 @@ public partial class Hand : CharacterBody2D
 	[Export] public TextureRect x4;
 	[Export] public TextureRect x5;
 	[Export] public TextureRect x6;
+	[Export] public Quest quest;
+	[Export] public int BurgerNum;
 	private Texture2D textureA;
 	private Texture2D textureB;
 	private bool x1a = true;
@@ -33,6 +35,9 @@ public partial class Hand : CharacterBody2D
 			Rough = true
 		};
 		GetNode<CollisionShape2D>("CollisionShape2D").Set("material", mat);
+		for (int i = 0; i < BurgerNum; i++) {
+			quest.Tasks.push(new BurgerMaker());
+		}
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -48,6 +53,7 @@ public partial class Hand : CharacterBody2D
 		Velocity = new Vector2(Velocity.X, 0);
 		MoveAndSlide();
 		GlobalPosition = new Vector2(GlobalPosition.X, YPosition);
+		
 	}
 	
 	public void onAreaEntered(Node2D body)
@@ -98,5 +104,10 @@ public partial class Hand : CharacterBody2D
 				x6.Texture = x6a ? textureA : textureB;
 				break;
 		}
+	}
+	private void checkForWin() {
+		if (x1a && x2a && x3a && x4a && x5a && x6a) {
+			quest.Tasks[0].Complete();
+		}	
 	}
 }

@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://ccg1mv6uwe68e"]
+[gd_scene load_steps=20 format=3 uid="uid://ccg1mv6uwe68e"]
 
+[ext_resource type="PackedScene" path="res://Scenes/quest.tscn" id="1_pwhkt"]
 [ext_resource type="Texture2D" uid="uid://dojn6cw1ssh67" path="res://Assets/StackingGame/kitchen.jpg" id="1_qghyq"]
 [ext_resource type="Script" uid="uid://c3aehedfom6mm" path="res://Scripts/StackingGame/Hand.cs" id="2_5nu1b"]
 [ext_resource type="Texture2D" uid="uid://chorxm2whvty0" path="res://Assets/Materials/Secondary.png" id="2_6k4it"]
@@ -48,16 +49,20 @@ expand_margin_bottom = 10.0
 
 [node name="FoodStackingGame" type="Node2D"]
 
+[node name="Quest" parent="." instance=ExtResource("1_pwhkt")]
+managerTexture = null
+
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(962.0625, 253.99998)
 scale = Vector2(0.51072836, 0.40064523)
 texture = ExtResource("1_qghyq")
 
-[node name="Hand" type="CharacterBody2D" parent="."]
+[node name="Hand" type="CharacterBody2D" parent="." node_paths=PackedStringArray("quest")]
 position = Vector2(935, 881)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("2_5nu1b")
+quest = NodePath("../Quest")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand"]
 position = Vector2(261.7113, 205.36218)
