@@ -1,6 +1,6 @@
 using Godot;
 
-public Interface IPatty
+public interface IPatty
 {
 	void StartGrilling();
 	void StopGrilling();
