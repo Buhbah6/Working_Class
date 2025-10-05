@@ -1,14 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://cp2addbqbc8yd"]
+[gd_scene load_steps=15 format=3 uid="uid://cp2addbqbc8yd"]
 
 [ext_resource type="Script" uid="uid://6wuhnxnxp3xg" path="res://Scripts/GameLogic/Quest.cs" id="1_nt16b"]
 [ext_resource type="Texture2D" uid="uid://doq4k2fn1mqx0" path="res://Assets/Materials/completed.png" id="2_7b37a"]
 [ext_resource type="Texture2D" uid="uid://bvgomngvg1vhm" path="res://Assets/Materials/angry.png" id="2_uy4b8"]
-[ext_resource type="FontFile" uid="uid://b04h6slgx6un7" path="res://Assets/Fonts/ClownShoes.ttf" id="3_essri"]
+[ext_resource type="FontFile" uid="uid://b04h6slgx6un7" path="res://Assets/fonts/ClownShoes.ttf" id="3_essri"]
 [ext_resource type="Texture2D" uid="uid://dkjasoeikd7e6" path="res://Assets/Materials/good.png" id="4_wxgyg"]
 [ext_resource type="Texture2D" uid="uid://ct7nar1hsggci" path="res://Assets/Materials/manager.webp" id="5_cbd34"]
 [ext_resource type="Texture2D" uid="uid://rowcilnbvpkj" path="res://Assets/Materials/bubble.webp" id="6_2revy"]
 [ext_resource type="Texture2D" uid="uid://duel50xbhirp" path="res://Assets/Materials/you.png" id="7_gq147"]
 [ext_resource type="Texture2D" uid="uid://csuam8pdtisdl" path="res://Assets/Materials/tv.png" id="8_uy4b8"]
+[ext_resource type="Texture2D" uid="uid://mgxwm4ec4cvs" path="res://Assets/Materials/timeclock.png" id="10_vprv3"]
+[ext_resource type="Texture2D" uid="uid://g61y5e4wdjfl" path="res://Assets/Materials/timeclockred.png" id="11_vprv3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7b37a"]
 font = ExtResource("3_essri")
@@ -116,3 +118,15 @@ offset_top = 41.0
 offset_right = 416.0
 offset_bottom = 167.0
 text = "You POV"
+
+[node name="QuestTimer" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = 10.0
+offset_top = 64.0
+offset_right = 1488.0
+offset_bottom = 1543.0
+scale = Vector2(0.115, 0.115)
+max_value = 1.0
+fill_mode = 4
+texture_under = ExtResource("10_vprv3")
+texture_progress = ExtResource("11_vprv3")
