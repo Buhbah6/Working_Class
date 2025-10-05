@@ -7,12 +7,22 @@ public partial class Quest : Node
 	[Signal]
 	public delegate void CompletedQuestEventHandler(Quest quest);
 	
+	[Signal]
+	public delegate void FailQuestEventHandler(Quest quest);
+	
 	private TextureRect questBanner;
 	private Label questLabel;
 	private TextureRect taskImage;
 	private Label managerLabel;
+	private TextureProgressBar timer;
+	
+	private bool questComplete = false;
 	
 	private TextureRect you;
+	
+	[Export]
+	public float TimeToComplete;
+	private float initTime;
 	
 	[Export]
 	public Godot.Collections.Array<Texture2D> managerTexture;
@@ -61,7 +71,8 @@ public partial class Quest : Node
 			TaskCount ++;
 		}
 		CompletedTasks = 0;
-	
+		initTime = TimeToComplete;
+		
 		questBanner = GetNode<TextureRect>("%QuestBanner");
 		questBanner.Visible = false;
 		
@@ -72,8 +83,31 @@ public partial class Quest : Node
 		
 		managerLabel = GetNode<Label>("%ManagerQuote");
 		
+		timer = GetNode<TextureProgressBar>("%QuestTimer");
+		timer.MaxValue = initTime;
+		
 		questLabel = GetNode<Label>("%Text");
 		questLabel.Text = completionText.PickRandom();
+	}
+		
+	public override void _Process(double delta){
+		base._Process(delta);
+		if(!questComplete){
+			TimeToComplete -= (float)delta;
+			timer.Value = initTime - TimeToComplete;
+			if (TimeToComplete <= 0 ) {
+				QuestFailed();
+			}
+		}
+	}
+		
+	private void QuestFailed(){
+		GD.Print("Quest Complete");
+		questBanner.Visible = true;
+		taskImage.Visible = false;
+		questLabel.Text = "BAD JOB";
+		you.Texture = GD.Load<Texture2D>("res://Assets/Materials/youbad.png");
+		EmitSignal(SignalName.FailQuest, this);
 	}
 		
 	private void OnTaskCompleted(){
@@ -86,6 +120,7 @@ public partial class Quest : Node
 			GD.Print("Quest Complete");
 			questBanner.Visible = true;
 			taskImage.Visible = false;
+			questComplete = true;
 			you.Texture = GD.Load<Texture2D>("res://Assets/Materials/you2.png");
 			EmitSignal(SignalName.CompletedQuest, this);
 		}
