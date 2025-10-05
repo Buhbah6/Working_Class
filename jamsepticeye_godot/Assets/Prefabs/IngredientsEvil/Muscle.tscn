@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxh4jrwi6wwie"]
+
+[ext_resource type="Texture2D" uid="uid://kvi1rgx0e77d" path="res://Assets/StackingGame/IngredientsEvil/Muscle.png" id="1_ouhrp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uq54n"]
+friction = 12.0
+rough = true
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8464"]
+size = Vector2(247, 67)
+
+[node name="Ingredient" type="Node2D"]
+
+[node name="Muscle" type="RigidBody2D" parent="."]
+disable_mode = 2
+collision_mask = 3
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_uq54n")
+can_sleep = false
+linear_damp = 2.0
+angular_damp = 20.0
+
+[node name="BunBottom" type="Sprite2D" parent="Muscle"]
+position = Vector2(1.5000038, 11.206218)
+scale = Vector2(0.6113861, 0.43701258)
+texture = ExtResource("1_ouhrp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muscle"]
+position = Vector2(1.5, 5.5)
+shape = SubResource("RectangleShape2D_u8464")

@@ -1,0 +1,283 @@
+[gd_scene load_steps=16 format=3 uid="uid://ccm2i6kb5qrsn"]
+
+[ext_resource type="Script" uid="uid://d1im004vydbfo" path="res://Scripts/MidCutscene.cs" id="1_osjfy"]
+[ext_resource type="Texture2D" uid="uid://b62ms2fou68a7" path="res://Assets/MidCutscene/Wallet.jpg" id="2_wok82"]
+[ext_resource type="AudioStream" uid="uid://81u5qr3km4cu" path="res://Assets/Sounds/Audio/moneyWallet.mp3" id="3_wok82"]
+[ext_resource type="Texture2D" uid="uid://ceb3yldaxbjd7" path="res://Assets/MidCutscene/thinking.jpg" id="4_xldeg"]
+[ext_resource type="AudioStream" uid="uid://bsi2jutbcjfew" path="res://Assets/Sounds/Audio/thinking.mp3" id="5_xldeg"]
+[ext_resource type="Texture2D" uid="uid://2cyv33cxw8d5" path="res://Assets/IntroCutscene/ArrowIcon.png" id="6_5whbs"]
+[ext_resource type="Texture2D" uid="uid://bj6fu34uo4jm1" path="res://Assets/MidCutscene/knife.jpg" id="7_hbbfu"]
+[ext_resource type="AudioStream" uid="uid://bquo5rktdretv" path="res://Assets/Sounds/Audio/knifeSharpen.mp3" id="8_hbbfu"]
+[ext_resource type="Texture2D" uid="uid://dx56dk1uclaor" path="res://Assets/MidCutscene/alleyway.jpg" id="8_kj7uk"]
+[ext_resource type="AudioStream" uid="uid://bbp47nf4s8udk" path="res://Assets/Sounds/Audio/Chuckle.mp3" id="10_kj7uk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pcux"]
+bg_color = Color(0.20392157, 0.20392157, 0.20392157, 0.8352941)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ptd1"]
+bg_color = Color(0.6, 0.6, 0.6, 0.19215687)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd1p2"]
+bg_color = Color(0.45452422, 0.45452428, 0.45452416, 0.5686275)
+corner_radius_top_left = 500
+corner_radius_top_right = 500
+corner_radius_bottom_right = 500
+corner_radius_bottom_left = 500
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmj0s"]
+bg_color = Color(0.8352941, 0.8352941, 0.8352941, 1)
+corner_radius_top_left = 500
+corner_radius_top_right = 500
+corner_radius_bottom_right = 500
+corner_radius_bottom_left = 500
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygb1w"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="MidCutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_osjfy")
+
+[node name="Scene1" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Apartment" type="Sprite2D" parent="Scene1"]
+position = Vector2(969.50006, 522.5)
+scale = Vector2(0.40760034, 0.37297454)
+texture = ExtResource("2_wok82")
+
+[node name="Cam1" type="Camera2D" parent="Scene1"]
+position = Vector2(966, 548)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="ASP1" type="AudioStreamPlayer" parent="Scene1"]
+stream = ExtResource("3_wok82")
+bus = &"SFX"
+parameters/looping = true
+
+[node name="CL1" type="CanvasLayer" parent="Scene1"]
+
+[node name="Label" type="Label" parent="Scene1/CL1"]
+offset_left = 75.0
+offset_top = 90.0
+offset_right = 823.0
+offset_bottom = 252.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_7pcux")
+text = "Cost of supplies is starting to run a bit tight...."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instruction" type="Label" parent="Scene1/CL1"]
+offset_left = 1630.0
+offset_top = 1004.0
+offset_right = 1891.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ptd1")
+text = "Click to Continue"
+horizontal_alignment = 1
+
+[node name="Scene2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 3770.0
+offset_top = 18.0
+offset_right = 3810.0
+offset_bottom = 58.0
+
+[node name="ComputerDarkModified" type="Sprite2D" parent="Scene2"]
+position = Vector2(1.4999638, 24.000034)
+scale = Vector2(0.54189366, 0.24438423)
+texture = ExtResource("4_xldeg")
+
+[node name="Cam2" type="Camera2D" parent="Scene2"]
+position = Vector2(-0.00012207031, -1.5258789e-05)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="ASP2" type="AudioStreamPlayer" parent="Scene2"]
+stream = ExtResource("5_xldeg")
+bus = &"Music"
+parameters/looping = true
+
+[node name="CL2" type="CanvasLayer" parent="Scene2"]
+
+[node name="Label" type="Label" parent="Scene2/CL2"]
+offset_left = 121.0
+offset_top = 777.0
+offset_right = 908.0
+offset_bottom = 923.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_7pcux")
+text = "I wish there was a way to get ingredients for free..?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instruction" type="Label" parent="Scene2/CL2"]
+offset_left = 1630.0
+offset_top = 1004.0
+offset_right = 1891.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ptd1")
+text = "Click to Continue"
+horizontal_alignment = 1
+
+[node name="Return" type="Button" parent="Scene2/CL2"]
+offset_left = 15.0
+offset_top = 959.0
+offset_right = 583.0
+offset_bottom = 1527.0
+scale = Vector2(0.2, 0.2)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hd1p2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dmj0s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dmj0s")
+icon = ExtResource("6_5whbs")
+
+[node name="Scene3" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 6033.0
+offset_top = 18.0
+offset_right = 6073.0
+offset_bottom = 58.0
+
+[node name="Panel" type="Panel" parent="Scene3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1039.0
+offset_top = -624.0
+offset_right = 998.0
+offset_bottom = 580.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ygb1w")
+
+[node name="LinkedInZoomedIn" type="Sprite2D" parent="Scene3"]
+position = Vector2(30.74993, -63)
+scale = Vector2(0.6430474, 0.44595796)
+texture = ExtResource("7_hbbfu")
+
+[node name="Cam3" type="Camera2D" parent="Scene3"]
+position = Vector2(-0.00012207031, -1.5258789e-05)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="ASP3" type="AudioStreamPlayer" parent="Scene3"]
+stream = ExtResource("8_hbbfu")
+bus = &"SFX"
+parameters/looping = true
+
+[node name="CL3" type="CanvasLayer" parent="Scene3"]
+
+[node name="Label" type="Label" parent="Scene3/CL3"]
+offset_left = 1066.0
+offset_top = 161.0
+offset_right = 1773.0
+offset_bottom = 274.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_7pcux")
+text = "Maybe I'm not looking in the right place..."
+
+[node name="Instruction" type="Label" parent="Scene3/CL3"]
+offset_left = 1630.0
+offset_top = 1004.0
+offset_right = 1891.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ptd1")
+text = "Click to Continue"
+horizontal_alignment = 1
+
+[node name="Return" type="Button" parent="Scene3/CL3"]
+offset_left = 15.0
+offset_top = 959.0
+offset_right = 583.0
+offset_bottom = 1527.0
+scale = Vector2(0.2, 0.2)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hd1p2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dmj0s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dmj0s")
+icon = ExtResource("6_5whbs")
+
+[node name="Scene4" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 8233.0
+offset_top = 25.0
+offset_right = 8273.0
+offset_bottom = 65.0
+
+[node name="LinkedInModified" type="Sprite2D" parent="Scene4"]
+position = Vector2(22.499208, -39.499935)
+scale = Vector2(0.5623861, 0.56898713)
+texture = ExtResource("8_kj7uk")
+
+[node name="Cam4" type="Camera2D" parent="Scene4"]
+position = Vector2(-0.00012207031, -1.5258789e-05)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="ASP4" type="AudioStreamPlayer" parent="Scene4"]
+stream = ExtResource("10_kj7uk")
+bus = &"SFX"
+parameters/looping = true
+
+[node name="CL4" type="CanvasLayer" parent="Scene4"]
+
+[node name="Label" type="Label" parent="Scene4/CL4"]
+offset_left = 73.0
+offset_top = 697.0
+offset_right = 590.0
+offset_bottom = 926.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_7pcux")
+text = "Ohhhhhh. I get it.
+Maybe Death is an opportunity. Instead of making ends meet, let's make HANDS MEAT!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instruction" type="Label" parent="Scene4/CL4"]
+offset_left = 1630.0
+offset_top = 1004.0
+offset_right = 1891.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ptd1")
+text = "Click to Continue"
+horizontal_alignment = 1
+
+[node name="Return" type="Button" parent="Scene4/CL4"]
+offset_left = 15.0
+offset_top = 959.0
+offset_right = 583.0
+offset_bottom = 1527.0
+scale = Vector2(0.2, 0.2)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hd1p2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dmj0s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dmj0s")
+icon = ExtResource("6_5whbs")
+
+[connection signal="pressed" from="Scene2/CL2/Return" to="." method="onBackPressed"]

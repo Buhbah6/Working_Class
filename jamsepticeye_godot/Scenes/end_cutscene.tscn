@@ -1,0 +1,208 @@
+[gd_scene load_steps=13 format=3 uid="uid://buffmgx44ck3y"]
+
+[ext_resource type="Script" uid="uid://c4b5mbv6u5agd" path="res://Scenes/EndCutscene.cs" id="1_5yjki"]
+[ext_resource type="Texture2D" uid="uid://2yh24kv20ffw" path="res://Assets/EndCutscene/Degree.jpg" id="2_5yjki"]
+[ext_resource type="AudioStream" uid="uid://bwtat85aif67r" path="res://Assets/Sounds/Audio/Success.wav" id="3_itcvd"]
+[ext_resource type="Texture2D" uid="uid://clyipc86gf1ap" path="res://Assets/EndCutscene/Fire.jpg" id="4_kch87"]
+[ext_resource type="AudioStream" uid="uid://c6b55ehth7tlh" path="res://Assets/Sounds/Audio/Fire.mp3" id="5_toyau"]
+[ext_resource type="Texture2D" uid="uid://2cyv33cxw8d5" path="res://Assets/IntroCutscene/ArrowIcon.png" id="6_6qwj4"]
+[ext_resource type="Texture2D" uid="uid://bu4yh8xtcemvc" path="res://Assets/EndCutscene/Money.jpg" id="7_7wnk8"]
+[ext_resource type="AudioStream" uid="uid://dxkawo7okcyce" path="res://Assets/Sounds/Audio/GTAMission.mp3" id="8_p27gj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pcux"]
+bg_color = Color(0.20392157, 0.20392157, 0.20392157, 0.8352941)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ptd1"]
+bg_color = Color(0.6, 0.6, 0.6, 0.19215687)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd1p2"]
+bg_color = Color(0.45452422, 0.45452428, 0.45452416, 0.5686275)
+corner_radius_top_left = 500
+corner_radius_top_right = 500
+corner_radius_bottom_right = 500
+corner_radius_bottom_left = 500
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmj0s"]
+bg_color = Color(0.8352941, 0.8352941, 0.8352941, 1)
+corner_radius_top_left = 500
+corner_radius_top_right = 500
+corner_radius_bottom_right = 500
+corner_radius_bottom_left = 500
+
+[node name="EndCutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5yjki")
+
+[node name="Scene1" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Apartment" type="Sprite2D" parent="Scene1"]
+position = Vector2(969.50006, 522.5)
+scale = Vector2(0.40760034, 0.37297454)
+texture = ExtResource("2_5yjki")
+
+[node name="Cam1" type="Camera2D" parent="Scene1"]
+position = Vector2(966, 548)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="ASP1" type="AudioStreamPlayer" parent="Scene1"]
+stream = ExtResource("3_itcvd")
+bus = &"SFX"
+
+[node name="CL1" type="CanvasLayer" parent="Scene1"]
+
+[node name="Label" type="Label" parent="Scene1/CL1"]
+offset_left = 75.0
+offset_top = 90.0
+offset_right = 823.0
+offset_bottom = 252.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_7pcux")
+text = "I guess this degree didn't serve much purpose."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instruction" type="Label" parent="Scene1/CL1"]
+offset_left = 1630.0
+offset_top = 1004.0
+offset_right = 1891.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ptd1")
+text = "Click to Continue"
+horizontal_alignment = 1
+
+[node name="Scene2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 3770.0
+offset_top = 18.0
+offset_right = 3810.0
+offset_bottom = 58.0
+
+[node name="ComputerDarkModified" type="Sprite2D" parent="Scene2"]
+position = Vector2(-9.499939, -15.000038)
+scale = Vector2(0.40780544, 0.17027165)
+texture = ExtResource("4_kch87")
+
+[node name="Cam2" type="Camera2D" parent="Scene2"]
+position = Vector2(-0.00012207031, -1.5258789e-05)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="ASP2" type="AudioStreamPlayer" parent="Scene2"]
+stream = ExtResource("5_toyau")
+bus = &"SFX"
+parameters/looping = true
+
+[node name="CL2" type="CanvasLayer" parent="Scene2"]
+
+[node name="Label" type="Label" parent="Scene2/CL2"]
+offset_left = 121.0
+offset_top = 777.0
+offset_right = 908.0
+offset_bottom = 923.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_7pcux")
+text = "Goodbye CS."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instruction" type="Label" parent="Scene2/CL2"]
+offset_left = 1630.0
+offset_top = 1004.0
+offset_right = 1891.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ptd1")
+text = "Click to Continue"
+horizontal_alignment = 1
+
+[node name="Return" type="Button" parent="Scene2/CL2"]
+offset_left = 15.0
+offset_top = 959.0
+offset_right = 583.0
+offset_bottom = 1527.0
+scale = Vector2(0.2, 0.2)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hd1p2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dmj0s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dmj0s")
+icon = ExtResource("6_6qwj4")
+
+[node name="Scene3" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 6033.0
+offset_top = 18.0
+offset_right = 6073.0
+offset_bottom = 58.0
+
+[node name="LinkedInZoomedIn" type="Sprite2D" parent="Scene3"]
+position = Vector2(49.000183, -94)
+scale = Vector2(0.40562683, 0.42944264)
+texture = ExtResource("7_7wnk8")
+
+[node name="Cam3" type="Camera2D" parent="Scene3"]
+position = Vector2(-0.00012207031, -1.5258789e-05)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="ASP3" type="AudioStreamPlayer" parent="Scene3"]
+stream = ExtResource("8_p27gj")
+bus = &"SFX"
+parameters/looping = true
+
+[node name="CL3" type="CanvasLayer" parent="Scene3"]
+
+[node name="Label" type="Label" parent="Scene3/CL3"]
+offset_left = 893.0
+offset_top = 117.0
+offset_right = 1788.0
+offset_bottom = 230.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_7pcux")
+text = "I've found a new hustle. 
+I'm a working class man making HANDS MEAT."
+horizontal_alignment = 1
+
+[node name="Instruction" type="Label" parent="Scene3/CL3"]
+offset_left = 1630.0
+offset_top = 1004.0
+offset_right = 1891.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ptd1")
+text = "Click to Continue"
+horizontal_alignment = 1
+
+[node name="Return" type="Button" parent="Scene3/CL3"]
+offset_left = 15.0
+offset_top = 959.0
+offset_right = 583.0
+offset_bottom = 1527.0
+scale = Vector2(0.2, 0.2)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hd1p2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dmj0s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dmj0s")
+icon = ExtResource("6_6qwj4")
+
+[connection signal="pressed" from="Scene2/CL2/Return" to="." method="onBackPressed"]

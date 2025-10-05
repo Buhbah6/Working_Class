@@ -18,12 +18,12 @@ public partial class IngredientSpawner : Node2D
 		// Load all ingredient scenes
 		_ingredientScenes = new PackedScene[]
 		{
-			GD.Load<PackedScene>("res://Assets/Prefabs/Ingredients/BottomBun.tscn"),
-			GD.Load<PackedScene>("res://Assets/Prefabs/Ingredients/TopBun.tscn"),
-			GD.Load<PackedScene>("res://Assets/Prefabs/Ingredients/Cheese.tscn"),
-			GD.Load<PackedScene>("res://Assets/Prefabs/Ingredients/Lettuce.tscn"),
-			GD.Load<PackedScene>("res://Assets/Prefabs/Ingredients/Patty.tscn"),
-			GD.Load<PackedScene>("res://Assets/Prefabs/Ingredients/Tomato.tscn")
+			GD.Load<PackedScene>("res://Assets/Prefabs/IngredientsEvil/BottomBun.tscn"),
+			GD.Load<PackedScene>("res://Assets/Prefabs/IngredientsEvil/TopBun.tscn"),
+			GD.Load<PackedScene>("res://Assets/Prefabs/IngredientsEvil/Blood.tscn"),
+			GD.Load<PackedScene>("res://Assets/Prefabs/IngredientsEvil/Ear.tscn"),
+			GD.Load<PackedScene>("res://Assets/Prefabs/IngredientsEvil/Muscle.tscn"),
+			GD.Load<PackedScene>("res://Assets/Prefabs/IngredientsEvil/RazorBlade.tscn")
 		};
 
 		// Fill queue with initial shuffled order

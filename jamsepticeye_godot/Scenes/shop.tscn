@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://egfyswluj5p5"]
+[gd_scene load_steps=5 format=3 uid="uid://egfyswluj5p5"]
 
 [ext_resource type="Script" uid="uid://by5f1wipjgfjh" path="res://Scripts/UI/Shop.cs" id="1_2shtd"]
 [ext_resource type="Texture2D" uid="uid://caotgv4thu2w7" path="res://Assets/Menu/shopWallpaper.jpg" id="2_io27d"]
 [ext_resource type="AudioStream" uid="uid://dkhvqyt2a275h" path="res://Assets/Music/Audio/shopTheme.mp3" id="3_io27d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_io27d"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.15294118, 0.15294118, 0.15294118, 0.8509804)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -32,6 +43,17 @@ stream = ExtResource("3_io27d")
 autoplay = true
 bus = &"Music"
 parameters/looping = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 581.0
+offset_right = 1908.0
+offset_bottom = 915.0
+theme_override_font_sizes/font_size = 220
+theme_override_styles/normal = SubResource("StyleBoxFlat_io27d")
+text = "In Development"
+horizontal_alignment = 1
 
 [connection signal="mouse_entered" from="Button" to="." method="onHover"]
 [connection signal="pressed" from="Button" to="." method="onReturnPressed"]

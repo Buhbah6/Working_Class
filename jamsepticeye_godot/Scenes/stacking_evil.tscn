@@ -1,20 +1,21 @@
-[gd_scene load_steps=24 format=3 uid="uid://c2eqa1ns0xvq6"]
+[gd_scene load_steps=25 format=3 uid="uid://c2eqa1ns0xvq6"]
 
 [ext_resource type="PackedScene" uid="uid://ckx0agnhtltg1" path="res://Assets/Prefabs/options_window.tscn" id="1_g7sif"]
-[ext_resource type="Texture2D" uid="uid://dojn6cw1ssh67" path="res://Assets/StackingGame/kitchen.jpg" id="2_2w11m"]
+[ext_resource type="Texture2D" uid="uid://cdbkyvyvgf8sy" path="res://Assets/StackingGame/scaryKitchen.jpg" id="2_2w11m"]
 [ext_resource type="PackedScene" uid="uid://cp2addbqbc8yd" path="res://Scenes/quest.tscn" id="3_j6bg2"]
-[ext_resource type="Script" uid="uid://c3aehedfom6mm" path="res://Scripts/StackingGame/Hand.cs" id="4_gskgh"]
+[ext_resource type="Script" uid="uid://cwuwr2xl4cru5" path="res://Scripts/HandEvil.cs" id="4_2w11m"]
 [ext_resource type="Texture2D" uid="uid://chorxm2whvty0" path="res://Assets/Materials/Secondary.png" id="5_7qitw"]
 [ext_resource type="Script" uid="uid://bd6kxqtheirpm" path="res://Scenes/IngredientSpawner.cs" id="6_vruyx"]
 [ext_resource type="Texture2D" uid="uid://cojv3o3hdaylo" path="res://Assets/StackingGame/Ingredients/BunTop.png" id="7_278rs"]
 [ext_resource type="Texture2D" uid="uid://b423jb8nhsdl0" path="res://Assets/StackingGame/BigX.png" id="8_r58rb"]
-[ext_resource type="Texture2D" uid="uid://dnnrrnrjslw0v" path="res://Assets/StackingGame/Ingredients/Lettuce.png" id="9_7skxm"]
-[ext_resource type="Texture2D" uid="uid://by8luabvauget" path="res://Assets/StackingGame/Ingredients/Tomato.png" id="10_o16ml"]
-[ext_resource type="Texture2D" uid="uid://b8yqkbvkbbdi4" path="res://Assets/StackingGame/Ingredients/Cheese.png" id="11_62ykk"]
-[ext_resource type="Texture2D" uid="uid://cbcsy8ssph1w1" path="res://Assets/StackingGame/Ingredients/Patty.png" id="12_tkxy6"]
+[ext_resource type="Texture2D" uid="uid://bmb5u0ra45h0k" path="res://Assets/StackingGame/IngredientsEvil/razorBlade.png" id="9_2w11m"]
+[ext_resource type="Texture2D" uid="uid://co3h6tmeudhql" path="res://Assets/StackingGame/IngredientsEvil/Ear.png" id="10_j6bg2"]
+[ext_resource type="Texture2D" uid="uid://qv83ct068ot" path="res://Assets/StackingGame/IngredientsEvil/Blood.png" id="11_2w11m"]
+[ext_resource type="Texture2D" uid="uid://kvi1rgx0e77d" path="res://Assets/StackingGame/IngredientsEvil/Muscle.png" id="12_2w11m"]
 [ext_resource type="Texture2D" uid="uid://bdvs12cp1eivo" path="res://Assets/StackingGame/Ingredients/BunBottom.png" id="13_7v226"]
-[ext_resource type="AudioStream" uid="uid://cm7ogh7ud1udg" path="res://Assets/Music/Audio/stackingTheme.mp3" id="14_c061b"]
-[ext_resource type="AudioStream" uid="uid://u02n0rvkl4el" path="res://Assets/Sounds/Audio/yay.wav" id="15_d0l3q"]
+[ext_resource type="AudioStream" uid="uid://cb2qq0s0278yp" path="res://Assets/Music/Audio/stackingThemeEvil.mp3" id="14_2w11m"]
+[ext_resource type="AudioStream" uid="uid://crwn8m0xy7xgk" path="res://Assets/Sounds/Audio/yayEvil.wav" id="15_2w11m"]
+[ext_resource type="Script" uid="uid://drkwm144ohk88" path="res://Scripts/GameLogic/GameManager.cs" id="16_2w11m"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5nu1b"]
 
@@ -66,17 +67,18 @@ expand_margin_bottom = 10.0
 [node name="OptionsWindow" parent="." instance=ExtResource("1_g7sif")]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(962.0625, 253.99998)
-scale = Vector2(0.51072836, 0.40064523)
+position = Vector2(959, 535)
+scale = Vector2(0.4945619, 0.3182713)
 texture = ExtResource("2_2w11m")
 
 [node name="Quest" parent="." instance=ExtResource("3_j6bg2")]
+TimeToComplete = 180.0
 
 [node name="Hand" type="CharacterBody2D" parent="." node_paths=PackedStringArray("x1", "x2", "x3", "x4", "x5", "x6", "quest", "task", "progress", "sfx")]
 position = Vector2(935, 881)
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("4_gskgh")
+script = ExtResource("4_2w11m")
 x1 = NodePath("../CanvasLayer/Panel/Line1/Status")
 x2 = NodePath("../CanvasLayer/Panel/Line2/Status")
 x3 = NodePath("../CanvasLayer/Panel/Line3/Status")
@@ -88,7 +90,6 @@ BurgerNum = 3
 task = NodePath("../CanvasLayer/Task")
 progress = NodePath("../CanvasLayer/Progress")
 sfx = NodePath("../SFX")
-options = NodePath("../OptionsWindow")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand"]
 position = Vector2(261.7113, 205.36218)
@@ -199,9 +200,9 @@ offset_right = 355.0
 offset_bottom = 185.0
 
 [node name="Icon" type="Sprite2D" parent="CanvasLayer/Panel/Line2"]
-position = Vector2(37.99995, 29.999992)
-scale = Vector2(0.05653276, 0.11518131)
-texture = ExtResource("9_7skxm")
+position = Vector2(37.99995, 30.499992)
+scale = Vector2(0.05653276, 0.08392858)
+texture = ExtResource("9_2w11m")
 
 [node name="Label" type="Label" parent="CanvasLayer/Panel/Line2"]
 layout_mode = 0
@@ -210,7 +211,7 @@ offset_top = 12.0
 offset_right = 243.0
 offset_bottom = 46.0
 theme_override_font_sizes/font_size = 24
-text = "Lettuce x 1"
+text = "Razor x 1"
 
 [node name="Status" type="TextureRect" parent="CanvasLayer/Panel/Line2"]
 layout_mode = 0
@@ -234,9 +235,10 @@ offset_right = 355.0
 offset_bottom = 252.0
 
 [node name="Icon" type="Sprite2D" parent="CanvasLayer/Panel/Line3"]
-position = Vector2(37.99995, 29.999992)
-scale = Vector2(0.05653276, 0.11518131)
-texture = ExtResource("10_o16ml")
+position = Vector2(41.000008, 34.000004)
+rotation = -1.5676458
+scale = Vector2(0.22066556, 0.24669445)
+texture = ExtResource("10_j6bg2")
 
 [node name="Label" type="Label" parent="CanvasLayer/Panel/Line3"]
 layout_mode = 0
@@ -245,7 +247,7 @@ offset_top = 12.0
 offset_right = 243.0
 offset_bottom = 46.0
 theme_override_font_sizes/font_size = 24
-text = "Tomato x 1"
+text = "Ear x 1"
 
 [node name="Status" type="TextureRect" parent="CanvasLayer/Panel/Line3"]
 layout_mode = 0
@@ -269,9 +271,9 @@ offset_right = 356.0
 offset_bottom = 318.0
 
 [node name="Icon" type="Sprite2D" parent="CanvasLayer/Panel/Line4"]
-position = Vector2(37.99995, 29.999992)
-scale = Vector2(0.05653276, 0.11518131)
-texture = ExtResource("11_62ykk")
+position = Vector2(42.999992, 34.999985)
+scale = Vector2(0.008249996, 0.0144329835)
+texture = ExtResource("11_2w11m")
 
 [node name="Label" type="Label" parent="CanvasLayer/Panel/Line4"]
 layout_mode = 0
@@ -280,7 +282,7 @@ offset_top = 12.0
 offset_right = 243.0
 offset_bottom = 46.0
 theme_override_font_sizes/font_size = 24
-text = "Cheese x 1"
+text = "Blood x 1"
 
 [node name="Status" type="TextureRect" parent="CanvasLayer/Panel/Line4"]
 layout_mode = 0
@@ -304,9 +306,9 @@ offset_right = 354.0
 offset_bottom = 384.0
 
 [node name="Icon" type="Sprite2D" parent="CanvasLayer/Panel/Line5"]
-position = Vector2(37.000053, 34.00002)
-scale = Vector2(0.012133223, 0.024105739)
-texture = ExtResource("12_tkxy6")
+position = Vector2(48.499935, 34.49999)
+scale = Vector2(0.17079213, 0.23902428)
+texture = ExtResource("12_2w11m")
 
 [node name="Label" type="Label" parent="CanvasLayer/Panel/Line5"]
 layout_mode = 0
@@ -315,7 +317,7 @@ offset_top = 12.0
 offset_right = 243.0
 offset_bottom = 46.0
 theme_override_font_sizes/font_size = 24
-text = "Patty x 1"
+text = "Muscle x 1"
 
 [node name="Status" type="TextureRect" parent="CanvasLayer/Panel/Line5"]
 layout_mode = 0
@@ -371,13 +373,17 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_4urdp")
 text = "Right Click to Submit Burger"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_c061b")
+stream = ExtResource("14_2w11m")
 autoplay = true
 bus = &"Music"
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_d0l3q")
+stream = ExtResource("15_2w11m")
 bus = &"SFX"
+
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("quest")]
+script = ExtResource("16_2w11m")
+quest = NodePath("../Quest")
 
 [connection signal="body_entered" from="Hand/Area2D" to="Hand" method="onAreaEntered"]
 [connection signal="body_exited" from="Hand/Area2D" to="Hand" method="onAreaExited"]

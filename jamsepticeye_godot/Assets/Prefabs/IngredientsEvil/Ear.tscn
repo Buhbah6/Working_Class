@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dquaq1sitcoum"]
+
+[ext_resource type="Texture2D" uid="uid://co3h6tmeudhql" path="res://Assets/StackingGame/IngredientsEvil/Ear.png" id="1_vfgi1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uq54n"]
+friction = 12.0
+rough = true
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8464"]
+size = Vector2(247, 67)
+
+[node name="Ingredient" type="Node2D"]
+
+[node name="Ear" type="RigidBody2D" parent="."]
+disable_mode = 2
+collision_mask = 3
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_uq54n")
+can_sleep = false
+linear_damp = 2.0
+angular_damp = 20.0
+
+[node name="BunBottom" type="Sprite2D" parent="Ear"]
+position = Vector2(1, 3.000001)
+rotation = -1.5677359
+scale = Vector2(0.5219171, 0.9513848)
+texture = ExtResource("1_vfgi1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ear"]
+position = Vector2(1.5, 5.5)
+shape = SubResource("RectangleShape2D_u8464")
