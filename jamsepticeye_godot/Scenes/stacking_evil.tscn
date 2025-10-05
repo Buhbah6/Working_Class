@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cp2addbqbc8yd" path="res://Scenes/quest.tscn" id="3_j6bg2"]
 [ext_resource type="Script" uid="uid://cwuwr2xl4cru5" path="res://Scripts/HandEvil.cs" id="4_2w11m"]
 [ext_resource type="Texture2D" uid="uid://chorxm2whvty0" path="res://Assets/Materials/Secondary.png" id="5_7qitw"]
-[ext_resource type="Script" uid="uid://bd6kxqtheirpm" path="res://Scenes/IngredientSpawner.cs" id="6_vruyx"]
+[ext_resource type="Script" uid="uid://l7xra0hj74fv" path="res://Scenes/IngredientSpawnerEvil.cs" id="6_2w11m"]
 [ext_resource type="Texture2D" uid="uid://cojv3o3hdaylo" path="res://Assets/StackingGame/Ingredients/BunTop.png" id="7_278rs"]
 [ext_resource type="Texture2D" uid="uid://b423jb8nhsdl0" path="res://Assets/StackingGame/BigX.png" id="8_r58rb"]
 [ext_resource type="Texture2D" uid="uid://bmb5u0ra45h0k" path="res://Assets/StackingGame/IngredientsEvil/razorBlade.png" id="9_2w11m"]
@@ -113,7 +113,7 @@ position = Vector2(68, -248.25)
 shape = SubResource("RectangleShape2D_dwqph")
 
 [node name="IngredientSpawner" type="Node2D" parent="."]
-script = ExtResource("6_vruyx")
+script = ExtResource("6_2w11m")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
