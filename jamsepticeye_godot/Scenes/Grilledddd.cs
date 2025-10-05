@@ -6,20 +6,21 @@ public partial class Grilledddd : Area2D
 	
 	public override void _Ready()
 	{
-		BodyShapeEntered += OnBodyShapeEntered;
-		BodyShapeExited += OnBodyShapeExited;
+		AreaEntered += OnAreaEntered;
+		AreaExited += OnAreaExited;
 	}
 	
-	public override void OnBodyShapeEntered(Rid bodyRid, Node2D body, long bodyShapeIndex, long localShapeIndex){
-		if (body is IPatty) {
-			IPatty patty = body as IPatty;
+	
+	public void OnAreaEntered(Area2D body){
+		if (body is Patty) {
+			Patty patty = body as Patty;
 			patty.StartGrilling();
 		}
 	}
 	
-	public override void OnBodyShapeExited(Rid bodyRid, Node2D body, long bodyShapeIndex, long localShapeIndex){
-		if (body is IPatty) {
-			IPatty patty = body as IPatty;
+	public void OnAreaExited(Area2D body){
+		if (body is Patty) {
+			Patty patty = body as Patty;
 			patty.StopGrilling();
 		}
 	}
