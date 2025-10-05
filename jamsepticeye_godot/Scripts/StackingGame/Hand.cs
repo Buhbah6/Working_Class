@@ -4,11 +4,28 @@ using System.Collections.Generic;
 public partial class Hand : CharacterBody2D
 {
 	public float MoveSpeed = 10f;
-	public float YPosition = 750f;
+	public float YPosition = 800f;
 	private List<RigidBody2D> _stack = new();
+	[Export] public TextureRect x1;
+	[Export] public TextureRect x2;
+	[Export] public TextureRect x3;
+	[Export] public TextureRect x4;
+	[Export] public TextureRect x5;
+	[Export] public TextureRect x6;
+	private Texture2D textureA;
+	private Texture2D textureB;
+	private bool x1a = true;
+	private bool x2a = true;
+	private bool x3a = true;
+	private bool x4a = true;
+	private bool x5a = true;
+	private bool x6a = true;
 
 	public override void _Ready()
 	{
+		textureA = GD.Load<Texture2D>("res://Assets/StackingGame/BigX.png");
+		textureB = GD.Load<Texture2D>("res://Assets/StackingGame/CheckMark.png");
+		
 		Input.MouseMode = Input.MouseModeEnum.Hidden;
 		var mat = new PhysicsMaterial {
 			Friction = 1000.0f,
@@ -31,6 +48,55 @@ public partial class Hand : CharacterBody2D
 		Velocity = new Vector2(Velocity.X, 0);
 		MoveAndSlide();
 		GlobalPosition = new Vector2(GlobalPosition.X, YPosition);
+	}
+	
+	public void onAreaEntered(Node2D body)
+	{
+		if (body is RigidBody2D rb && !_stack.Contains(rb))
+		{
+			_stack.Add(rb);
+			GD.Print($"Added to stack: {rb.Name}");
+			ToggleTexture(rb);
+		}
+	}
 
+	public void onAreaExited(Node2D body)
+	{
+		if (body is RigidBody2D rb && _stack.Contains(rb))
+		{
+			_stack.Remove(rb);
+			GD.Print($"Removed from stack: {rb.Name}");
+			ToggleTexture(rb);
+		}
+	}
+	
+	private void ToggleTexture(RigidBody2D rb)
+	{
+		switch (rb.Name) {
+			case "TopBun":
+				x1a = !x1a;
+				x1.Texture = x1a ? textureA : textureB;
+				break;
+			case "Lettuce":
+				x2a = !x2a;
+				x2.Texture = x2a ? textureA : textureB;
+				break;
+			case "Tomato":
+				x3a = !x3a;
+				x3.Texture = x3a ? textureA : textureB;
+				break;
+			case "Cheese":
+				x4a = !x4a;
+				x4.Texture = x4a ? textureA : textureB;
+				break;
+			case "Patty":
+				x5a = !x5a;
+				x5.Texture = x5a ? textureA : textureB;
+				break;
+			case "BottomBun":
+				x6a = !x6a;
+				x6.Texture = x6a ? textureA : textureB;
+				break;
+		}
 	}
 }

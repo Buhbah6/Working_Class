@@ -12,7 +12,7 @@ size = Vector2(256, 64)
 
 [node name="Ingredient" type="Node2D"]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="Patty" type="RigidBody2D" parent="."]
 disable_mode = 2
 collision_mask = 3
 mass = 2.0
@@ -20,11 +20,11 @@ physics_material_override = SubResource("PhysicsMaterial_uq54n")
 linear_damp = 2.0
 angular_damp = 20.0
 
-[node name="Patty" type="Sprite2D" parent="RigidBody2D"]
+[node name="Patty" type="Sprite2D" parent="Patty"]
 position = Vector2(1.4999919, 3.5000024)
 scale = Vector2(0.05799999, 0.0415364)
 texture = ExtResource("1_d4h6c")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Patty"]
 position = Vector2(3, 4)
 shape = SubResource("RectangleShape2D_u8464")

@@ -1,14 +1,39 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccg1mv6uwe68e"]
+[gd_scene load_steps=18 format=3 uid="uid://ccg1mv6uwe68e"]
 
 [ext_resource type="Texture2D" uid="uid://dojn6cw1ssh67" path="res://Assets/StackingGame/kitchen.jpg" id="1_qghyq"]
 [ext_resource type="Script" uid="uid://c3aehedfom6mm" path="res://Scripts/StackingGame/Hand.cs" id="2_5nu1b"]
 [ext_resource type="Texture2D" uid="uid://chorxm2whvty0" path="res://Assets/Materials/Secondary.png" id="2_6k4it"]
 [ext_resource type="Script" uid="uid://bd6kxqtheirpm" path="res://Scenes/IngredientSpawner.cs" id="4_5nu1b"]
+[ext_resource type="Texture2D" uid="uid://cojv3o3hdaylo" path="res://Assets/StackingGame/Ingredients/BunTop.png" id="5_4urdp"]
+[ext_resource type="Texture2D" uid="uid://b423jb8nhsdl0" path="res://Assets/StackingGame/BigX.png" id="6_pwhkt"]
+[ext_resource type="Texture2D" uid="uid://dnnrrnrjslw0v" path="res://Assets/StackingGame/Ingredients/Lettuce.png" id="7_3qqf4"]
+[ext_resource type="Texture2D" uid="uid://by8luabvauget" path="res://Assets/StackingGame/Ingredients/Tomato.png" id="8_7iql4"]
+[ext_resource type="Texture2D" uid="uid://b8yqkbvkbbdi4" path="res://Assets/StackingGame/Ingredients/Cheese.png" id="9_tqurt"]
+[ext_resource type="Texture2D" uid="uid://cbcsy8ssph1w1" path="res://Assets/StackingGame/Ingredients/Patty.png" id="10_dbnh1"]
+[ext_resource type="Texture2D" uid="uid://bdvs12cp1eivo" path="res://Assets/StackingGame/Ingredients/BunBottom.png" id="11_eiqsl"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5nu1b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nu1b"]
 size = Vector2(296, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwqph"]
+size = Vector2(342, 667.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1l41n"]
+bg_color = Color(0.14509805, 0.14509805, 0.14509805, 0.85490197)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="Gradient" id="Gradient_wy01h"]
+colors = PackedColorArray(0.56830627, 0.5531662, 3.85046e-07, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ds1lf"]
+gradient = SubResource("Gradient_wy01h")
+fill_from = Vector2(0.27102804, 0.014018691)
+fill_to = Vector2(0.6869159, 0)
 
 [node name="FoodStackingGame" type="Node2D"]
 
@@ -17,11 +42,17 @@ position = Vector2(962.0625, 253.99998)
 scale = Vector2(0.51072836, 0.40064523)
 texture = ExtResource("1_qghyq")
 
-[node name="Hand" type="CharacterBody2D" parent="."]
+[node name="Hand" type="CharacterBody2D" parent="." node_paths=PackedStringArray("x1", "x2", "x3", "x4", "x5", "x6")]
 position = Vector2(935, 881)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("2_5nu1b")
+x1 = NodePath("../CanvasLayer/Panel/Line1/Status")
+x2 = NodePath("../CanvasLayer/Panel/Line2/Status")
+x3 = NodePath("../CanvasLayer/Panel/Line3/Status")
+x4 = NodePath("../CanvasLayer/Panel/Line4/Status")
+x5 = NodePath("../CanvasLayer/Panel/Line5/Status")
+x6 = NodePath("../CanvasLayer/Panel/Line6/Status")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand"]
 position = Vector2(261.7113, 205.36218)
@@ -37,11 +68,249 @@ position = Vector2(66, 85)
 shape = SubResource("RectangleShape2D_5nu1b")
 one_way_collision_margin = 0.0
 
+[node name="Area2D" type="Area2D" parent="Hand"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/Area2D"]
+position = Vector2(68, -248.25)
+shape = SubResource("RectangleShape2D_dwqph")
+
 [node name="IngredientSpawner" type="Node2D" parent="."]
 script = ExtResource("4_5nu1b")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 1529.0
+offset_top = 28.0
+offset_right = 1904.0
+offset_bottom = 492.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1l41n")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 18.0
+offset_right = 348.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 32
+text = "Completed Checklist"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel"]
+position = Vector2(187.99998, 75)
+scale = Vector2(5.3125005, 0.140625)
+texture = SubResource("GradientTexture2D_ds1lf")
+
+[node name="Line1" type="Control" parent="CanvasLayer/Panel"]
+anchors_preset = 0
+offset_left = 18.0
+offset_top = 75.0
+offset_right = 356.0
+offset_bottom = 117.0
+
+[node name="Icon" type="Sprite2D" parent="CanvasLayer/Panel/Line1"]
+position = Vector2(37.99995, 29.999992)
+scale = Vector2(0.05653276, 0.11518131)
+texture = ExtResource("5_4urdp")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Line1"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 12.0
+offset_right = 243.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 24
+text = "Top Bun x 1"
+
+[node name="Status" type="TextureRect" parent="CanvasLayer/Panel/Line1"]
+layout_mode = 0
+offset_left = 275.00006
+offset_top = 2.9999979
+offset_right = 775.00006
+offset_bottom = 503.0
+scale = Vector2(0.12799977, 0.12300005)
+texture = ExtResource("6_pwhkt")
+expand_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/Line1"]
+position = Vector2(169.00002, 66.25)
+scale = Vector2(5.1562486, 0.023437476)
+texture = SubResource("GradientTexture2D_ds1lf")
+
+[node name="Line2" type="Control" parent="CanvasLayer/Panel"]
+anchors_preset = 0
+offset_left = 17.0
+offset_top = 143.0
+offset_right = 355.0
+offset_bottom = 185.0
+
+[node name="Icon" type="Sprite2D" parent="CanvasLayer/Panel/Line2"]
+position = Vector2(37.99995, 29.999992)
+scale = Vector2(0.05653276, 0.11518131)
+texture = ExtResource("7_3qqf4")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Line2"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 12.0
+offset_right = 243.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 24
+text = "Lettuce x 1"
+
+[node name="Status" type="TextureRect" parent="CanvasLayer/Panel/Line2"]
+layout_mode = 0
+offset_left = 275.00006
+offset_right = 775.00006
+offset_bottom = 500.0
+scale = Vector2(0.12799977, 0.12300005)
+texture = ExtResource("6_pwhkt")
+expand_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/Line2"]
+position = Vector2(169.00002, 66.25)
+scale = Vector2(5.1562486, 0.023437476)
+texture = SubResource("GradientTexture2D_ds1lf")
+
+[node name="Line3" type="Control" parent="CanvasLayer/Panel"]
+anchors_preset = 0
+offset_left = 17.0
+offset_top = 210.0
+offset_right = 355.0
+offset_bottom = 252.0
+
+[node name="Icon" type="Sprite2D" parent="CanvasLayer/Panel/Line3"]
+position = Vector2(37.99995, 29.999992)
+scale = Vector2(0.05653276, 0.11518131)
+texture = ExtResource("8_7iql4")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Line3"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 12.0
+offset_right = 243.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 24
+text = "Tomato x 1"
+
+[node name="Status" type="TextureRect" parent="CanvasLayer/Panel/Line3"]
+layout_mode = 0
+offset_left = 275.00006
+offset_right = 775.00006
+offset_bottom = 500.0
+scale = Vector2(0.12799977, 0.12300005)
+texture = ExtResource("6_pwhkt")
+expand_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/Line3"]
+position = Vector2(169.00002, 66.25)
+scale = Vector2(5.1562486, 0.023437476)
+texture = SubResource("GradientTexture2D_ds1lf")
+
+[node name="Line4" type="Control" parent="CanvasLayer/Panel"]
+anchors_preset = 0
+offset_left = 18.0
+offset_top = 276.0
+offset_right = 356.0
+offset_bottom = 318.0
+
+[node name="Icon" type="Sprite2D" parent="CanvasLayer/Panel/Line4"]
+position = Vector2(37.99995, 29.999992)
+scale = Vector2(0.05653276, 0.11518131)
+texture = ExtResource("9_tqurt")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Line4"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 12.0
+offset_right = 243.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 24
+text = "Cheese x 1"
+
+[node name="Status" type="TextureRect" parent="CanvasLayer/Panel/Line4"]
+layout_mode = 0
+offset_left = 275.00006
+offset_right = 775.00006
+offset_bottom = 500.0
+scale = Vector2(0.12799977, 0.12300005)
+texture = ExtResource("6_pwhkt")
+expand_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/Line4"]
+position = Vector2(169.00002, 66.25)
+scale = Vector2(5.1562486, 0.023437476)
+texture = SubResource("GradientTexture2D_ds1lf")
+
+[node name="Line5" type="Control" parent="CanvasLayer/Panel"]
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 342.0
+offset_right = 354.0
+offset_bottom = 384.0
+
+[node name="Icon" type="Sprite2D" parent="CanvasLayer/Panel/Line5"]
+position = Vector2(37.000053, 34.00002)
+scale = Vector2(0.012133223, 0.024105739)
+texture = ExtResource("10_dbnh1")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Line5"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 12.0
+offset_right = 243.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 24
+text = "Patty x 1"
+
+[node name="Status" type="TextureRect" parent="CanvasLayer/Panel/Line5"]
+layout_mode = 0
+offset_left = 275.00006
+offset_right = 775.00006
+offset_bottom = 500.0
+scale = Vector2(0.12799977, 0.12300005)
+texture = ExtResource("6_pwhkt")
+expand_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/Line5"]
+position = Vector2(169.00002, 66.25)
+scale = Vector2(5.1562486, 0.023437476)
+texture = SubResource("GradientTexture2D_ds1lf")
+
+[node name="Line6" type="Control" parent="CanvasLayer/Panel"]
+anchors_preset = 0
+offset_left = 18.0
+offset_top = 408.0
+offset_right = 356.0
+offset_bottom = 450.0
+
+[node name="Icon" type="Sprite2D" parent="CanvasLayer/Panel/Line6"]
+position = Vector2(37.99995, 29.999992)
+scale = Vector2(0.05653276, 0.11518131)
+texture = ExtResource("11_eiqsl")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Line6"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 12.0
+offset_right = 268.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 24
+text = "Bottom Bun x 1"
+
+[node name="Status" type="TextureRect" parent="CanvasLayer/Panel/Line6"]
+layout_mode = 0
+offset_left = 275.00006
+offset_right = 775.00006
+offset_bottom = 500.0
+scale = Vector2(0.12799977, 0.12300005)
+texture = ExtResource("6_pwhkt")
+expand_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/Line6"]
+position = Vector2(169.00002, 66.25)
+scale = Vector2(5.1562486, 0.023437476)
+texture = SubResource("GradientTexture2D_ds1lf")
+
+[connection signal="body_entered" from="Hand/Area2D" to="Hand" method="onAreaEntered"]
+[connection signal="body_exited" from="Hand/Area2D" to="Hand" method="onAreaExited"]
