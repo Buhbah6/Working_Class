@@ -59,7 +59,7 @@ shape = SubResource("RectangleShape2D_upup0")
 
 [node name="Quest" parent="." node_paths=PackedStringArray("Tasks") instance=ExtResource("5_81cbo")]
 position = Vector2(0, -2)
-TimeToComplete = 10.0
+TimeToComplete = 15.0
 Tasks = [NodePath("../Meat"), NodePath("../buns"), NodePath("../onions"), NodePath("../ketchup"), NodePath("../mustard"), NodePath("../ketchup")]
 
 [node name="Meat" parent="." node_paths=PackedStringArray("CompletionArea") instance=ExtResource("6_qwgoe")]

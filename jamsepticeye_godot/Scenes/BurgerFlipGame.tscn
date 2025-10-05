@@ -79,12 +79,13 @@ Tasks = [NodePath("../Patty/Dragable"), NodePath("../Patty/Dragable2"), NodePath
 
 [node name="Patty" type="Node2D" parent="."]
 
-[node name="Dragable" parent="Patty" node_paths=PackedStringArray("itCooking", "CompletionArea") instance=ExtResource("5_bqlvq")]
+[node name="Dragable" parent="Patty" node_paths=PackedStringArray("itCooking", "PattySound", "CompletionArea") instance=ExtResource("5_bqlvq")]
 position = Vector2(1014, 119)
 scale = Vector2(1.295, 1.295)
 script = ExtResource("8_ov5r2")
 finishedProduct = ExtResource("7_6j448")
 itCooking = NodePath("CookedProgress")
+PattySound = NodePath("")
 CompletionArea = NodePath("../../FinishProductTray")
 ImageTexture = ExtResource("3_hppk5")
 
