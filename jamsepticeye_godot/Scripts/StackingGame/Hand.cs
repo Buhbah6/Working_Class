@@ -36,7 +36,7 @@ public partial class Hand : CharacterBody2D
 		};
 		GetNode<CollisionShape2D>("CollisionShape2D").Set("material", mat);
 		for (int i = 0; i < BurgerNum; i++) {
-			quest.Tasks.push(new BurgerMaker());
+			quest.Tasks.Add(new BurgerMaker());
 		}
 	}
 
@@ -63,6 +63,7 @@ public partial class Hand : CharacterBody2D
 			_stack.Add(rb);
 			GD.Print($"Added to stack: {rb.Name}");
 			ToggleTexture(rb);
+			checkForWin();
 		}
 	}
 
@@ -73,6 +74,7 @@ public partial class Hand : CharacterBody2D
 			_stack.Remove(rb);
 			GD.Print($"Removed from stack: {rb.Name}");
 			ToggleTexture(rb);
+			checkForWin();
 		}
 	}
 	
@@ -106,8 +108,15 @@ public partial class Hand : CharacterBody2D
 		}
 	}
 	private void checkForWin() {
-		if (x1a && x2a && x3a && x4a && x5a && x6a) {
+		RigidBody2D rb;
+		if (!x1a && !x2a && !x3a && !x4a && !x5a && !x6a) {
+			GD.Print("Win");
 			quest.Tasks[0].Complete();
+			while (_stack.Count > 0) {
+				rb = _stack[0];
+				_stack.Remove(rb);
+				rb.Free();
+			}
 		}	
 	}
 }
