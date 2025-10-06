@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://pm6tdqc06r5d"
-path="res://.godot/imported/merchant-copy-wide.ttf-cfdaf163e64032b37a0408eafbb0709d.fontdata"
+path="res://.godot/imported/merchant-copy-wide.ttf-c340dc2018e357c56e6dfa893c963f79.fontdata"
 
 [deps]
 
-source_file="res://Assets/fonts/merchant-copy-wide.ttf"
-dest_files=["res://.godot/imported/merchant-copy-wide.ttf-cfdaf163e64032b37a0408eafbb0709d.fontdata"]
+source_file="res://Assets/Fonts/merchant-copy-wide.ttf"
+dest_files=["res://.godot/imported/merchant-copy-wide.ttf-c340dc2018e357c56e6dfa893c963f79.fontdata"]
 
 [params]
 

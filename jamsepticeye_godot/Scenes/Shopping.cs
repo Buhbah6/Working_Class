@@ -15,6 +15,8 @@ public partial class Shopping : Node2D
 	public Area2D completionZone;
 	
 	public override void _Ready(){
+		PauseManager _pauseManager = GetNode<PauseManager>("/root/PauseManager");
+		_pauseManager.UpdatePath("/root/Shopping/OptionsWindow");
 		Store = GetNode<Control>("%Control");
 		targetVector = new Vector2(3f, 3f);
 	}

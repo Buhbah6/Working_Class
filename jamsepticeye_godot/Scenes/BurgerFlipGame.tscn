@@ -1,6 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://2w88f8prmked"]
+[gd_scene load_steps=19 format=3 uid="uid://cicowk6cwhxg7"]
 
+[ext_resource type="Script" uid="uid://bwch3rqo3cnhu" path="res://Scripts/BurgerFlipGame.cs" id="1_154y5"]
 [ext_resource type="Texture2D" uid="uid://cuwyx7dnpthex" path="res://Assets/Materials/counter-top.png" id="1_g8gv2"]
+[ext_resource type="PackedScene" uid="uid://ckx0agnhtltg1" path="res://Assets/Prefabs/options_window.tscn" id="1_rsfyu"]
 [ext_resource type="Texture2D" uid="uid://eulr62r24hma" path="res://Assets/Materials/istockphoto-136637359-612x612.jpg" id="1_yxdgv"]
 [ext_resource type="Texture2D" uid="uid://bmf843rvr1y2s" path="res://Assets/Materials/grill.png" id="2_6xbl7"]
 [ext_resource type="Texture2D" uid="uid://bh87qmshqbhkv" path="res://Assets/Materials/patty.png" id="3_hppk5"]
@@ -22,6 +24,9 @@ size = Vector2(12.465254, 20.447)
 size = Vector2(215, 104.5)
 
 [node name="BurgerFlipGame" type="Node2D"]
+script = ExtResource("1_154y5")
+
+[node name="OptionsWindow" parent="." instance=ExtResource("1_rsfyu")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -34.0

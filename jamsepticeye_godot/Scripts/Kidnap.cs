@@ -20,6 +20,8 @@ public partial class Kidnap : Node2D
 	
 	public override void _Ready(){
 		GetNode<AudioStreamPlayer>("/root/BgMusic").Stop();
+		PauseManager _pauseManager = GetNode<PauseManager>("/root/PauseManager");
+		_pauseManager.UpdatePath("/root/Kidnap/OptionsWindow");
 		Alley = GetNode<Control>("%Control");
 		person = GetNode<Area2D>("%Person");
 		Holdable objective = person as Holdable;

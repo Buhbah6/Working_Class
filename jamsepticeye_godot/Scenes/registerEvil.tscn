@@ -1,13 +1,14 @@
-[gd_scene load_steps=24 format=3 uid="uid://d4gvlxi7ht6ur"]
+[gd_scene load_steps=25 format=3 uid="uid://ckn3ef5oign4v"]
 
 [ext_resource type="Script" uid="uid://b5t1kjbjw6kd" path="res://Scenes/Register.cs" id="1_7usvs"]
+[ext_resource type="PackedScene" uid="uid://ckx0agnhtltg1" path="res://Assets/Prefabs/options_window.tscn" id="2_2k5m1"]
 [ext_resource type="Texture2D" uid="uid://6s65ou3jje7c" path="res://Assets/RegisterGame/RestorEvil.jpg" id="2_7usvs"]
 [ext_resource type="Texture2D" uid="uid://dy7f1oty5722c" path="res://Assets/RegisterGame/BadNPC/npc5.png" id="3_75wgu"]
 [ext_resource type="Texture2D" uid="uid://b8lw2ry2mpfn2" path="res://Assets/RegisterGame/BadNPC/npc4.png" id="4_s4f4c"]
 [ext_resource type="Texture2D" uid="uid://dy58wg8p3ps6n" path="res://Assets/RegisterGame/BadNPC/npc6.png" id="5_n2xxu"]
 [ext_resource type="Texture2D" uid="uid://cuwyx7dnpthex" path="res://Assets/Materials/counter-top.png" id="6_2k5m1"]
 [ext_resource type="Texture2D" uid="uid://bjornt6bkne1o" path="res://Assets/RegisterGame/register.png" id="7_74yy6"]
-[ext_resource type="FontFile" uid="uid://pm6tdqc06r5d" path="res://Assets/fonts/merchant-copy-wide.ttf" id="8_g4v3y"]
+[ext_resource type="FontFile" uid="uid://pm6tdqc06r5d" path="res://Assets/Fonts/merchant-copy-wide.ttf" id="8_g4v3y"]
 [ext_resource type="Texture2D" uid="uid://cje2qspc6koi6" path="res://Assets/Materials/tray.png" id="9_7d38d"]
 [ext_resource type="Texture2D" uid="uid://c6ldtda201rn3" path="res://Assets/RegisterGame/BadBurger.png" id="10_2xxhy"]
 [ext_resource type="AudioStream" uid="uid://dkwg66pagcoem" path="res://Assets/Music/Audio/registerSongEvil.mp3" id="11_75wgu"]
@@ -74,7 +75,7 @@ corner_radius_bottom_left = 5
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_em3lu"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="RegisterGame" type="Node2D" node_paths=PackedStringArray("costLabel", "chargeLabel", "costSection", "chargeSection", "buttonSection", "sfx", "quest", "npcs")]
+[node name="RegisterGame" type="Node2D" node_paths=PackedStringArray("costLabel", "chargeLabel", "costSection", "chargeSection", "buttonSection", "sfx", "npcs")]
 script = ExtResource("1_7usvs")
 costLabel = NodePath("Register/CostSection/Label")
 chargeLabel = NodePath("Register/ChargeSection/Label")
@@ -82,8 +83,9 @@ costSection = NodePath("Register/CostSection")
 chargeSection = NodePath("Register/ChargeSection")
 buttonSection = NodePath("Register/ButtonSection")
 sfx = NodePath("SFX")
-quest = NodePath("Quest")
 npcs = [NodePath("Npc1"), NodePath("Npc2"), NodePath("Npc3")]
+
+[node name="OptionsWindow" parent="." instance=ExtResource("2_2k5m1")]
 
 [node name="Restor" type="Sprite2D" parent="."]
 position = Vector2(972.99994, 539.5)

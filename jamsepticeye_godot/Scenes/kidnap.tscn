@@ -1,15 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://kcljwsj3rvkf"]
+[gd_scene load_steps=10 format=3 uid="uid://kcljwsj3rvkf"]
 
+[ext_resource type="PackedScene" uid="uid://ckx0agnhtltg1" path="res://Assets/Prefabs/options_window.tscn" id="1_n66ju"]
 [ext_resource type="Texture2D" uid="uid://dswqdgqlq2gmt" path="res://Assets/Materials/DarkAlley.jpg" id="1_q8xrn"]
+[ext_resource type="Script" uid="uid://c5rr85a31jy4" path="res://Scripts/Kidnap.cs" id="1_sttre"]
 [ext_resource type="PackedScene" uid="uid://c1o4nbyvu51am" path="res://Assets/Prefabs/player.tscn" id="2_0qoqq"]
 [ext_resource type="Texture2D" uid="uid://chmgbc6wigb7q" path="res://Assets/Materials/RandomPerson.webp" id="3_fifmt"]
 [ext_resource type="PackedScene" uid="uid://b7ijkgxpk1ga5" path="res://Assets/Prefabs/holdable.tscn" id="3_vba3h"]
 [ext_resource type="Texture2D" uid="uid://da8pgfvl48bol" path="res://Assets/Materials/trash.png" id="4_bo5tu"]
 [ext_resource type="PackedScene" uid="uid://cp2addbqbc8yd" path="res://Scenes/quest.tscn" id="7_oerib"]
 [ext_resource type="Script" uid="uid://drkwm144ohk88" path="res://Scripts/GameLogic/GameManager.cs" id="7_sttre"]
-[ext_resource type="AudioStream" uid="uid://wy56lhqt84la" path="res://Assets/Music/Audio/CreepyKidnap.mp3" id="8_sttre"]
 
 [node name="Kidnap" type="Node2D"]
+script = ExtResource("1_sttre")
+
+[node name="OptionsWindow" parent="." instance=ExtResource("1_n66ju")]
 
 [node name="Control" type="Control" parent="."]
 unique_name_in_owner = true
@@ -61,6 +65,3 @@ nextScene = "res://Scenes/BurgerFlipGameEvil.tscn"
 deathScene = "res://Scenes/game_over_evil.tscn"
 
 [node name="KidnapAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_sttre")
-autoplay = true
-bus = &"Music"

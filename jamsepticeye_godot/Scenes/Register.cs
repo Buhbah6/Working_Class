@@ -20,6 +20,8 @@ public partial class Register : Node2D
 
 	public override void _Ready()
 	{
+		PauseManager _pauseManager = GetNode<PauseManager>("/root/PauseManager");
+		_pauseManager.UpdatePath("/root/RegisterGame/OptionsWindow");
 		Input.MouseMode = Input.MouseModeEnum.Visible;
 		GetNode<AudioStreamPlayer>("/root/BgMusic").Stop();
 		// Hide all NPCs except the first one

@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://dd3gimppfdooe"]
+[gd_scene load_steps=17 format=3 uid="uid://dd3gimppfdooe"]
 
 [ext_resource type="Texture2D" uid="uid://db5xgjeh85svr" path="res://Assets/Materials/StoreAlley.jpg" id="1_84pa7"]
 [ext_resource type="Script" uid="uid://kajatboluwdd" path="res://Scenes/Shopping.cs" id="1_iuu1m"]
+[ext_resource type="PackedScene" uid="uid://ckx0agnhtltg1" path="res://Assets/Prefabs/options_window.tscn" id="2_ewwds"]
 [ext_resource type="PackedScene" uid="uid://c1o4nbyvu51am" path="res://Assets/Prefabs/player.tscn" id="2_iuu1m"]
 [ext_resource type="PackedScene" uid="uid://cp2addbqbc8yd" path="res://Scenes/quest.tscn" id="5_81cbo"]
 [ext_resource type="Texture2D" uid="uid://bqx0ujxxkv2wy" path="res://Assets/Materials/shoppingCart.png" id="5_p50fx"]
@@ -20,6 +21,8 @@ size = Vector2(35.11263, 23.873653)
 
 [node name="Shopping" type="Node2D"]
 script = ExtResource("1_iuu1m")
+
+[node name="OptionsWindow" parent="." instance=ExtResource("2_ewwds")]
 
 [node name="Control" type="Control" parent="."]
 unique_name_in_owner = true
