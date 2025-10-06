@@ -384,6 +384,7 @@ bus = &"SFX"
 [node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("quest")]
 script = ExtResource("16_2w11m")
 quest = NodePath("../Quest")
+nextScene = "res://Scenes/end_cutscene.tscn"
 deathScene = "res://Scenes/game_over_evil.tscn"
 
 [connection signal="body_entered" from="Hand/Area2D" to="Hand" method="onAreaEntered"]

@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://dahl7u8od7tbb"]
 
 [ext_resource type="Script" uid="uid://bdwdqbmtbt8jd" path="res://Scripts/UI/MainMenu.cs" id="1_1ehe0"]
-[ext_resource type="Texture2D" uid="uid://dx5hr456egct5" path="res://Assets/Menu/menuWallpaper.jpg" id="2_1ehe0"]
-[ext_resource type="Texture2D" uid="uid://b61jqqqx1ctjf" path="res://Assets/Menu/credits.png" id="2_48xlc"]
-[ext_resource type="PackedScene" uid="uid://ckx0agnhtltg1" path="res://Assets/Prefabs/options_window.tscn" id="2_yhxw7"]
-[ext_resource type="Texture2D" uid="uid://blhdeiwyeww5q" path="res://Assets/Menu/workingClassLogo.png" id="3_ce3w2"]
-[ext_resource type="FontFile" uid="uid://cncbtsnrlbg2e" path="res://Assets/Fonts/Piedra-Regular.ttf" id="5_n45e2"]
-[ext_resource type="StyleBox" uid="uid://cb11qjrecw463" path="res://Assets/Menu/StyleBoxes/normal.tres" id="6_cp0ys"]
-[ext_resource type="StyleBox" uid="uid://dtcpqdv4pgyvg" path="res://Assets/Menu/StyleBoxes/hover.tres" id="7_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://dx5hr456egct5" path="res://Assets/menu/menuWallpaper.jpg" id="2_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://b61jqqqx1ctjf" path="res://Assets/menu/credits.png" id="2_48xlc"]
+[ext_resource type="PackedScene" path="res://Assets/Prefabs/options_window.tscn" id="2_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://blhdeiwyeww5q" path="res://Assets/menu/workingClassLogo.png" id="3_ce3w2"]
+[ext_resource type="FontFile" uid="uid://cncbtsnrlbg2e" path="res://Assets/fonts/Piedra-Regular.ttf" id="5_n45e2"]
+[ext_resource type="StyleBox" uid="uid://cb11qjrecw463" path="res://Assets/menu/styleBoxes/normal.tres" id="6_cp0ys"]
+[ext_resource type="StyleBox" uid="uid://dtcpqdv4pgyvg" path="res://Assets/menu/styleBoxes/hover.tres" id="7_yhxw7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ehe0"]
 bg_color = Color(0.8784314, 0.7137255, 0, 0.24313726)

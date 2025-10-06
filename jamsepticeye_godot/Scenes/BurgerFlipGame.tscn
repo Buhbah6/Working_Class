@@ -73,7 +73,7 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_ov5r2")
 
 [node name="Quest" parent="." node_paths=PackedStringArray("Tasks") instance=ExtResource("10_dffi0")]
-TimeToComplete = 37.97
+TimeToComplete = 50.0
 Tasks = [NodePath("../Patty/Dragable"), NodePath("../Patty/Dragable2"), NodePath("../Patty/Dragable3"), NodePath("../Patty/Dragable4"), NodePath("../Patty/Dragable5"), NodePath("../Patty/Dragable6")]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("5_gxgky")]

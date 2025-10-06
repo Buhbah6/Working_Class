@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b04h6slgx6un7"
-path="res://.godot/imported/ClownShoes.ttf-2e18a86c1519e77b21932c768b57a8b2.fontdata"
+path="res://.godot/imported/ClownShoes.ttf-92d2b10b67eff3200dfb04a68c963b40.fontdata"
 
 [deps]
 
-source_file="res://Assets/Fonts/ClownShoes.ttf"
-dest_files=["res://.godot/imported/ClownShoes.ttf-2e18a86c1519e77b21932c768b57a8b2.fontdata"]
+source_file="res://Assets/fonts/ClownShoes.ttf"
+dest_files=["res://.godot/imported/ClownShoes.ttf-92d2b10b67eff3200dfb04a68c963b40.fontdata"]
 
 [params]
 

@@ -32,6 +32,8 @@ public partial class IntroCutscene : Control
 	private Tween _tween;
 	
 	public override void _Ready() {
+		
+		Input.MouseMode = Input.MouseModeEnum.Visible;
 		_cam1 = GetNode<Camera2D>("Scene1/Cam1");
 		_cam2 = GetNode<Camera2D>("Scene2/Cam2");
 		_cam3 = GetNode<Camera2D>("Scene3/Cam3");
@@ -144,7 +146,6 @@ public partial class IntroCutscene : Control
 				startZoomLoop(1.15f, 0.90f);
 				break;
 			case 8:
-				DayTransition.day = 1;
 				GetTree().ChangeSceneToFile("res://Scenes/day_transition.tscn");
 				break;
 		}

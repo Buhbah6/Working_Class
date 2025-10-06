@@ -25,7 +25,7 @@ BgMusic="*res://Assets/Music/StreamPlayers/bgMusic.tscn"
 ButtonHover="*res://Assets/Sounds/StreamPlayers/buttonHover.tscn"
 ButtonClick="*res://Assets/Sounds/StreamPlayers/buttonClick.tscn"
 PauseManager="*res://Scripts/PauseManager.cs"
-DayTransition="*res://Scenes/day_transition.tscn"
+GlobalManager="*res://GlobalManager.cs"
 
 [display]
 

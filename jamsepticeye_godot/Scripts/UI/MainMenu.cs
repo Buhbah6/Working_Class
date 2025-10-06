@@ -24,7 +24,9 @@ public partial class MainMenu : Control
 	
 	public override void _Ready()
 	{
-		
+	
+		GetNode<GlobalManager>("/root/GlobalManager").CurrentDay = 0;	
+		Input.MouseMode = Input.MouseModeEnum.Visible;
 		ProcessMode = Node.ProcessModeEnum.Always;
 		_musicPlayer = GetNode<AudioStreamPlayer>("/root/BgMusic");
 		_hoverSoundPlayer = GetNode<AudioStreamPlayer>("/root/ButtonHover");

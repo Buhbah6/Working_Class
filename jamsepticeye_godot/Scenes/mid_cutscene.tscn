@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ccm2i6kb5qrsn"]
+[gd_scene load_steps=16 format=3 uid="uid://ctn4kacs87y6v"]
 
 [ext_resource type="Script" uid="uid://d1im004vydbfo" path="res://Scripts/MidCutscene.cs" id="1_osjfy"]
 [ext_resource type="Texture2D" uid="uid://b62ms2fou68a7" path="res://Assets/MidCutscene/Wallet.jpg" id="2_wok82"]

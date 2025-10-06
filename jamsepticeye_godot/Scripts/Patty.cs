@@ -39,7 +39,7 @@ public partial class Patty : TaskItem, IPatty
 	public override void _Ready()
 	{
 		itCooking.Visible = false;
-		timeToGrill = (GD.Randi() % 21 + 5);
+		timeToGrill = (GD.Randi() % 17 + 5);
 		initialTime = timeToGrill;
 		AreaEntered += OnAreaEntered;
 		itCooking.MaxValue = initialTime;
