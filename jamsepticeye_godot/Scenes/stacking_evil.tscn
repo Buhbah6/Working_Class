@@ -118,19 +118,19 @@ script = ExtResource("6_2w11m")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Task" type="Label" parent="CanvasLayer"]
-offset_left = 28.0
-offset_top = 21.0
-offset_right = 440.0
-offset_bottom = 86.0
+offset_left = 18.0
+offset_top = 257.0
+offset_right = 430.0
+offset_bottom = 322.0
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_pwhkt")
 text = "Task: Assemble 3 Burgers"
 
 [node name="Progress" type="Label" parent="CanvasLayer"]
-offset_left = 27.0
-offset_top = 93.0
-offset_right = 293.0
-offset_bottom = 158.0
+offset_left = 17.0
+offset_top = 329.0
+offset_right = 283.0
+offset_bottom = 394.0
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_pwhkt")
 text = "Count: "
