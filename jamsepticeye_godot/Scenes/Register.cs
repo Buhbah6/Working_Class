@@ -10,6 +10,7 @@ public partial class Register : Node2D
 	[Export] private Panel chargeSection;
 	[Export] private Panel buttonSection;
 	[Export] public AudioStreamPlayer sfx;
+	[Export] public Quest quest;
 
 	[Export] private Node2D[] npcs = new Node2D[0];
 
@@ -21,8 +22,10 @@ public partial class Register : Node2D
 	{
 		GetNode<AudioStreamPlayer>("/root/BgMusic").Stop();
 		// Hide all NPCs except the first one
-		for (int i = 0; i < npcs.Length; i++)
+		for (int i = 0; i < npcs.Length; i++){
 			npcs[i].Visible = (i == 0);
+			quest.AddTask(new TaskItem());
+		}
 
 		// Connect all keypad buttons
 		foreach (Node child in buttonSection.GetChildren())
@@ -88,6 +91,7 @@ public partial class Register : Node2D
 		if (Mathf.Abs(entered - currentCost) < 0.01f)
 		{
 			GD.Print("Correct!");
+			quest.Tasks[quest.CompletedTasks].Complete();
 			npcs[currentNpcIndex].Visible = false;
 
 			currentNpcIndex++;

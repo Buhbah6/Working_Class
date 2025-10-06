@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ckn3ef5oign4v"]
+[gd_scene load_steps=24 format=3 uid="uid://d4gvlxi7ht6ur"]
 
 [ext_resource type="Script" uid="uid://b5t1kjbjw6kd" path="res://Scenes/Register.cs" id="1_7usvs"]
 [ext_resource type="Texture2D" uid="uid://6s65ou3jje7c" path="res://Assets/RegisterGame/RestorEvil.jpg" id="2_7usvs"]
@@ -7,11 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://dy58wg8p3ps6n" path="res://Assets/RegisterGame/BadNPC/npc6.png" id="5_n2xxu"]
 [ext_resource type="Texture2D" uid="uid://cuwyx7dnpthex" path="res://Assets/Materials/counter-top.png" id="6_2k5m1"]
 [ext_resource type="Texture2D" uid="uid://bjornt6bkne1o" path="res://Assets/RegisterGame/register.png" id="7_74yy6"]
-[ext_resource type="FontFile" uid="uid://pm6tdqc06r5d" path="res://Assets/Fonts/merchant-copy-wide.ttf" id="8_g4v3y"]
+[ext_resource type="FontFile" uid="uid://pm6tdqc06r5d" path="res://Assets/fonts/merchant-copy-wide.ttf" id="8_g4v3y"]
 [ext_resource type="Texture2D" uid="uid://cje2qspc6koi6" path="res://Assets/Materials/tray.png" id="9_7d38d"]
 [ext_resource type="Texture2D" uid="uid://c6ldtda201rn3" path="res://Assets/RegisterGame/BadBurger.png" id="10_2xxhy"]
 [ext_resource type="AudioStream" uid="uid://dkwg66pagcoem" path="res://Assets/Music/Audio/registerSongEvil.mp3" id="11_75wgu"]
 [ext_resource type="AudioStream" uid="uid://bi0b4nnh2sdvt" path="res://Assets/Sounds/Audio/beep.wav" id="12_s4f4c"]
+[ext_resource type="PackedScene" uid="uid://cp2addbqbc8yd" path="res://Scenes/quest.tscn" id="13_2xxhy"]
+[ext_resource type="Script" uid="uid://drkwm144ohk88" path="res://Scripts/GameLogic/GameManager.cs" id="14_2k5m1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cix0j"]
 bg_color = Color(0, 0, 0, 1)
@@ -72,7 +74,7 @@ corner_radius_bottom_left = 5
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_em3lu"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="RegisterGame" type="Node2D" node_paths=PackedStringArray("costLabel", "chargeLabel", "costSection", "chargeSection", "buttonSection", "sfx", "npcs")]
+[node name="RegisterGame" type="Node2D" node_paths=PackedStringArray("costLabel", "chargeLabel", "costSection", "chargeSection", "buttonSection", "sfx", "quest", "npcs")]
 script = ExtResource("1_7usvs")
 costLabel = NodePath("Register/CostSection/Label")
 chargeLabel = NodePath("Register/ChargeSection/Label")
@@ -80,6 +82,7 @@ costSection = NodePath("Register/CostSection")
 chargeSection = NodePath("Register/ChargeSection")
 buttonSection = NodePath("Register/ButtonSection")
 sfx = NodePath("SFX")
+quest = NodePath("Quest")
 npcs = [NodePath("Npc1"), NodePath("Npc2"), NodePath("Npc3")]
 
 [node name="Restor" type="Sprite2D" parent="."]
@@ -102,6 +105,9 @@ texture = ExtResource("4_s4f4c")
 position = Vector2(904.00006, 504)
 scale = Vector2(0.7750243, 0.9016172)
 texture = ExtResource("5_n2xxu")
+
+[node name="Quest" parent="." instance=ExtResource("13_2xxhy")]
+TimeToComplete = 30.0
 
 [node name="CounterTop" type="Sprite2D" parent="."]
 position = Vector2(1004, 911)
@@ -306,3 +312,9 @@ bus = &"Music"
 stream = ExtResource("12_s4f4c")
 max_polyphony = 50
 bus = &"SFX"
+
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("quest")]
+script = ExtResource("14_2k5m1")
+quest = NodePath("../Quest")
+nextScene = "res://Scenes/end_cutscene.tscn"
+deathScene = "res://Scenes/game_over_evil.tscn"

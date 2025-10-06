@@ -68,7 +68,6 @@ public partial class Quest : Node
 	
 	public override void _Ready()
 	{
-		Input.MouseMode = Input.MouseModeEnum.Hidden;
 		foreach(TaskItem task in Tasks){
 			task.CompletedTask += OnTaskCompleted;
 			TaskCount ++;
