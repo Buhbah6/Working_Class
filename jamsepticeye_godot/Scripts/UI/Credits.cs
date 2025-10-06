@@ -10,6 +10,8 @@ public partial class Credits : Control
 
 	public override void _Ready()
 	{
+		
+		Input.MouseMode = Input.MouseModeEnum.Visible;
 		_scrollContainer = GetNode<ScrollContainer>("ScrollContainer");
 		_creditsLabel = _scrollContainer.GetNode("MarkdownLabel");
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://buffmgx44ck3y"]
+[gd_scene load_steps=13 format=3 uid="uid://cla8rathr8gkc"]
 
 [ext_resource type="Script" uid="uid://c4b5mbv6u5agd" path="res://Scenes/EndCutscene.cs" id="1_5yjki"]
 [ext_resource type="Texture2D" uid="uid://2yh24kv20ffw" path="res://Assets/EndCutscene/Degree.jpg" id="2_5yjki"]

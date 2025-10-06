@@ -77,7 +77,7 @@ public partial class EndCutscene : Control
 				startZoomLoop(0.90f, 1.15f);
 				break;
 			case 4:
-				GetTree().ChangeSceneToFile("res://Scenes/main_menu.tscn");
+				GetTree().ChangeSceneToFile("res://Scenes/credits.tscn");
 				break;
 		}
 	}

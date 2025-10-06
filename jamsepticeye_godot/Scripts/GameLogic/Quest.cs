@@ -68,11 +68,13 @@ public partial class Quest : Node
 	
 	public override void _Ready()
 	{
+		Input.MouseMode = Input.MouseModeEnum.Hidden;
 		foreach(TaskItem task in Tasks){
 			task.CompletedTask += OnTaskCompleted;
 			TaskCount ++;
 		}
 		CompletedTasks = 0;
+		TimeToComplete = TimeToComplete * ((8 - (float)GetNode<GlobalManager>("/root/GlobalManager").CurrentDay)/10);
 		initTime = TimeToComplete;
 		
 		managerASP = GetNode<AudioStreamPlayer>("%ManagerAudio");

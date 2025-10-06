@@ -50,13 +50,13 @@ offset_right = 6.800002
 offset_bottom = 36.3
 
 [node name="Quest" parent="." node_paths=PackedStringArray("Tasks") instance=ExtResource("7_oerib")]
-TimeToComplete = 5.0
+TimeToComplete = 10.0
 Tasks = [NodePath("../Control/Alley/Person")]
 
 [node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("quest")]
 script = ExtResource("7_sttre")
 quest = NodePath("../Quest")
-nextScene = "res://Scenes/stacking.tscn"
+nextScene = "res://Scenes/BurgerFlipGameEvil.tscn"
 deathScene = "res://Scenes/game_over_evil.tscn"
 
 [node name="KidnapAudio" type="AudioStreamPlayer" parent="."]

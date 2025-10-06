@@ -24,6 +24,7 @@ public partial class MidCutscene : Control
 	private Tween _tween;
 	
 	public override void _Ready() {
+		Input.MouseMode = Input.MouseModeEnum.Visible;
 		GetNode<AudioStreamPlayer>("/root/BgMusic").Stop();
 		_cam1 = GetNode<Camera2D>("Scene1/Cam1");
 		_cam2 = GetNode<Camera2D>("Scene2/Cam2");
@@ -96,7 +97,7 @@ public partial class MidCutscene : Control
 				break;
 			case 5:
 				DayTransition.day = 1;
-				GetTree().ChangeSceneToFile("res://Scenes/day_transition.tscn");
+				GetTree().ChangeSceneToFile("res://Scenes/kidnap.tscn");
 				break;
 		}
 	}
