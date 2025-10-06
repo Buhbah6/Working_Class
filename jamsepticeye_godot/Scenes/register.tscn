@@ -1,9 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgy0xv2gjk01i"]
+[gd_scene load_steps=22 format=3 uid="uid://dgy0xv2gjk01i"]
 
 [ext_resource type="Texture2D" uid="uid://pivkom7g0gej" path="res://Assets/RegisterGame/Restor.jpg" id="1_db337"]
+[ext_resource type="Script" uid="uid://b5t1kjbjw6kd" path="res://Scenes/Register.cs" id="1_x86ar"]
 [ext_resource type="Texture2D" uid="uid://cuwyx7dnpthex" path="res://Assets/Materials/counter-top.png" id="2_vvfwd"]
+[ext_resource type="Texture2D" uid="uid://bevajhd8mkt62" path="res://Assets/RegisterGame/GoodNPC/npc3.png" id="3_em3lu"]
 [ext_resource type="Texture2D" uid="uid://bjornt6bkne1o" path="res://Assets/RegisterGame/register.png" id="3_x86ar"]
+[ext_resource type="Texture2D" uid="uid://k37j2x0w4vb4" path="res://Assets/RegisterGame/GoodNPC/npc2.png" id="4_bb2t2"]
 [ext_resource type="Texture2D" uid="uid://cje2qspc6koi6" path="res://Assets/Materials/tray.png" id="4_ukh0f"]
+[ext_resource type="FontFile" uid="uid://pm6tdqc06r5d" path="res://Assets/Fonts/merchant-copy-wide.ttf" id="4_vvfwd"]
+[ext_resource type="Texture2D" uid="uid://vqvf738psjo3" path="res://Assets/RegisterGame/GoodNPC/npc1.png" id="5_348oa"]
+[ext_resource type="Texture2D" uid="uid://bykwjcdki530a" path="res://Assets/RegisterGame/GoodBurger.png" id="7_ukh0f"]
+[ext_resource type="AudioStream" uid="uid://b7ycuxswsjhqx" path="res://Assets/Music/Audio/registerSong.mp3" id="11_bb2t2"]
+[ext_resource type="AudioStream" uid="uid://bi0b4nnh2sdvt" path="res://Assets/Sounds/Audio/beep.wav" id="12_348oa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cix0j"]
 bg_color = Color(0, 0, 0, 1)
@@ -14,16 +22,85 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2t2q"]
 bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvfwd"]
+bg_color = Color(0.25490198, 0.25490198, 0.25490198, 0.81960785)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x86ar"]
+bg_color = Color(0.16924527, 0.16924533, 0.16924518, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukh0f"]
+bg_color = Color(0.7002163, 0.075062074, 0.17284477, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bb2t2"]
+bg_color = Color(0.5568628, 0.0627451, 0.14901961, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_348oa"]
+bg_color = Color(0.16522309, 0.5757039, 0.17187741, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prwrm"]
+bg_color = Color(0.0952873, 0.36096787, 0.09940932, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_em3lu"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="Node2D" type="Node2D"]
+[node name="RegisterGame" type="Node2D" node_paths=PackedStringArray("costLabel", "chargeLabel", "costSection", "chargeSection", "buttonSection", "sfx", "npcs")]
+script = ExtResource("1_x86ar")
+costLabel = NodePath("Register/CostSection/Label")
+chargeLabel = NodePath("Register/ChargeSection/Label")
+costSection = NodePath("Register/CostSection")
+chargeSection = NodePath("Register/ChargeSection")
+buttonSection = NodePath("Register/ButtonSection")
+sfx = NodePath("SFX")
+npcs = [NodePath("Npc1"), NodePath("Npc2"), NodePath("Npc3")]
 
 [node name="Restor" type="Sprite2D" parent="."]
 position = Vector2(972.99994, 539.5)
 scale = Vector2(0.37080503, 0.3681115)
 texture = ExtResource("1_db337")
+
+[node name="Npc3" type="Sprite2D" parent="."]
+position = Vector2(1117, 516.00006)
+scale = Vector2(0.5510528, 0.62500006)
+texture = ExtResource("3_em3lu")
+
+[node name="Npc2" type="Sprite2D" parent="."]
+position = Vector2(1097, 513.00006)
+scale = Vector2(0.39506173, 0.38374996)
+texture = ExtResource("4_bb2t2")
+
+[node name="Npc1" type="Sprite2D" parent="."]
+position = Vector2(849, 457.00003)
+scale = Vector2(0.62474746, 0.64799994)
+texture = ExtResource("5_348oa")
 
 [node name="CounterTop" type="Sprite2D" parent="."]
 position = Vector2(1004, 911)
@@ -42,12 +119,154 @@ offset_right = 110.0867
 offset_bottom = -167.74345
 theme_override_styles/panel = SubResource("StyleBoxFlat_cix0j")
 
+[node name="Label" type="Label" parent="Register/CostSection"]
+layout_mode = 0
+offset_right = 83.98364
+offset_bottom = 32.81938
+theme_override_colors/font_color = Color(0.013375944, 0.7200577, 0, 1)
+theme_override_fonts/font = ExtResource("4_vvfwd")
+text = "$10.99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ButtonSection" type="Panel" parent="Register"]
-offset_left = -132.2175
-offset_top = -43.23822
-offset_right = 129.9477
-offset_bottom = 52.09424
+offset_left = -129.94768
+offset_top = -47.405758
+offset_right = 132.21751
+offset_bottom = 47.9267
 theme_override_styles/panel = SubResource("StyleBoxFlat_a2t2q")
+
+[node name="But0" type="Button" parent="Register/ButtonSection"]
+layout_mode = 0
+offset_left = 59.015533
+offset_top = 11.981678
+offset_right = 77.01554
+offset_bottom = 42.981678
+theme_override_styles/normal = SubResource("StyleBoxFlat_vvfwd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x86ar")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vvfwd")
+text = "0"
+
+[node name="But1" type="Button" parent="Register/ButtonSection"]
+layout_mode = 0
+offset_left = 78.87653
+offset_top = 12.502619
+offset_right = 96.87654
+offset_bottom = 43.502617
+theme_override_styles/normal = SubResource("StyleBoxFlat_vvfwd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x86ar")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vvfwd")
+text = "1"
+
+[node name="But2" type="Button" parent="Register/ButtonSection"]
+layout_mode = 0
+offset_left = 99.30499
+offset_top = 13.544504
+offset_right = 117.30499
+offset_bottom = 44.544502
+theme_override_styles/normal = SubResource("StyleBoxFlat_vvfwd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x86ar")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vvfwd")
+text = "2"
+
+[node name="But3" type="Button" parent="Register/ButtonSection"]
+layout_mode = 0
+offset_left = 119.73346
+offset_top = 13.0235615
+offset_right = 137.73346
+offset_bottom = 44.02356
+theme_override_styles/normal = SubResource("StyleBoxFlat_vvfwd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x86ar")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vvfwd")
+text = "3"
+
+[node name="But4" type="Button" parent="Register/ButtonSection"]
+layout_mode = 0
+offset_left = 140.72939
+offset_top = 13.544504
+offset_right = 158.72939
+offset_bottom = 44.544502
+theme_override_styles/normal = SubResource("StyleBoxFlat_vvfwd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x86ar")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vvfwd")
+text = "4"
+
+[node name="But5" type="Button" parent="Register/ButtonSection"]
+layout_mode = 0
+offset_left = 59.01554
+offset_top = 46.36387
+offset_right = 77.01554
+offset_bottom = 77.36387
+theme_override_styles/normal = SubResource("StyleBoxFlat_vvfwd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x86ar")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vvfwd")
+text = "5"
+
+[node name="But6" type="Button" parent="Register/ButtonSection"]
+layout_mode = 0
+offset_left = 78.87654
+offset_top = 46.88481
+offset_right = 96.87654
+offset_bottom = 77.88481
+theme_override_styles/normal = SubResource("StyleBoxFlat_vvfwd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x86ar")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vvfwd")
+text = "6"
+
+[node name="But7" type="Button" parent="Register/ButtonSection"]
+layout_mode = 0
+offset_left = 99.305
+offset_top = 46.884815
+offset_right = 117.30501
+offset_bottom = 77.88482
+theme_override_styles/normal = SubResource("StyleBoxFlat_vvfwd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x86ar")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vvfwd")
+text = "7"
+
+[node name="But8" type="Button" parent="Register/ButtonSection"]
+layout_mode = 0
+offset_left = 119.733444
+offset_top = 47.405758
+offset_right = 137.73344
+offset_bottom = 78.40576
+theme_override_styles/normal = SubResource("StyleBoxFlat_vvfwd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x86ar")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vvfwd")
+text = "8"
+
+[node name="But9" type="Button" parent="Register/ButtonSection"]
+layout_mode = 0
+offset_left = 140.72935
+offset_top = 46.884815
+offset_right = 158.72935
+offset_bottom = 77.88482
+theme_override_styles/normal = SubResource("StyleBoxFlat_vvfwd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x86ar")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vvfwd")
+text = "9"
+
+[node name="ButDel" type="Button" parent="Register/ButtonSection"]
+layout_mode = 0
+offset_left = 165.13
+offset_top = 12.502617
+offset_right = 199.13
+offset_bottom = 43.502617
+theme_override_styles/normal = SubResource("StyleBoxFlat_ukh0f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bb2t2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ukh0f")
+text = "Del"
+
+[node name="ButEnter" type="Button" parent="Register/ButtonSection"]
+layout_mode = 0
+offset_left = 163.9951
+offset_top = 46.884815
+offset_right = 207.9951
+offset_bottom = 77.88482
+theme_override_styles/normal = SubResource("StyleBoxFlat_348oa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_prwrm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_348oa")
+text = "SELL"
 
 [node name="ChargeSection" type="Panel" parent="Register"]
 offset_left = 12.48407
@@ -56,7 +275,33 @@ offset_right = 114.05887
 offset_bottom = -85.955505
 theme_override_styles/panel = SubResource("StyleBoxFlat_em3lu")
 
+[node name="Label" type="Label" parent="Register/ChargeSection"]
+layout_mode = 0
+offset_right = 97.6026
+offset_bottom = 49.489532
+theme_override_colors/font_color = Color(0.011764706, 0.6666667, 0, 1)
+theme_override_fonts/font = ExtResource("4_vvfwd")
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
 [node name="Tray" type="Sprite2D" parent="Register"]
 position = Vector2(484.04092, 129.19371)
 scale = Vector2(0.5244659, 0.38753858)
 texture = ExtResource("4_ukh0f")
+
+[node name="GoodBurger" type="Sprite2D" parent="."]
+position = Vector2(1266, 797)
+scale = Vector2(0.1944956, 0.17714626)
+texture = ExtResource("7_ukh0f")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_bb2t2")
+autoplay = true
+bus = &"Music"
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_348oa")
+max_polyphony = 50
+bus = &"SFX"
