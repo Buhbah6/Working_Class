@@ -20,6 +20,7 @@ public partial class Register : Node2D
 
 	public override void _Ready()
 	{
+		Input.MouseMode = Input.MouseModeEnum.Visible;
 		GetNode<AudioStreamPlayer>("/root/BgMusic").Stop();
 		// Hide all NPCs except the first one
 		for (int i = 0; i < npcs.Length; i++){
