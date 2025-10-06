@@ -75,7 +75,7 @@ corner_radius_bottom_left = 5
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_em3lu"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="RegisterGame" type="Node2D" node_paths=PackedStringArray("costLabel", "chargeLabel", "costSection", "chargeSection", "buttonSection", "sfx", "npcs")]
+[node name="RegisterGame" type="Node2D" node_paths=PackedStringArray("costLabel", "chargeLabel", "costSection", "chargeSection", "buttonSection", "sfx", "quest", "npcs")]
 script = ExtResource("1_7usvs")
 costLabel = NodePath("Register/CostSection/Label")
 chargeLabel = NodePath("Register/ChargeSection/Label")
@@ -83,6 +83,7 @@ costSection = NodePath("Register/CostSection")
 chargeSection = NodePath("Register/ChargeSection")
 buttonSection = NodePath("Register/ButtonSection")
 sfx = NodePath("SFX")
+quest = NodePath("Quest")
 npcs = [NodePath("Npc1"), NodePath("Npc2"), NodePath("Npc3")]
 
 [node name="OptionsWindow" parent="." instance=ExtResource("2_2k5m1")]
