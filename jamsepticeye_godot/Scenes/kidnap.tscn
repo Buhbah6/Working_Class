@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://kcljwsj3rvkf"]
+[gd_scene load_steps=9 format=3 uid="uid://kcljwsj3rvkf"]
 
 [ext_resource type="Texture2D" uid="uid://dswqdgqlq2gmt" path="res://Assets/Materials/DarkAlley.jpg" id="1_q8xrn"]
 [ext_resource type="PackedScene" uid="uid://c1o4nbyvu51am" path="res://Assets/Prefabs/player.tscn" id="2_0qoqq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://da8pgfvl48bol" path="res://Assets/Materials/trash.png" id="4_bo5tu"]
 [ext_resource type="PackedScene" uid="uid://cp2addbqbc8yd" path="res://Scenes/quest.tscn" id="7_oerib"]
 [ext_resource type="Script" uid="uid://drkwm144ohk88" path="res://Scripts/GameLogic/GameManager.cs" id="7_sttre"]
+[ext_resource type="AudioStream" uid="uid://wy56lhqt84la" path="res://Assets/Music/Audio/CreepyKidnap.mp3" id="8_sttre"]
 
 [node name="Kidnap" type="Node2D"]
 
@@ -60,3 +61,6 @@ nextScene = "res://Scenes/BurgerFlipGameEvil.tscn"
 deathScene = "res://Scenes/game_over_evil.tscn"
 
 [node name="KidnapAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_sttre")
+autoplay = true
+bus = &"Music"

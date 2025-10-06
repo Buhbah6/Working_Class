@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dd3gimppfdooe"]
+[gd_scene load_steps=16 format=3 uid="uid://dd3gimppfdooe"]
 
 [ext_resource type="Texture2D" uid="uid://db5xgjeh85svr" path="res://Assets/Materials/StoreAlley.jpg" id="1_84pa7"]
 [ext_resource type="Script" uid="uid://kajatboluwdd" path="res://Scenes/Shopping.cs" id="1_iuu1m"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://4836sg8qasul" path="res://Assets/Materials/mustard.png" id="11_grh6o"]
 [ext_resource type="Texture2D" uid="uid://cj2du46ubl20n" path="res://Assets/Materials/lettuce.png" id="12_ssvi0"]
 [ext_resource type="Script" uid="uid://drkwm144ohk88" path="res://Scripts/GameLogic/GameManager.cs" id="13_o0m22"]
+[ext_resource type="AudioStream" uid="uid://slfqv2k6bdke" path="res://Assets/Music/Audio/Shopping.mp3" id="14_kapfu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upup0"]
 size = Vector2(35.11263, 23.873653)
@@ -97,3 +98,8 @@ script = ExtResource("13_o0m22")
 quest = NodePath("../Quest")
 nextScene = "res://Scenes/BurgerFlipGame.tscn"
 deathScene = "res://Scenes/game_over.tscn"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_kapfu")
+autoplay = true
+bus = &"Music"

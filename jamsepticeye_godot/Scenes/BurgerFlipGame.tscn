@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://2w88f8prmked"]
+[gd_scene load_steps=17 format=3 uid="uid://cicowk6cwhxg7"]
 
 [ext_resource type="Texture2D" uid="uid://cuwyx7dnpthex" path="res://Assets/Materials/counter-top.png" id="1_g8gv2"]
 [ext_resource type="Texture2D" uid="uid://eulr62r24hma" path="res://Assets/Materials/istockphoto-136637359-612x612.jpg" id="1_yxdgv"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cp2addbqbc8yd" path="res://Scenes/quest.tscn" id="10_dffi0"]
 [ext_resource type="AudioStream" uid="uid://ujhig2y5r74i" path="res://Assets/Sounds/Audio/765394__samirazure__meat-cooking-on-gas-braai.wav" id="12_k2uxg"]
 [ext_resource type="Script" uid="uid://drkwm144ohk88" path="res://Scripts/GameLogic/GameManager.cs" id="12_s0six"]
+[ext_resource type="AudioStream" uid="uid://b7ycuxswsjhqx" path="res://Assets/Music/Audio/registerSong.mp3" id="14_ckp8j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dffi0"]
 size = Vector2(12.465254, 20.447)
@@ -80,13 +81,12 @@ Tasks = [NodePath("../Patty/Dragable"), NodePath("../Patty/Dragable2"), NodePath
 
 [node name="Patty" type="Node2D" parent="."]
 
-[node name="Dragable" parent="Patty" node_paths=PackedStringArray("itCooking", "audioObj", "CompletionArea") instance=ExtResource("5_bqlvq")]
+[node name="Dragable" parent="Patty" node_paths=PackedStringArray("itCooking", "CompletionArea") instance=ExtResource("5_bqlvq")]
 position = Vector2(1014, 119)
 scale = Vector2(1.295, 1.295)
 script = ExtResource("8_ov5r2")
 finishedProduct = ExtResource("7_6j448")
 itCooking = NodePath("CookedProgress")
-audioObj = NodePath("AudioStreamPlayer")
 CompletionArea = NodePath("../../FinishProductTray")
 ImageTexture = ExtResource("3_hppk5")
 
@@ -98,13 +98,12 @@ offset_bottom = 27.0
 stream = ExtResource("12_k2uxg")
 bus = &"SFX"
 
-[node name="Dragable2" parent="Patty" node_paths=PackedStringArray("itCooking", "audioObj", "CompletionArea") instance=ExtResource("5_bqlvq")]
+[node name="Dragable2" parent="Patty" node_paths=PackedStringArray("itCooking", "CompletionArea") instance=ExtResource("5_bqlvq")]
 position = Vector2(1158, 124)
 scale = Vector2(1.295, 1.295)
 script = ExtResource("8_ov5r2")
 finishedProduct = ExtResource("7_6j448")
 itCooking = NodePath("CookedProgress")
-audioObj = NodePath("AudioStreamPlayer")
 CompletionArea = NodePath("../../FinishProductTray")
 ImageTexture = ExtResource("3_hppk5")
 
@@ -116,13 +115,12 @@ offset_bottom = 27.0
 stream = ExtResource("12_k2uxg")
 bus = &"SFX"
 
-[node name="Dragable3" parent="Patty" node_paths=PackedStringArray("itCooking", "audioObj", "CompletionArea") instance=ExtResource("5_bqlvq")]
+[node name="Dragable3" parent="Patty" node_paths=PackedStringArray("itCooking", "CompletionArea") instance=ExtResource("5_bqlvq")]
 position = Vector2(1462, 108)
 scale = Vector2(1.295, 1.295)
 script = ExtResource("8_ov5r2")
 finishedProduct = ExtResource("7_6j448")
 itCooking = NodePath("CookedProgress")
-audioObj = NodePath("AudioStreamPlayer")
 CompletionArea = NodePath("../../FinishProductTray")
 ImageTexture = ExtResource("3_hppk5")
 
@@ -134,13 +132,12 @@ offset_bottom = 27.0
 stream = ExtResource("12_k2uxg")
 bus = &"SFX"
 
-[node name="Dragable4" parent="Patty" node_paths=PackedStringArray("itCooking", "audioObj", "CompletionArea") instance=ExtResource("5_bqlvq")]
+[node name="Dragable4" parent="Patty" node_paths=PackedStringArray("itCooking", "CompletionArea") instance=ExtResource("5_bqlvq")]
 position = Vector2(1024, 267)
 scale = Vector2(1.295, 1.295)
 script = ExtResource("8_ov5r2")
 finishedProduct = ExtResource("7_6j448")
 itCooking = NodePath("CookedProgress")
-audioObj = NodePath("AudioStreamPlayer")
 CompletionArea = NodePath("../../FinishProductTray")
 ImageTexture = ExtResource("3_hppk5")
 
@@ -152,13 +149,12 @@ offset_bottom = 27.0
 stream = ExtResource("12_k2uxg")
 bus = &"SFX"
 
-[node name="Dragable5" parent="Patty" node_paths=PackedStringArray("itCooking", "audioObj", "CompletionArea") instance=ExtResource("5_bqlvq")]
+[node name="Dragable5" parent="Patty" node_paths=PackedStringArray("itCooking", "CompletionArea") instance=ExtResource("5_bqlvq")]
 position = Vector2(1244, 267)
 scale = Vector2(1.295, 1.295)
 script = ExtResource("8_ov5r2")
 finishedProduct = ExtResource("7_6j448")
 itCooking = NodePath("CookedProgress")
-audioObj = NodePath("AudioStreamPlayer")
 CompletionArea = NodePath("../../FinishProductTray")
 ImageTexture = ExtResource("3_hppk5")
 
@@ -170,13 +166,12 @@ offset_bottom = 27.0
 stream = ExtResource("12_k2uxg")
 bus = &"SFX"
 
-[node name="Dragable6" parent="Patty" node_paths=PackedStringArray("itCooking", "audioObj", "CompletionArea") instance=ExtResource("5_bqlvq")]
+[node name="Dragable6" parent="Patty" node_paths=PackedStringArray("itCooking", "CompletionArea") instance=ExtResource("5_bqlvq")]
 position = Vector2(1439, 257)
 scale = Vector2(1.295, 1.295)
 script = ExtResource("8_ov5r2")
 finishedProduct = ExtResource("7_6j448")
 itCooking = NodePath("CookedProgress")
-audioObj = NodePath("AudioStreamPlayer")
 CompletionArea = NodePath("../../FinishProductTray")
 ImageTexture = ExtResource("3_hppk5")
 
@@ -193,3 +188,8 @@ script = ExtResource("12_s0six")
 quest = NodePath("../Quest")
 nextScene = "res://Scenes/stacking.tscn"
 deathScene = "res://Scenes/game_over.tscn"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_ckp8j")
+autoplay = true
+bus = &"Music"
